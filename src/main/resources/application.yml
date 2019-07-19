@@ -1,0 +1,16 @@
+server:
+  port: 8083
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapping.xml
+  type-aliases-package: com.auv.entity
+
+spring:
+  datasource:
+    username: sa
+    password: Embed-212!2018
+    url: jdbc:mysql://211.87.227.223:8306/lawknowledge?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
