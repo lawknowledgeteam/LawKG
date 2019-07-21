@@ -14,6 +14,12 @@
         select *FROM tb_law_item #{limits},#{limite}
     </select>
 
-    <select id="getLawItem" resultType="">
-
+    <select id="getLawItem" resultType="com.liyang.lawknowledge.lawknowledge.entity.LawItem">
+        select *FROM tb_law_item WHERE LawItemID = #{lawItemID}
     </select>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select COUNT(*) FROM tb_law_item
+    </select>
+
+</mapper>

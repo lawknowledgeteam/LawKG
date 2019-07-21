@@ -13,7 +13,8 @@ import java.util.List;
  **/
 public interface LawItemService {
     List<LawItem> getList(int page);
-    LawItem getLawItem(int lawItemID);
+    LawItem getLawItem(int lawID);
+
     HashMap<String,Integer> getCount();
 
 }
