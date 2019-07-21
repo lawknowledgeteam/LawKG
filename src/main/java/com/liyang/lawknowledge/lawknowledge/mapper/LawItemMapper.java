@@ -6,9 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @Author: Xiao
+ * @Date:
+ * @Description:
+ **/
 @Repository
 public interface LawItemMapper {
-    static List<LawItem> getList(@Param("limits") int limits, @Param("limite") int limite);
-    static LawItem getLawItem(@Param("lawItemID") int lawItemID);
-    static int getCount();
+    List<LawItem> getList(@Param("limits") int limits, @Param("limite") int limite);
+    LawItem getLawItem(@Param("lawItemID") int lawItemID);
+    int getCount();
 }

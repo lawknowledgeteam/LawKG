@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyang.lawknowledge.lawknowledge.LawItemTypeMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.lawknowledge.lawknowledge.entity.LawItemType">
+        <result column="LawItemType" jdbcType="INTEGER" property="lawItemType" />
+        <result column="LawItemTypeNo" jdbcType="VARCHAR" property="lawItemTypeNo"/>
+        <result column="LawItemTypeName" jdbcType="VARCHAR" property="lawItemTypeName" />
+        <result column="LawType" jdbcType="INTEGER" property="lawType"/>
+    </resultMap>
+    
+    <select id=""
+
+
+</mapper>

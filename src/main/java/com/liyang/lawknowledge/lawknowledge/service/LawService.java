@@ -1,10 +1,13 @@
 package com.liyang.lawknowledge.lawknowledge.service;
 
+import com.liyang.lawknowledge.lawknowledge.entity.Law;
+
 import java.util.HashMap;
 import java.util.List;
 
 public interface LawService {
-    List<LawService> getList(int page);
+    List<Law> getList(int page);
+    Law getLaw(String lawName);
     HashMap<String,Integer> getCount();
-    int insertNew(LawService law);
+    int insertNew(Law law);
 }
