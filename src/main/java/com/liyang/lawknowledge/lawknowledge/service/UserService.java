@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author: Pan
- * @Date: 2019/7/2 20:39
+ * @Author: Xiao
+ * @Date:
  * @Description:
  **/
 public interface UserService {
