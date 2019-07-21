@@ -3,7 +3,6 @@ package com.liyang.mapper;
 import com.liyang.entity.LawItem;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
