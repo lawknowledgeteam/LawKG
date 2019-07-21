@@ -11,7 +11,7 @@
             url: '#', //url路径
             isopen: false, //是否展开
             children: [{ //子节点
-                name: '1',z
+                name: '1',
                 level: '1',
                 haschildren:true,
                 url: '',
