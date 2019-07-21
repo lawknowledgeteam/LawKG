@@ -10,11 +10,11 @@
         <result column="ItemContent" jdbcType="VARCHAR" property="itemContent" />
     </resultMap>
 
-    <select id="getList" resultType="com.liyang.lawknowledge.lawknowledge.entity.LawItem">
+    <select id="getList" resultType="com.liyang.entity.LawItem">
         select *FROM tb_law_item #{limits},#{limite}
     </select>
 
-    <select id="getLawItem" resultType="com.liyang.lawknowledge.lawknowledge.entity.LawItem">
+    <select id="getLawItem" resultType="com.liyang.entity.LawItem">
         select *FROM tb_law_item WHERE LawItemID = #{lawItemID}
     </select>
 
