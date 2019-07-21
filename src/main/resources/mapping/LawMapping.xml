@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liyang.lawknowledge.lawknowledge.mapper.UserMapper">
-    <resultMap id="BaseResultMap" type="com.liyang.lawknowledge.lawknowledge.entity.Law">
+<mapper namespace="com.liyang.mapper.LawMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.entity.Law">
         <result column="LawID" jdbcType="INTEGER" property="lawId" />
         <result column="LawName" jdbcType="VARCHAR" property="lawName"/>
         <result column="PublishNumber" jdbcType="VARCHAR" property="publishNumber"/>
@@ -13,11 +13,11 @@
         <result column="Type" jdbcType="VARCHAR" property="type" />
     </resultMap>
 
-    <select id="getList" resultType="com.liyang.lawknowledge.lawknowledge.entity.Law">
+    <select id="getList" resultType="com.liyang.entity.Law">
         select * FROM tb_law limit  #{limits},#{limite}
     </select>
 
-    <select id="getLaw" resultType="com.liyang.lawknowledge.lawknowledge.entity.Law">
+    <select id="getLaw" resultType="com.liyang.entity.Law">
         select * FROM tb_law WHERE LawName = #{lawName}
     </select>
 
@@ -25,7 +25,7 @@
         select COUNT(*) FROM tb_law
     </select>
 
-    <insert id="insertNew" parameterType="com.liyang.lawknowledge.lawknowledge.entity.Law">
+    <insert id="insertNew" parameterType="com.liyang.entity.Law">
         INSERT INTO `lawknowledge`.`tb_law` (
   `LawID`,
   `LawName`,

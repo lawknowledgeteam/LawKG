@@ -1,10 +1,9 @@
-package com.liyang.lawknowledge.lawknowledge.mapper;
+package com.liyang.mapper;
 
-import com.liyang.lawknowledge.lawknowledge.entity.Law;
+
+import com.liyang.entity.Law;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.HashMap;
 import java.util.List;
 
 @Repository

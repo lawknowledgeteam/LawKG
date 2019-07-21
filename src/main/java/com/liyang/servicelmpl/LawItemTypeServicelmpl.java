@@ -1,8 +1,8 @@
-package com.liyang.lawknowledge.lawknowledge.servicelmpl;
+package com.liyang.servicelmpl;
 
-import com.liyang.lawknowledge.lawknowledge.entity.LawItemType;
-import com.liyang.lawknowledge.lawknowledge.mapper.LawItemTypeMapper;
-import com.liyang.lawknowledge.lawknowledge.service.LawItemTypeService;
+import com.liyang.entity.LawItemType;
+import com.liyang.mapper.LawItemTypeMapper;
+import com.liyang.service.LawItemTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

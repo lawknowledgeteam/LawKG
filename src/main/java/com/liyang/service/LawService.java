@@ -1,6 +1,7 @@
 package com.liyang.service;
 
-import com.liyang.lawknowledge.lawknowledge.entity.Law;
+
+import com.liyang.entity.Law;
 
 import java.util.HashMap;
 import java.util.List;

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.liyang.lawknowledge.lawknowledge.mapper")
+@MapperScan("com.liyang.mapper")
 public class LawknowledgeApplication {
 
     public static void main(String[] args) {

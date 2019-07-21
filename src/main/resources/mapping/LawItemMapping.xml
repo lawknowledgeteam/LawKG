@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liyang.lawknowledge.lawknowledge.LawItemMapper">
-    <resultMap id="BaseResultMap" type="com.liyang.lawknowledge.lawknowledge.entity.Scene">
+<mapper namespace="com.liyang.mapper.LawItemMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.entity.LawItem">
         <result column="LawItemID" jdbcType="INTEGER" property="lawItemID" />
         <result column="LawItemType" jdbcType="VARCHAR" property="lawItemType"/>
         <result column="ItemNo" jdbcType="VARCHAR" property="itemNo" />

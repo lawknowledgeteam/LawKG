@@ -1,10 +1,10 @@
-package com.liyang.lawknowledge.lawknowledge.controller;
+package com.liyang.controller;
 
-import com.liyang.lawknowledge.lawknowledge.service.LawService;
-import com.liyang.lawknowledge.lawknowledge.entity.Law;
-import com.liyang.lawknowledge.lawknowledge.service.LawService;
-import com.liyang.lawknowledge.lawknowledge.util.FileDownload;
-import com.liyang.lawknowledge.lawknowledge.util.FileUpload;
+
+import com.liyang.entity.Law;
+import com.liyang.service.LawService;
+import com.liyang.util.FileDownload;
+import com.liyang.util.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

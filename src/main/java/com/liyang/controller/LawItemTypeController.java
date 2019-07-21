@@ -1,9 +1,10 @@
-package com.liyang.lawknowledge.lawknowledge.controller;
+package com.liyang.controller;
 
 
-import com.liyang.lawknowledge.lawknowledge.entity.LawItemType;
-import com.liyang.lawknowledge.lawknowledge.service.LawItemTypeService;
-import com.liyang.lawknowledge.lawknowledge.util.FileDownload;
+
+import com.liyang.entity.LawItemType;
+import com.liyang.service.LawItemTypeService;
+import com.liyang.util.FileDownload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

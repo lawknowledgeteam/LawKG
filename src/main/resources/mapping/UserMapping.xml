@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liyang.lawknowledge.lawknowledge..mapper.UserMapper">
+<mapper namespace="com.liyang.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.liyang.entity.User">
         <result column="UserID" jdbcType="INTEGER" property="userID" />
         <result column="LoginName" jdbcType="VARCHAR" property="loginName"/>
@@ -15,7 +15,7 @@
         SELECT * FROM tb_user where LoginName = #{loginName} and PassWord = #{passWord}
     </select>
 
-    <update id="loginTime" >
+    <update id="loginTime" parameterType="com.liyang.entity.User" >
          UPDATE tb_user set LastLoginTime = #{lastLoginTime} WHERE LoginName = #{loginName}
     </update>
 
