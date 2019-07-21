@@ -1,14 +1,16 @@
-package com.liyang.controller;
+package com.liyang.lawknowledge.lawknowledge.controller;
 
 
-import com.liyang.entity.LawItem;
-import com.liyang.service.LawItemService;
+import com.liyang.lawknowledge.lawknowledge.entity.LawItem;
+import com.liyang.lawknowledge.lawknowledge.service.LawItemService;
+import com.liyang.lawknowledge.lawknowledge.util.FileDownload;
+import com.liyang.lawknowledge.lawknowledge.util.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,6 +35,17 @@ public class LawItemController {
     public HashMap<String, Integer> getCount() {
 
         return  lawItemService.getCount();
+    }
+
+    @PostMapping("/upload")
+    public HashMap<String,Object> addApk(MultipartFile apkFile){
+        FileUpload fud = new FileUpload();
+        return fud.addFile(apkFile,"D:/workspace/lawitem/");
+    }
+    @GetMapping("/download")
+    public ResponseEntity<byte[]> downloadsEntity(HttpServletRequest request, @RequestParam String fileName) throws Exception {
+        FileDownload fileDownload = new FileDownload();
+        return  fileDownload.downloadsEntity(request,"D:/workspace/lawitem/",fileName);
     }
 
 

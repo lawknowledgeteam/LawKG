@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyang.lawknowledge.lawknowledge.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.lawknowledge.lawknowledge.entity.Law">
+        <result column="LawID" jdbcType="INTEGER" property="lawId" />
+        <result column="LawName" jdbcType="VARCHAR" property="lawName"/>
+        <result column="PublishNumber" jdbcType="VARCHAR" property="publishNumber"/>
+        <result column="PublishDate" jdbcType="DATE" property="publishDate" />
+        <result column="EffectiveDate" jdbcType="DATE" property="effectiveDate" />
+        <result column="IssueUnit" jdbcType="VARCHAR" property="issueUnit" />
+        <result column="EffectiveLevel" jdbcType="VARCHAR" property="effectiveLevel" />
+        <result column="Keywords" jdbcType="VARCHAR" property="keyWords" />
+        <result column="Type" jdbcType="VARCHAR" property="type" />
+    </resultMap>
+
+    <select id="getList" resultType="com.liyang.lawknowledge.lawknowledge.entity.Law">
+        select * FROM tb_law limit  #{limits},#{limite}
+    </select>
+
+    <select id="getLaw" resultType="com.liyang.lawknowledge.lawknowledge.entity.Law">
+        select * FROM tb_law WHERE LawName = #{lawName}
+    </select>
+
+    <select id="getCount" resultType ="java.lang.Integer" >
+        select COUNT(*) FROM tb_law
+    </select>
+
+    <insert id="insertNew" parameterType="com.liyang.lawknowledge.lawknowledge.entity.Law">
+        INSERT INTO `lawknowledge`.`tb_law` (
+  `LawID`,
+  `LawName`,
+  `PublishNumber`,
+  `PublishDate`,
+  `EffectiveDate`,
+  `IssueUnit`,
+  `EffectiveLevel`,
+  `Keywords`,
+  `Type`,
+  ) VALUES (#{lawId},#{lawName},#{publishNumber},#{publishDate},#{effectiveDate},#{issueUnit},#{effectiveLevel},#{keyWords},#{type})
+    </insert>
+
+</mapper>

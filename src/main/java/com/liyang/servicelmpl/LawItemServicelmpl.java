@@ -21,28 +21,29 @@ public class LawItemServicelmpl implements LawItemService {
     public List<LawItem> getList(int page){
         int limits = pageCount * (page-1);
         int limite = pageCount;
-        List<LawItem> result = LawItemMapper.getList(limits,limite);
+        List<LawItem> result = lawItemMapper.getList(limits,limite);
         return result;
+    }
+
+    @Override
+    public HashMap<String, Integer> getCount() {
+        HashMap<String, Integer> hm = new HashMap<>();
+        int count = lawItemMapper.getCount();
+        if (count != 0){
+            hm.put("code",0);
+            hm.put("count",count);
+        }else{
+            hm.put("code",0);
+        }
+        return hm;
     }
 
 
     @Override
     public LawItem getLawItem(int lawItemID) {
 
-        return LawItemMapper.getLawItem(lawItemID);
+        return lawItemMapper.getLawItem(lawItemID);
     }
 
-    @Override
-    public HashMap<String, Integer> getCount() {
-        int count = LawItemMapper.getCount();
-        HashMap<String, Integer> hm = new HashMap<>();
-        if (count != 0){
-            hm.put("code",1);
-            hm.put("count",count);
-        }else {
-            hm.put("code",0);
-            hm.put("count",0);
-        }
-        return hm;
-    }
+
 }

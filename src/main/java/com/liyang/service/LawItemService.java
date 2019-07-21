@@ -10,10 +10,9 @@ import java.util.List;
  * @Date:
  * @Description:
  **/
-public interface LawItemService {//...
+public interface LawItemService {
     List<LawItem> getList(int page);
     LawItem getLawItem(int lawID);
-
     HashMap<String,Integer> getCount();
 
 }
