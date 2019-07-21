@@ -14,3 +14,20 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
+
+  data:
+    neo4j:
+      uri: bolt://localhost:7687
+      username: root
+      password: root
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    cache: false
+    servlet:
+      content-type: text/html
+    mvc:
+      static-path-pattern: /static/**
