@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.liyang.mapper")
-public class LawknowledgeApplication {
+public class MainApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LawknowledgeApplication.class, args);
+        SpringApplication.run(MainApplication.class, args);
     }
 
 }
