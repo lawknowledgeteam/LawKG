@@ -2,7 +2,6 @@ package com.liyang.controller;
 
 
 import com.liyang.entity.Law;
-import com.liyang.entity.LawItemType;
 import com.liyang.service.LawService;
 import com.liyang.util.FileDownload;
 import com.liyang.util.FileUpload;

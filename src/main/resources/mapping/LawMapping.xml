@@ -26,7 +26,7 @@
     </select>
 
     <select id="getLawItemTypeName" resultType="com.liyang.entity.LawItemType">
-        select LawItemTypeName FROM tb_law_item_type WHERE LawType = #{lawID}
+        select LawItemTypeName FROM tb_law_item_type WHERE LawID = #{lawID}
     </select>
 
     <insert id="insertNew" parameterType="com.liyang.entity.Law">

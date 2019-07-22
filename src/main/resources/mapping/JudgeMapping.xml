@@ -9,18 +9,30 @@
         <result column="Court" jdbcType="VARCHAR" property="count" />
 </resultMap>
 
-        <select id="getInfo" resultType="com.liyang.entity.Judge">
-            select * FROM tb_judge WHERE Name= #{name}
-        </select>
+<!--    <select id="getList" resultType="com.liyang.entity.Law">-->
+<!--        select * FROM tb_law limit  #{limits},#{limite}-->
+<!--    </select>-->
 
-        <insert id="insertNew" parameterType="com.liyang.entity.Judge">
-            INSERT INTO `lawknowledge`.`tb_judge` (
-      `JudgeID`,
-      `Name`,
-      `Sex`,
-      `CaseID`,
-      `Court`
-      ) VALUES (#{judgeID},#{name},#{sex},#{caseID},#{court})
-        </insert>
+    <select id="getInfo" resultType="com.liyang.entity.Judge">
+        select * FROM tb_judge WHERE Name= #{name}
+    </select>
+
+<!--    <select id="getCount" resultType ="java.lang.Integer" >-->
+<!--        select COUNT(*) FROM tb_law-->
+<!--    </select>-->
+
+<!--    <select id="getLawItemTypeName" resultType="com.liyang.entity.LawItemType">-->
+<!--        select LawItemTypeName FROM tb_law_item_type WHERE (LawID = #{lawID},LawID =tb_law_item_type.LawType)-->
+<!--    </select>-->
+
+    <insert id="insertNew" parameterType="com.liyang.entity.Judge">
+        INSERT INTO `lawknowledge`.`tb_judge` (
+  `JudgeID`,
+  `Name`,
+  `Sex`,
+  `CaseID`,
+  `Court`
+  ) VALUES (#{judgeID},#{name},#{sex},#{caseID},#{court})
+    </insert>
 
 </mapper>

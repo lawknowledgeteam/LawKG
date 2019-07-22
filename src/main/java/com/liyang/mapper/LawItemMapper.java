@@ -15,4 +15,5 @@ public interface LawItemMapper {
     List<LawItem> getList(@Param("limits") int limits, @Param("limite") int limite);
     LawItem getLawItem(@Param("lawItemID") int lawItemID);
     int getCount();
+    int insertNew(LawItem lawItem);
 }

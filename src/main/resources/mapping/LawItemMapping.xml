@@ -22,4 +22,15 @@
         select COUNT(*) FROM tb_law_item
     </select>
 
+    <insert id="insertNew" parameterType="com.liyang.entity.Law">
+        INSERT INTO `lawknowledge`.`tb_law` (
+  `LawItemID`,
+  `LawItemType`,
+  `ItemNo`,
+  `ItemNoText`,
+  `ItemName`,
+  `ItemContent`
+  ) VALUES (#{lawItemID},#{lawItemType},#{itemNo},#{itemNoText},#{itemName},#{itemContent})
+    </insert>
+
 </mapper>

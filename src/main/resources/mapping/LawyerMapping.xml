@@ -2,24 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liyang.mapper.LawyerMapper">
     <resultMap id="BaseResultMap" type="com.liyang.entity.Lawyer">
-        <result column = "LawyerID" jdbcType="INTEGER" property="lawyerID" />
+        <result column="LawyerID" jdbcType="INTEGER" property="lawyerID" />
         <result column="LawyerName" jdbcType="VARCHAR" property="lawyerName"/>
         <result column="IDCard" jdbcType="VARCHAR" property="idCard"/>
-        <result column="LawFirmID" jdbcType="DATE" property="lawFirmID" />
+        <result column="LawFirmID" jdbcType="VARCHAR" property="lawFirmID" />
         <result column="Sex" jdbcType="INTEGER" property="sex" />
         <result column="Birthday" jdbcType="DATE" property="birthday" />
         <result column="Description" jdbcType="VARCHAR" property="description" />
     </resultMap>
 
-<!--        <insert id="insertNew" parameterType="com.liyang.entity.Lawyer">-->
-<!--            INSERT INTO `lawknowledge`.`tb_lawyer` (-->
-<!--      `LawyerID`,-->
-<!--      `LawyerName`,-->
-<!--      `IDCard`,-->
-<!--      `LawFirmID`,-->
-<!--      `Sex`,-->
-<!--      `Description`-->
-<!--      ) VALUES (#{lawyerID},#{lawyerName},#{idCard},#{lawFirmID},#{sex},#{description})-->
-<!--        </insert>-->
+        <select id="getList" resultType="com.liyang.entity.Lawyer">
+            select * FROM tb_lawyer limit  #{limits},#{limite}
+        </select>
+
+        <select id="del" resultType="com.liyang.entity.Lawyer">
+            DELETE FROM tb_lawyer WHERE LawyerID = #{lawyerID}
+        </select>
+
+<!--    <select id="getLaw" resultType="com.liyang.entity.Law">-->
+<!--        select * FROM tb_law WHERE LawID = #{lawID}-->
+<!--    </select>-->
+
+<!--    <select id="getCount" resultType ="java.lang.Integer" >-->
+<!--        select COUNT(*) FROM tb_law-->
+<!--    </select>-->
+
+<!--    <select id="getLawItemTypeName" resultType="com.liyang.entity.LawItemType">-->
+<!--        select LawItemTypeName FROM tb_law_item_type WHERE LawType = #{lawID}-->
+<!--    </select>-->
+
+    <insert id="insertNew" parameterType="com.liyang.entity.Lawyer">
+        INSERT INTO `lawknowledge`.`tb_lawyer` (
+  `LawyerID`,
+  `LawyerName`,
+  `IDCard`,
+  `LawFirmID`,
+  `Sex`,
+  `Birthday`,
+  `Description`
+  ) VALUES (#{lawyerID},#{lawyerName},#{idCard},#{lawFirmID},#{sex},#{birthday},#{description})
+    </insert>
 
 </mapper>

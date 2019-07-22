@@ -3,11 +3,10 @@ package com.liyang.controller;
 import com.liyang.entity.Lawyer;
 import com.liyang.service.LawyerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/lawyer")
@@ -15,7 +14,12 @@ public class LawyerController {
     @Autowired
     LawyerService lawyerService;
 
-    @PostMapping("/insert")
+    @GetMapping("/getList")
+    public List<Lawyer> getList(@RequestParam int page){
+        return lawyerService.getList(page);
+    }
+
+    @PostMapping("/insert")//抱错7.22
     public HashMap<String,Integer> insertNew(Lawyer lawyer) {
         HashMap<String,Integer> hm = new HashMap<>();
         int result = lawyerService.insertNew(lawyer);
@@ -26,4 +30,11 @@ public class LawyerController {
         }
         return hm;
     }
+
+    @PostMapping("/delete")
+    public int del(@RequestParam int lawyerID){
+        return lawyerService.del(lawyerID);
+    }
+
+
 }
