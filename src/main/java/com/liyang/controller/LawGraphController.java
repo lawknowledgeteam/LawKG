@@ -1,8 +1,9 @@
 package com.liyang.controller;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.LawNode;
 import com.liyang.entity.relations.LawLawType;
-import com.liyang.repository.LawRepository;
+import com.liyang.service.LawNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +18,24 @@ import java.util.List;
  * @Description:
  **/
 @RestController
-@RequestMapping("/")
+@RequestMapping("/lawGraph")
 public class LawGraphController {
     @Autowired
-    LawRepository lawRepository;
+    LawNodeService lawNodeService;
 
-    @GetMapping("/get")
-    Iterable<ObjectNodeRelation> get(){
-        return lawRepository.getdas();
+    @GetMapping("/getLawNode")
+    public List<LawNode> getLawNode(int page){
+        return lawNodeService.getLawNode(page);
     }
+
+    @GetMapping("/getLawNodeByName")
+    List<LawNode> getLawNodeByName(String lawName,int page){
+        return lawNodeService.getLawNodeByName(lawName, page);
+    }
+
+    @GetMapping("/getLawNodeById")
+    List<LawNode> getLawNodeById( int id, int page){
+        return lawNodeService.getLawNodeById(id, page);
+    }
+
 }

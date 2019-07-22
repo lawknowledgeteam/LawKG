@@ -17,4 +17,9 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping("entity")
+    public String showEntity(){
+        return "entity";
+    }
+
 }
