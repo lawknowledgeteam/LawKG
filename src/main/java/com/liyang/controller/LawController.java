@@ -50,12 +50,12 @@ public class LawController {
     @PostMapping ("/upload")
     public HashMap<String,Object> addApk(MultipartFile apkFile){
         FileUpload fud = new FileUpload();
-        return fud.addFile(apkFile,"D:/workspace/law/");
+        return fud.addFile(apkFile,"D:/workspace/lawNode/");
     }
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadsEntity(HttpServletRequest request, @RequestParam String fileName) throws Exception {
         FileDownload fileDownload = new FileDownload();
-        return  fileDownload.downloadsEntity(request,"D:/workspace/law/",fileName);
+        return  fileDownload.downloadsEntity(request,"D:/workspace/lawNode/",fileName);
     }
 
 

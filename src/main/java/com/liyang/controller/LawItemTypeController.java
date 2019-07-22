@@ -44,7 +44,7 @@ public class LawItemTypeController {
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadsEntity(HttpServletRequest request, @RequestParam String fileName) throws Exception {
         FileDownload fileDownload = new FileDownload();
-        return  fileDownload.downloadsEntity(request,"D:/workspace/lawItemType/",fileName);
+        return  fileDownload.downloadsEntity(request,"D:/workspace/lawItemTypeNode/",fileName);
     }
 
 }

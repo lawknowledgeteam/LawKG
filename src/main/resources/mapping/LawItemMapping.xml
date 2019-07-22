@@ -3,7 +3,7 @@
 <mapper namespace="com.liyang.mapper.LawItemMapper">
     <resultMap id="BaseResultMap" type="com.liyang.entity.LawItem">
         <result column="LawItemID" jdbcType="INTEGER" property="lawItemID" />
-        <result column="LawItemType" jdbcType="VARCHAR" property="lawItemType"/>
+        <result column="LawItemType" jdbcType="VARCHAR" property="lawItemTypeNode"/>
         <result column="ItemNo" jdbcType="VARCHAR" property="itemNo" />
         <result column="ItemNoText" jdbcType="VARCHAR" property="itemNoText"/>
         <result column="ItemName" jdbcType="VARCHAR" property="itemName"/>
