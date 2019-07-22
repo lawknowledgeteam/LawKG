@@ -42,19 +42,6 @@
 <div class="home c-font-normal">
 
 
-    <!--logo方案1：-->
-    <!--    <div class="login-bar">-->
-    <!--        <div class="main-wrap text-right">-->
-    <!--            <a href="https://duxiaofa.baidu.com/" class="revision-logo">-->
-    <!--                <img src="">-->
-    <!--            </a>-->
-    <!--            <span class="revision-divider"></span>-->
-    <!--            <a href="https://duxiaofa.baidu.com/" class="revision-logo duxiaofa-logo">-->
-    <!--                <img src="">-->
-    <!--            </a>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
     <!--logo方案2：-->
     <div id="menu" class="login-bar">
         <img class="logo" src="../static/images/logo.png" height="62" width="62" alt="logo"/>
@@ -172,7 +159,7 @@
                         var menu = {
                             name: '', //名字
                             level:'0',
-                            haschildren: true, //是否有子节点
+                            haschildren: true,//是否有子节点
                             url: '#', //url路径
                             isopen: true, //是否展开
                             children: [{ //子节点
@@ -267,8 +254,7 @@
                                     isopen: false,
                                     children:''
                                 }]
-                            }
-                            ]
+                            }]
                         }
                         //leftNav(menu)
                         $.leftNav(".left",menu);
