@@ -1,5 +1,6 @@
 package com.liyang.servicelmpl;
 
+import com.liyang.entity.ObjectNodeRelation;
 import com.liyang.entity.node.LawNode;
 import com.liyang.repository.LawNodeRepository;
 import com.liyang.service.LawNodeService;
@@ -42,4 +43,13 @@ public class LawNodeServicelmpl implements LawNodeService {
         List<LawNode> result = lawNodeRepository.getLawNodeById(String.valueOf(id),skip,limit);
         return result;
     }
+
+    @Override
+    public List<ObjectNodeRelation> getLawLawType(String id, int page) {
+        int skip = (page - 1) * pageLimit;
+        int limit = pageLimit * 2;
+        List<ObjectNodeRelation> result = lawNodeRepository.getLawLawType(String.valueOf(id),skip,limit);
+        return result;
+    }
+
 }

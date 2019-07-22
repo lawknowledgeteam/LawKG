@@ -38,4 +38,9 @@ public class LawGraphController {
         return lawNodeService.getLawNodeById(id, page);
     }
 
+    @GetMapping("/getLawLawType")
+    public List<ObjectNodeRelation> getLawLawType(String id, int page) {
+        return lawNodeService.getLawLawType(id, page);
+    }
+
 }

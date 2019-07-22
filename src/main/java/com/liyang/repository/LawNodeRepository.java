@@ -7,7 +7,6 @@ import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -36,6 +35,16 @@ public interface LawNodeRepository extends Neo4jRepository<LawLawType,Long>{
     List<LawNode> getLawNodeById(@Param("id") String id,
                                  @Param("skip") int skip,
                                  @Param("limit") int limit);
+
+    @Query("MATCH p=(l:Law)-[r:LawLawType]->(lit:LawItemType) " +
+            "where l.law_id = {id}" +
+            "RETURN p  order by id(lit)   " +
+            "skip {skip} LIMIT {limit}")
+    List<ObjectNodeRelation> getLawLawType(@Param("id") String id,
+                                 @Param("skip") int skip,
+                                 @Param("limit") int limit);
+
+//    @Query("")
 
 
 
