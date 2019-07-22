@@ -7,7 +7,7 @@
         <result column="PublishNumber" jdbcType="VARCHAR" property="publishNumber"/>
         <result column="PublishDate" jdbcType="DATE" property="publishDate" />
         <result column="EffectiveDate" jdbcType="DATE" property="effectiveDate" />
-        <result column="IssueUnit" jdbcType="VARCHAR" property="issueUnit" />
+        <result column="IssueUnit" jdbcType="VARCHAR" property="issueUnitNode" />
         <result column="EffectiveLevel" jdbcType="VARCHAR" property="effectiveLevel" />
         <result column="Keywords" jdbcType="VARCHAR" property="keyWords" />
         <result column="Type" jdbcType="VARCHAR" property="type" />
@@ -36,7 +36,7 @@
   `EffectiveLevel`,
   `Keywords`,
   `Type`,
-  ) VALUES (#{lawId},#{lawName},#{publishNumber},#{publishDate},#{effectiveDate},#{issueUnit},#{effectiveLevel},#{keyWords},#{type})
+  ) VALUES (#{lawId},#{lawName},#{publishNumber},#{publishDate},#{effectiveDate},#{issueUnitNode},#{effectiveLevel},#{keyWords},#{type})
     </insert>
 
 </mapper>

@@ -1,7 +1,8 @@
 package com.liyang.entity.relations;
 
-import com.liyang.entity.node.IssueUnit;
-import com.liyang.entity.node.Law;
+import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.IssueUnitNode;
+import com.liyang.entity.node.LawNode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,16 +23,16 @@ import javax.persistence.GeneratedValue;
 @Setter
 @NoArgsConstructor
 @RelationshipEntity(type = "PublishLaw")
-public class PublishLaw {
-    @Id
+public class PublishLaw extends ObjectNodeRelation {
+/*    @Id
     @GeneratedValue
-    private Long id;
+    private Long id;*/
 
     @StartNode
-    private IssueUnit issueUnit;
+    private IssueUnitNode issueUnitNode;
 
     @EndNode
-    private Law law;
+    private LawNode lawNode;
 
     @Property(name = "type")
     private String type;
