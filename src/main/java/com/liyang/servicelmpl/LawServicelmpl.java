@@ -26,9 +26,9 @@ public class LawServicelmpl implements LawService {
     }
 
     @Override
-    public Law getLaw(String lawName) {
+    public Law getLaw(int lawID) {
 
-        return lawMapper.getLaw(lawName);
+        return lawMapper.getLaw(lawID);
     }
 
     @Override

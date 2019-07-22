@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface LawMapper {
     List<Law> getList(@Param("limits") int limits, @Param("limite") int limite);
-    Law getLaw(@Param("lawName") String lawName);
+    Law getLaw(@Param("lawID") int lawID);
     int getCount();
     int insertNew(Law law);
 }

@@ -30,6 +30,11 @@ public class LawController {
         return lawService.getList(page);
     }
 
+    @GetMapping("/getLaw")
+    public Law getLaw(@RequestParam int lawID){
+        return lawService.getLaw(lawID);
+    }
+
     @PostMapping("/update")
     public HashMap<String,Integer> insertNew(Law law) {
         HashMap<String,Integer> hm = new HashMap<>();
