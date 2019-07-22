@@ -25,14 +25,14 @@
     background-size: cover;
 }
 #left{
-    background:url("../images/share_img.png") center no-repeat;
+    background:url("../static/images/share_img.png") center no-repeat;
     width: 333px;
     height:200px;
     float: left;
     background-size: cover;
 }
 #center1{
-    background:url("../images/new_img-1.jpg") center no-repeat;
+    background:url("../static/images/new_img-1.jpg") center no-repeat;
     width:333px;
     height: 200px;
     float: left;
@@ -40,7 +40,7 @@
     background-size: cover;
 }
 #center2{
-    background:url("../images/family_img.png") center no-repeat;
+    background:url("../static/images/family_img.png") center no-repeat;
     width: 333px;
     height: 200px;
     float: left;
@@ -48,7 +48,7 @@
     background-size: cover;
 }
 #right{
-    background:url("../images/active_img.jpg") center no-repeat;
+    background:url("../static/images/active_img.jpg") center no-repeat;
     width:333px;
     height:200px;
     float: left;
