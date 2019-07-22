@@ -1555,3 +1555,6 @@ body {
 .loginTxt::-webkit-scrollbar:horizontal {
     height: 8px;
 }
+.cases{
+    margin-left: 25px;
+}
