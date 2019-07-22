@@ -2,6 +2,7 @@ package com.liyang.mapper;
 
 
 import com.liyang.entity.Law;
+import com.liyang.entity.LawItemType;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -12,4 +13,5 @@ public interface LawMapper {
     Law getLaw(@Param("lawID") int lawID);
     int getCount();
     int insertNew(Law law);
+    List<Law> getLawItemTypeName(@Param("lawID") int lawID);
 }

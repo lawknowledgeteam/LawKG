@@ -8,6 +8,26 @@
         <result column="LawType" jdbcType="INTEGER" property="lawType"/>
     </resultMap>
 
+    <select id="getList" resultType="com.liyang.entity.LawItemType">
+        select *FROM tb_law_item_type limit  #{limits},#{limite}
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select COUNT(*) FROM tb_law_item_type
+    </select>
+
+    <select id="getLawItemTypeName" resultType="com.liyang.entity.LawItemType">
+        select *FROM tb_law_item_type WHERE LawItemType = #{lawItemType}
+    </select>
+
+    <insert id="insertNew" parameterType="com.liyang.entity.LawItemType">
+        INSERT INTO `lawknowledge`.`tb_law` (
+  `LawItemType`,
+  `LawItemTypeNo`,
+  `LawItemTypeName`,
+  `LawType`
+  ) VALUES (#{lawItemType},#{lawItemTypeNo},#{lawItemTypeName},#{lawType})
+    </insert>
 
 
 </mapper>

@@ -2,6 +2,7 @@ package com.liyang.controller;
 
 
 
+import com.liyang.entity.Law;
 import com.liyang.entity.LawItemType;
 import com.liyang.service.LawItemTypeService;
 import com.liyang.util.FileDownload;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("lawItemType")
+@RequestMapping("/awItemType")
 public class LawItemTypeController {
     @Autowired
     LawItemTypeService lawItemTypeService;
@@ -40,6 +41,12 @@ public class LawItemTypeController {
         }
         return hm;
     }
+
+    @PostMapping("/getLawItemTypeName")
+        public LawItemType getLawItemTypeName(@RequestParam int lawItemType){
+        return lawItemTypeService.getLawItemTypeName(lawItemType);
+    }
+
 
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadsEntity(HttpServletRequest request, @RequestParam String fileName) throws Exception {

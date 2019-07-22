@@ -10,12 +10,12 @@ import java.util.Date;
 @Setter
 public class Lawyer {
 
-    private int lawyerId;
+    private int lawyerID;
     private String lawyerName;
     private String idCard;
-    private String lawFirmId;
+    private String lawFirmID;
     private short sex;
-    private Date birthDay;
+//    private Date birthday;
     private String description;
 
 }

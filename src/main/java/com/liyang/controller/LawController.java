@@ -2,6 +2,7 @@ package com.liyang.controller;
 
 
 import com.liyang.entity.Law;
+import com.liyang.entity.LawItemType;
 import com.liyang.service.LawService;
 import com.liyang.util.FileDownload;
 import com.liyang.util.FileUpload;
@@ -29,6 +30,12 @@ public class LawController {
     public List<Law> getList(@RequestParam int page){
         return lawService.getList(page);
     }
+
+    @GetMapping("/getLawItemTypeName")
+    public List<Law> getLawItemTypeName(@RequestParam int lawID){
+        return lawService.getLawItemTypeName(lawID);
+    }
+
 
     @GetMapping("/getLaw")
     public Law getLaw(@RequestParam int lawID){

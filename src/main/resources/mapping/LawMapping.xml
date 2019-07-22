@@ -25,6 +25,10 @@
         select COUNT(*) FROM tb_law
     </select>
 
+    <select id="getLawItemTypeName" resultType="com.liyang.entity.LawItemType">
+        select LawItemTypeName FROM tb_law_item_type WHERE LawType = #{lawID}
+    </select>
+
     <insert id="insertNew" parameterType="com.liyang.entity.Law">
         INSERT INTO `lawknowledge`.`tb_law` (
   `LawID`,
@@ -35,7 +39,7 @@
   `IssueUnit`,
   `EffectiveLevel`,
   `Keywords`,
-  `Type`,
+  `Type`
   ) VALUES (#{lawId},#{lawName},#{publishNumber},#{publishDate},#{effectiveDate},#{issueUnit},#{effectiveLevel},#{keyWords},#{type})
     </insert>
 
