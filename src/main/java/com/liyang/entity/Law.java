@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class Law {
-    private int lawId;
+    private int lawID;
     private String lawName;
     private String publishNumber;
     private Date publishDate;

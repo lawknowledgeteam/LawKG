@@ -11,7 +11,7 @@
     </resultMap>
 
     <select id="getList" resultType="com.liyang.entity.LawItem">
-        select *FROM tb_law_item #{limits},#{limite}
+        select *FROM tb_law_item limit  #{limits},#{limite}
     </select>
 
     <select id="getLawItem" resultType="com.liyang.entity.LawItem">

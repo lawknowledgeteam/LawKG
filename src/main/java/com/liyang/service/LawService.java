@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface LawService {
     List<Law> getList(int page);
-    Law getLaw(String lawName);
+    Law getLaw(int lawID);
     HashMap<String,Integer> getCount();
     int insertNew(Law law);
 }

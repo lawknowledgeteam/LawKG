@@ -18,7 +18,7 @@
     </select>
 
     <select id="getLaw" resultType="com.liyang.entity.Law">
-        select * FROM tb_law WHERE LawName = #{lawName}
+        select * FROM tb_law WHERE LawID = #{lawID}
     </select>
 
     <select id="getCount" resultType ="java.lang.Integer" >
