@@ -28,9 +28,9 @@ public class LawItemTypeServicelmpl implements LawItemTypeService {
     }
 
     @Override
-    public LawItemType getLawItemType(int lawItemType) {
+    public LawItemType getLawItemTypeName(int lawItemType) {
 
-        return lawItemTypeMapper.getLawItemType(lawItemType);
+        return lawItemTypeMapper.getLawItemTypeName(lawItemType);
     }
 
     @Override
