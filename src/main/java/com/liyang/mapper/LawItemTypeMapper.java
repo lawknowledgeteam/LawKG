@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface LawItemTypeMapper {
     List<LawItemType> getList(@Param("limits") int limits, @Param("limite") int limite);
-    LawItemType getLawItemType(@Param("LawItemTypeNode") int lawItemType);
+    LawItemType getLawItemTypeName(@Param("lawItemType") int lawItemType);
     int getCount();
     int insertNew(LawItemType lawItemType);
 }
