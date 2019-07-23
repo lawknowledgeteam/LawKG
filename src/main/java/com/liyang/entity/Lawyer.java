@@ -3,7 +3,6 @@ package com.liyang.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -11,12 +10,12 @@ import java.util.Date;
 @Setter
 public class Lawyer {
 
-    private int lawyerID;
+    private int lawyerId;
     private String lawyerName;
     private String idCard;
-    private String lawFirmID;
-    private int sex;
-    private Date birthday;
+    private String lawFirmId;
+    private short sex;
+    private Date birthDay;
     private String description;
 
 }
