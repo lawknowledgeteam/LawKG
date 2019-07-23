@@ -3,7 +3,7 @@
 <mapper namespace="com.liyang.mapper.LawItemMapper">
     <resultMap id="BaseResultMap" type="com.liyang.entity.LawItem">
         <result column="LawItemID" jdbcType="INTEGER" property="lawItemID" />
-        <result column="LawItemType" jdbcType="VARCHAR" property="lawItemTypeNode"/>
+        <result column="LawItemType" jdbcType="VARCHAR" property="lawItemType"/>
         <result column="ItemNo" jdbcType="VARCHAR" property="itemNo" />
         <result column="ItemNoText" jdbcType="VARCHAR" property="itemNoText"/>
         <result column="ItemName" jdbcType="VARCHAR" property="itemName"/>
@@ -21,5 +21,16 @@
     <select id="getCount" resultType="java.lang.Integer">
         select COUNT(*) FROM tb_law_item
     </select>
+
+    <insert id="insertNew" parameterType="com.liyang.entity.Law">
+        INSERT INTO `lawknowledge`.`tb_law` (
+  `LawItemID`,
+  `LawItemType`,
+  `ItemNo`,
+  `ItemNoText`,
+  `ItemName`,
+  `ItemContent`
+  ) VALUES (#{lawItemID},#{lawItemType},#{itemNo},#{itemNoText},#{itemName},#{itemContent})
+    </insert>
 
 </mapper>
