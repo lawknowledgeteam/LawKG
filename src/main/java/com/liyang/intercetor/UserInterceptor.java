@@ -40,7 +40,16 @@ public class UserInterceptor implements HandlerInterceptor {
      **/
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
-                           Object handler, @Nullable ModelAndView modelAndView) throws Exception {
+                           Object handler,@Nullable  ModelAndView modelAndView) throws Exception {
+       if(response.getStatus()== 500 ){
+           //modelAndView.setViewName("/errorpage/500");
+           request.getRequestDispatcher("/404/error.html").forward(request, response);
+        }else
+       if(response.getStatus()== 404 ){
+           //modelAndView.setViewName("/errorpage/500");
+           request.getRequestDispatcher("/404/index.html").forward(request, response);
+        }
+
     }
 
     /**
