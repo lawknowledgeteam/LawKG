@@ -17,8 +17,8 @@ spring:
 
   data:
     neo4j:
-      uri: bolt://localhost:7687
-      username: root
+      uri: bolt://211.87.227.223:7687
+      username: neo4j
       password: root
 
   thymeleaf:

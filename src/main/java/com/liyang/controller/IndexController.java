@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping("index")
+/*    @RequestMapping("index")
     public String showIndex(){
         return "index";
     }
+
+    @RequestMapping("entity")
+    public String showEntity(){
+        return "entity";
+    }*/
 
 }
