@@ -1,5 +1,6 @@
 package com.liyang.entity.node;
 
+import com.liyang.entity.ObjectNodeRelation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,25 +12,18 @@ import javax.persistence.GeneratedValue;
 
 /**
  * @Author: Pan
- * @Date: 2019/7/21 20:20
+ * @Date: 2019/7/21 20:13
  * @Description:
  **/
 @Getter
 @Setter
 @NoArgsConstructor
-@NodeEntity(label = "LawItemType")
-public class LawItemType {
-    @Id
-    @GeneratedValue
-    private Long id;
+@NodeEntity(label = "CaseKind")
+public class CaseKindNode extends ObjectNodeRelation{
+//    @Id
+//    @GeneratedValue
+//    private Long id;
 
-    @Property(name = "id")
-    private String typeId;
-
-    @Property(name = "law_type_no")
-    private String lawTypeNo;
-
-    @Property(name = "name")
-    private String name;
-
+    @Property(name = "case_kind")
+    private String caseKind;
 }
