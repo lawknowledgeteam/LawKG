@@ -12,4 +12,5 @@ public interface LawMapper {
     Law getLaw(@Param("lawID") int lawID);
     int getCount();
     int insertNew(Law law);
+    List<Law> getLawItemTypeName(@Param("lawID") int lawID);
 }
