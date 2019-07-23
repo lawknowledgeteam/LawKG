@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class LawItemType {
 
-    private long lawItemType;
+    private int lawItemType;
     private String lawItemTypeNo;
     private String lawItemTypeName;
     private long lawType;
