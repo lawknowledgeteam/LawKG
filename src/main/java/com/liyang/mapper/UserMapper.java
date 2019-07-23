@@ -1,17 +1,12 @@
 package com.liyang.mapper;
 
-
 import com.liyang.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Author: Pan
- * @Date: 2019/7/2 20:35
- * @Description:
- **/
+
 @Repository
 public interface UserMapper {
     User sel(int userID);
