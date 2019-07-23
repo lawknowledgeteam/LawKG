@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping("index")
+/*    @RequestMapping("index")
     public String showIndex(){
         return "index";
     }
@@ -20,6 +20,6 @@ public class IndexController {
     @RequestMapping("entity")
     public String showEntity(){
         return "entity";
-    }
+    }*/
 
 }

@@ -37,7 +37,10 @@ public class LawItemServicelmpl implements LawItemService {
         }
         return hm;
     }
-
+    @Override
+    public int insertNew(LawItem lawItem) {
+        return lawItemMapper.insertNew(lawItem);
+    }
 
     @Override
     public LawItem getLawItem(int lawItemID) {

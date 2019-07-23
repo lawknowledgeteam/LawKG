@@ -2,6 +2,7 @@ package com.liyang.lawknowledge.lawknowledge.servicelmpl;
 
 
 import com.liyang.entity.Law;
+import com.liyang.entity.LawItemType;
 import com.liyang.mapper.LawMapper;
 import com.liyang.service.LawService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,10 @@ public class LawServicelmpl implements LawService {
     public int insertNew(Law law) {
         law.setPublishDate(new Date());
         return lawMapper.insertNew(law);
+    }
+    @Override
+    public List<Law> getLawItemTypeName(int lawID){
+        return lawMapper.getLawItemTypeName(lawID);
     }
 
 }

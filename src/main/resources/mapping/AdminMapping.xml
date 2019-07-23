@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyang.mapper.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.entity.Admin">
+        <result column="AdminID" jdbcType="INTEGER" property="adminID" />
+        <result column="LoginName" jdbcType="VARCHAR" property="loginName"/>
+        <result column="PasswordMD5" jdbcType="VARCHAR" property="passwordMD5"/>
+    </resultMap>
+
+    <select id="sel" resultType="com.liyang.entity.Admin" >
+        select * from tb_admin where AdminID = #{adminID}
+    </select>
+
+    <select id="login" resultType="com.liyang.entity.Admin" >
+        SELECT * FROM tb_admin where LoginName = #{loginName} and PasswordMD5 = #{passwordMD5}
+    </select>
+
+    <update id="loginTime" parameterType="com.liyang.entity.Admin" >
+         UPDATE tb_admin set LastLoginTime = #{lastLoginTime} WHERE LoginName = #{loginName}
+    </update>
+
+    <select id="isRepeat" resultType="com.liyang.entity.Admin" >
+        SELECT * FROM tb_admin where LoginName = #{loginName}
+    </select>
+
+    <insert id="register" parameterType="com.liyang.entity.Admin">
+        INSERT INTO tb_admin (LoginName, PasswordMD5,Sex,RegisterTime) VALUES (#{loginName}, #{passwordMD5},#{sex},#{registerTime})
+    </insert>
+
+    <update id="changePSW"  parameterType="com.liyang.entity.Admin">
+        UPDATE tb_admin  SET PasswordMD5 = #{newPassWordMD5} WHERE `AdminID` = #{adminID} and PasswordMD5 = #{passwordMD5}
+    </update>
+    <update id="changeInfo" parameterType="com.liyang.entity.Admin">
+        UPDATE tb_admin  SET NickName = #{nickName},HeadUrl = #{headUrl},Sex = #{sex} WHERE `AdminID` = #{adminID}
+    </update>
+    <select id="getInfo" resultType="com.liyang.entity.Admin" >
+        select * from tb_admin where AdminID = #{adminID}
+    </select>
+
+    <select id="getList" resultType="com.liyang.entity.Admin">
+       select * from tb_admin limit #{start},#{num}
+    </select>
+
+    <select id="getCount" resultType ="java.lang.Integer">
+        select COUNT(*) from tb_admin
+    </select>
+
+</mapper>
