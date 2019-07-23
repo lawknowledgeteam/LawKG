@@ -37,18 +37,6 @@ public class LawItemController {
         return  lawItemService.getCount();
     }
 
-    @PostMapping("/update")
-    public HashMap<String,Integer> insertNew(LawItem lawItem) {
-        HashMap<String,Integer> hm = new HashMap<>();
-        int result = lawItemService.insertNew(lawItem);
-        if (result != 0){
-            hm.put("code",1);
-        }else {
-            hm.put("code",0);
-        }
-        return hm;
-    }
-
     @PostMapping("/upload")
     public HashMap<String,Object> addApk(MultipartFile apkFile){
         FileUpload fud = new FileUpload();

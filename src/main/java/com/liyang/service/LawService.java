@@ -11,5 +11,4 @@ public interface LawService {
     Law getLaw(int lawID);
     HashMap<String,Integer> getCount();
     int insertNew(Law law);
-    List<Law> getLawItemTypeName(int lawID);
 }
