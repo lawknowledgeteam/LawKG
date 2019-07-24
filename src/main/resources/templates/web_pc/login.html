@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>登录</title>
+
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+
+
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/login.css">
+  </head>
+
+ <body>
+ <div id="header">
+        <div class="img-pos"><img src="images/logo.png" alt="logo" class="logo" width="62" height="62"/></div>
+        <ul id="nav">
+            <li><a href="">首页</a></li>
+            <li><a href="">关于我们</a></li>
+            <li><a href="">下载APP</a></li>
+            <li><a href="">加入我们</a></li>
+ 			<li><a href="/login">登录</a></li>
+ 			<li><a href="/register">注册</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <img src="images/home_search_banner.jpg" alt="home_bg0" height="600" width="1520">
+	    <div id="login_frame">
+	    <form method="post" action="servlet/UserServlet">
+
+	        <p><label class="label_input">用户名</label><input type="text" id="username" name="userName" class="text_field"/></p>
+	        <p><label class="label_input">密码</label><input type="password" id="password" name="pwd" class="text_field"/></p>
+
+	        <div id="login_control">
+
+<!--	        	<input type="radio" name="role" id="btn_role" value="editor" checked="checked"/>编辑
+	        	<input type="radio" name="role" id="btn_role" value="admin"/>管理员
+	        	<input type="radio" name="role" id="btn_role" value="sysadmin"/>系统管理员-->
+	            <input type="submit" id="btn_login" value="登录" />
+	        </div>
+	    </form>
+		</div>
+	</div>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+    </script>
+</body>
+</html>

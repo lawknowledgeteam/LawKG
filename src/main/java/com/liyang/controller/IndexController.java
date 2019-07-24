@@ -12,14 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-/*    @RequestMapping("index")
-    public String showIndex(){
-        return "index";
+    @RequestMapping("login")
+    public String showLogin(){
+        return "/web_pc/login";
     }
 
-    @RequestMapping("entity")
-    public String showEntity(){
-        return "entity";
-    }*/
+    @RequestMapping("register")
+    public String showRegister(){
+        return "/web_pc/register";
+    }
+
+    @RequestMapping("index")
+    public String showIndex(){
+        return "/web_pc/index";
+    }
+
+    @RequestMapping("result")
+    public String showResult(){
+        return "/web_pc/result";
+    }
 
 }

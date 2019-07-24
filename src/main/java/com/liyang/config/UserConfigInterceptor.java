@@ -28,7 +28,7 @@ public class UserConfigInterceptor implements WebMvcConfigurer {
         list.add("/user/login");
         list.add("/user/resgister");
         list.add("/static/**");
-        list.add("/user/toLogin");
+        list.add("/login");
         registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**").
                 excludePathPatterns(list);
 
