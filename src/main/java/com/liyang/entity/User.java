@@ -19,5 +19,6 @@ public class User {
     private Date birthDate;
     private Date lastLoginTime;
     private Date registerTime;
+    private String token;
 
 }
