@@ -16,5 +16,5 @@ public interface LawNodeService {
     List<LawNode> getLawNode(int page);
     List<LawNode> getLawNodeByName(String lawName,int page);
     List<LawNode> getLawNodeById( int id, int page);
-    List<ObjectNodeRelation> getLawLawType( String id,int page);
+    List<ObjectNodeRelation> getLawLawTypeId( String id,int page);
 }

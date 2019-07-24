@@ -40,12 +40,17 @@ public interface LawNodeRepository extends Neo4jRepository<LawLawType,Long>{
             "where l.law_id = {id}" +
             "RETURN p  order by id(lit)   " +
             "skip {skip} LIMIT {limit}")
-    List<ObjectNodeRelation> getLawLawType(@Param("id") String id,
+    List<ObjectNodeRelation> getLawLawTypeId(@Param("id") String id,
                                  @Param("skip") int skip,
                                  @Param("limit") int limit);
 
-//    @Query("")
-
+    @Query("MATCH p=(l:Law)-[r:LawLawType]->(lit:LawItemType) " +
+            "  " +
+            "RETURN p  order by id(lit)   " +
+            "skip {skip} LIMIT {limit}")
+    List<ObjectNodeRelation> getLawLawType(@Param("id") String id,
+                                             @Param("skip") int skip,
+                                             @Param("limit") int limit);
 
 
 }

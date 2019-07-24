@@ -7,6 +7,7 @@ import com.liyang.service.LawNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -17,30 +18,31 @@ import java.util.List;
  * @Date: 2019/7/22 9:37
  * @Description:
  **/
+
 @RestController
 @RequestMapping("/lawGraph")
-public class LawGraphController {
+public class LawNodeController {
     @Autowired
     LawNodeService lawNodeService;
 
     @GetMapping("/getLawNode")
-    public List<LawNode> getLawNode(int page){
+    public List<LawNode> getLawNode(@RequestParam int page){
         return lawNodeService.getLawNode(page);
     }
 
     @GetMapping("/getLawNodeByName")
-    List<LawNode> getLawNodeByName(String lawName,int page){
+    List<LawNode> getLawNodeByName(@RequestParam String lawName,@RequestParam int page){
         return lawNodeService.getLawNodeByName(lawName, page);
     }
 
     @GetMapping("/getLawNodeById")
-    List<LawNode> getLawNodeById( int id, int page){
+    List<LawNode> getLawNodeById(@RequestParam int id,@RequestParam int page){
         return lawNodeService.getLawNodeById(id, page);
     }
 
-    @GetMapping("/getLawLawType")
-    public List<ObjectNodeRelation> getLawLawType(String id, int page) {
-        return lawNodeService.getLawLawType(id, page);
+    @GetMapping("/getLawLawTypeId")
+    public List<ObjectNodeRelation> getLawLawTypeId(@RequestParam String id,@RequestParam int page) {
+        return lawNodeService.getLawLawTypeId(id, page);
     }
 
 }

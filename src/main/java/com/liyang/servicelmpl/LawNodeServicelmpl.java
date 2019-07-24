@@ -45,10 +45,10 @@ public class LawNodeServicelmpl implements LawNodeService {
     }
 
     @Override
-    public List<ObjectNodeRelation> getLawLawType(String id, int page) {
+    public List<ObjectNodeRelation> getLawLawTypeId(String id, int page) {
         int skip = (page - 1) * pageLimit;
         int limit = pageLimit * 2;
-        List<ObjectNodeRelation> result = lawNodeRepository.getLawLawType(String.valueOf(id),skip,limit);
+        List<ObjectNodeRelation> result = lawNodeRepository.getLawLawTypeId(String.valueOf(id),skip,limit);
         return result;
     }
 
