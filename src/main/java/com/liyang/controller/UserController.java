@@ -38,8 +38,8 @@ public class UserController {
             return  hm;
         }
         String loginName = user.getLoginName();
-        String password = MD5Util.md5(user.getPassWord());
-        User chuser = userService.login(loginName,password);
+        String passWord = MD5Util.md5(user.getPassWord());
+        User chuser = userService.login(loginName,passWord);
         if(chuser == null ){
             hm.put("code",0);
             return  hm;
@@ -53,6 +53,7 @@ public class UserController {
             session.setMaxInactiveInterval(-1);
             hm.put("code",1);
             hm.put("user",chuser);
+            System.out.println(hm);
             return  hm;
         }
     }

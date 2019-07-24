@@ -9,13 +9,13 @@
 
 
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="/static/web_pc/css/all.css">
+    <link rel="stylesheet" href="/static/web_pc/css/login.css">
   </head>
 
  <body>
  <div id="header">
-        <div class="img-pos"><img src="images/logo.png" alt="logo" class="logo" width="62" height="62"/></div>
+        <div class="img-pos"><img src="/static/web_pc/images/logo.png" alt="logo" class="logo" width="62" height="62"/></div>
         <ul id="nav">
             <li><a href="">首页</a></li>
             <li><a href="">关于我们</a></li>
@@ -26,24 +26,50 @@
         </ul>
     </div>
     <div id="content">
-        <img src="images/home_search_banner.jpg" alt="home_bg0" height="600" width="1520">
+        <img src="/static/web_pc/images/home_search_banner.jpg" alt="home_bg0" height="600" width="1520">
 	    <div id="login_frame">
-	    <form method="post" action="servlet/UserServlet">
-
-	        <p><label class="label_input">用户名</label><input type="text" id="username" name="userName" class="text_field"/></p>
-	        <p><label class="label_input">密码</label><input type="password" id="password" name="pwd" class="text_field"/></p>
+<!--	    <form method="post">
+        </form>-->
+	        <p><label class="label_input">用户名</label><input type="text" id="loginName" name="userName" class="text_field"/></p>
+	        <p><label class="label_input">密码</label><input type="password" id="passWord" name="pwd" class="text_field"/></p>
 
 	        <div id="login_control">
 
 <!--	        	<input type="radio" name="role" id="btn_role" value="editor" checked="checked"/>编辑
 	        	<input type="radio" name="role" id="btn_role" value="admin"/>管理员
 	        	<input type="radio" name="role" id="btn_role" value="sysadmin"/>系统管理员-->
-	            <input type="submit" id="btn_login" value="登录" />
+	           <input type="submit" id="btn_login" value="登录" onclick="pleaseLogin()"/>
+
 	        </div>
-	    </form>
+
 		</div>
 	</div>
-	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+ <script>
+     function pleaseLogin() {
+         var loginName = $("#loginName").val();
+         var passWord = $("#passWord").val();
+         var code = '';
+         var sign ='wasd';
+         $.ajax({
+             url: '/user/login',
+             dataType: 'json',
+             type: 'post',
+             data: {
+                 code: code,
+                 loginName: loginName,
+                 passWord: passWord,
+                 sign: sign
+             },
+             success: function (data) {
+                console.log(data)
+             }
+         })
+
+     };
+
+ </script>
+
+	<script src="/static/web_pc/js/navigator/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 
     </script>
