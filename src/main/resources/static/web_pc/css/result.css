@@ -1,11 +1,11 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: rgb(245,245,245);
+    /*background-color: rgb(245,245,245);*/
 }
-ul{
+ul {
     list-style-type: none;
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
 }
 .image_title{
     float: left;
@@ -33,37 +33,27 @@ ul{
 }
 
 #details_container{
-    width:1070px;
-    height: 400px;
+    width:1040px;
+    height: 200px;
     margin:0 auto;
     background-color: #ffffff;
 }
 #details_container:hover {
-    box-shadow: 6px 6px 6px #ccc;
+    box-shadow: 6px 6px 6px #7dacf0;
     z-index:9999;
 }
 .div_1{
-    height: 50px;
+    height: 30px;
     width: 100%;
 }
 .text{
     float: top;
 }
-
-/*实现文字渐入*/
-/*#showGo{*/
-/*     display:none;*/
-/* }*/
-
-/*#header{*/
-/*    background:url("../images/event/banner.jpg");*/
-/*    background-size: cover;*/
-/*    width:1350px;*/
-/*    height:611px;*/
-/*}*/
-/*.text{*/
-/*    width:300px;*/
-/*    height:200px;*/
-/*    font-family: "Microsoft YaHei";*/
-/*    background-color: #ffffff;*/
-/*}*/
+#graph{
+    float: left;
+    width: 600px;
+    height: 400px;
+}
+.back_ground{
+    background-color: #262626;
+}
