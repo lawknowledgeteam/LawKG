@@ -25,10 +25,18 @@ public class LawCaseNode extends ObjectNodeRelation {
     @GeneratedValue
     private Long id;*/
 
-    @Property(name = "law_id")
-    private String lawId;
+    @Property(name = "case_id")
+    private String caseId;
 
-    @Property(name = "law_name")
-    private String lawName;
+    @Property(name = "law_case")
+    private String lawCase;
 
+    @Property(name = "trial_date")
+    private String trialDate;
+
+    @Property(name = "case_font")
+    private String caseFont;
+
+    @Property(name = "case_view")
+    private String caseView;
 }
