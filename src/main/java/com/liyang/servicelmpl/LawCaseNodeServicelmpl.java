@@ -18,7 +18,7 @@ import java.util.List;
 public class LawCaseNodeServicelmpl implements LawCaseNodeService {
     @Autowired
     LawCaseNodeRepository lawCaseNodeRepository;
-    private final int pageLimit = 5;
+    private final int pageLimit = 6;
 
     @Override
     public List<ObjectNodeRelation> searchByName(String name, int page) {
@@ -31,7 +31,7 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
     @Override
     public List<ObjectNodeRelation> searchSameKind(String name, int page) {
         int skip = (page - 1) * pageLimit;
-        int limit = pageLimit;
+        int limit = pageLimit/2;
         List<ObjectNodeRelation> result = lawCaseNodeRepository.searchSameKind(".*"+name+".*", skip, limit);
         return result;
     }
@@ -39,7 +39,7 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
     @Override
     public List<ObjectNodeRelation> searchSameCourt(String name, int page) {
         int skip = (page - 1) * pageLimit;
-        int limit = pageLimit;
+        int limit = pageLimit/3;
         List<ObjectNodeRelation> result = lawCaseNodeRepository.searchSameCourt(".*"+name+".*", skip, limit);
         return result;
     }
