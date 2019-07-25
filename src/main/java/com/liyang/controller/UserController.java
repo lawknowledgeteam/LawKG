@@ -83,12 +83,11 @@ public class UserController {
     }
 
     @PostMapping("/outLogin")
-    public int outLogin (HttpServletRequest request, String sign){
-        if (!key.equals(sign)){
-            return  -1;
-        }
+    public HashMap<String,Integer> outLogin (HttpServletRequest request){
+        HashMap<String,Integer> hm = new HashMap<>();
         request.getSession().removeAttribute("session_user");
-        return 1;
+        hm.put("code",1);
+        return hm;
     }
 
     @PostMapping("/ChangePSW")
