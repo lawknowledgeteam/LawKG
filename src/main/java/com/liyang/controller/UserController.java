@@ -59,8 +59,8 @@ public class UserController {
         }
     }
 
-    @PostMapping("/resgister")
-    public  HashMap<String,Object> resgister(User user, String sign)  {
+    @PostMapping("/register")
+    public  HashMap<String,Object> register(User user, String sign)  {
         HashMap<String,Object> hm = new HashMap<>();
         if (!key.equals(sign)){
             hm.put("code",-1);
