@@ -1,0 +1,45 @@
+body {
+    font: 14px/1.5 "microsoft yahei", "\5FAE\8F6F\96C5\9ED1", tahoma, arial
+}
+
+#show_more{
+    margin: 0;
+    padding-top: 30px;
+}
+
+#show_more ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#show_more li{
+    float: left;
+    margin-left: 5px;
+    padding: 0 8px;
+    /*border: 1px solid #999;*/
+    color: white;
+    line-height: 24px;
+}
+
+.active{
+    color: #fff;
+    background-color: #7dacf0;
+    border-color: #7dacf0;
+}
+
+.nowd {
+    border: none;
+}
+
+select {
+    float: left;
+    margin-left: 10px;
+    height: 26px;
+}
+
+button {
+    float: left;
+    margin-left: 5px;
+    line-height: 20px;
+}

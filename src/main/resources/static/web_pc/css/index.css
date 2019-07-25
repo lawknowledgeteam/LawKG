@@ -726,7 +726,11 @@ body {
     height: 624px;
     margin: 0 auto;
 }
-
+.next{
+    height: 100px;
+    width: 550px;
+    margin: auto;
+}
 .product-content .unit {
     height: 800px;
     background-color: #fff;
@@ -1302,11 +1306,11 @@ body {
 
 .footer {
     width: 100%;
-    height: 379px;
+    height: 1000px;
     color: #a4acb7;
     font-family: "Microsoft Yahei";
     line-height: 22px;
-    background-color: #1c2b40;
+    background-color: #262626;
 }
 
 .footer a {

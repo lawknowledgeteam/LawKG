@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/static/web_pc/css/chunk-common.css" type="text/css">
 
     <link rel="stylesheet" type="text/css" href="/static/web_pc/css/navigator/LeftNav.css">
+    <link rel="stylesheet" type="text/css" href="/static/web_pc/css/flip.css">
 
 </head>
 <body>
@@ -258,7 +259,6 @@
                     </script>
                 </div>
                 <!--unit-box1-->
-
                 <div class="unit unit-box2"  id = "searchResult"><!--
                     <h4>商标、专利、不正当竞争案例</h4>
                     <div class="cases">
@@ -273,11 +273,30 @@
 
             </div>
             <!--product-content-->
+
         </div>
-        <div data-v-15fbc661="" class="footer-bottom">-->
-            <div data-v-15fbc661="" class="footer-copyright">
-                 ©2019 法律知识图谱
-                <a data-v-15fbc661="" target="_blank" href=""></a></div>
+        <div class="next">
+            <div id="show_more">
+                <ul>
+                    <li>首页</li>
+                    <li>上一页</li>
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li class="nowd">...</li>
+                    <li>4</li>
+                    <li>下一页</li>
+                    <li>尾页</li>
+                </ul>
+            </div>
+            <div>
+                <select>
+                    <option selected>01页</option>
+                    <option>02页</option>
+                    <option>03页</option>
+                </select>
+                <button>跳转</button>
+            </div>
         </div>
     </footer>
 
@@ -312,8 +331,7 @@
                     res += "<h4>"+data[i].lawCase+"</h4>";
                     res += "<div class=\"cases\">";
                     res += "<ul>";
-                    res += "<li><a>"+data[i].caseFont+"<li><a>";
-                    res += "<li><a>"+data[i].trialDate+"<li><a>";
+                    res += "<li>"+data[i].caseFont+"&nbsp;"+data[i].trialDate+"</li>";
                     res += " </ul></div>";
                 }
                 $("#searchResult").html(res);
