@@ -30,8 +30,8 @@
     <div id="login_frame">
         <!--	    <form method="post">
                 </form>-->
-        <p><label class="label_input">用户名</label><input type="text" id="username" name="userName" class="text_field"/></p>
-        <p><label class="label_input">密码</label><input type="password" id="password" name="pwd" class="text_field"/></p>
+        <p><label class="label_input">用户名</label><input type="text" id="loginName" name="userName" class="text_field"/></p>
+        <p><label class="label_input">密码</label><input type="password" id="passWord" name="pwd" class="text_field"/></p>
 
         <div id="register_control">
 
@@ -47,7 +47,7 @@
 <script>
     function pleaseRegister() {
         var loginName = $("#loginName").val();
-        var passWord = $("#password").val();
+        var passWord = $("#passWord").val();
         var code = '';
         var sign ='wasd';
         $.ajax({
@@ -56,7 +56,7 @@
             type: 'post',
             data: {
                 code: code,
-                userName: loginName,
+                loginName: loginName,
                 passWord: passWord,   //这里 : 前面一定要和json里面的字段一致.
                 sign: sign
             },
