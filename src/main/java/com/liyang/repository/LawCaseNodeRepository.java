@@ -14,6 +14,7 @@ import java.util.List;
  * @Date: 2019/7/23 19:58
  * @Description:
  **/
+
 @Repository
 public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long> {
     @Query("match(l:LawCase) \n" +

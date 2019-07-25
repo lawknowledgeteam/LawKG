@@ -92,7 +92,7 @@
                     <div class="search-wrapper">
                         <div class="search-input-wrapper c-flexbox">
                             <div class="search-input">
-                                <div class="el-input"><!----><input type="text" autocomplete="off"
+                                <div class="el-input"><!----><input id="keyWords" type="text" autocomplete="off"
                                                                     placeholder="请输入标题、案由、当事人、法官、律师等"
                                                                     class="el-input__inner"><!----><!----><!----><!---->
                                 </div>
@@ -133,7 +133,7 @@
 <!--                                        </div>-->
 <!--                                    </div>&lt;!&ndash;&ndash;&gt;</div>-->
 <!--                            </div>-->
-                            <button type="button" class="el-button search-btn el-button--primary"><!---->
+                            <button type="button" class="el-button search-btn el-button--primary" onclick="searchResult()"><!---->
                                 <!----><span>查询</span></button>
                         </div>
                     </div>
@@ -259,8 +259,7 @@
                 </div>
                 <!--unit-box1-->
 
-                <div class="unit unit-box2">
-
+                <div class="unit unit-box2"  id = "searchResult"><!--
                     <h4>商标、专利、不正当竞争案例</h4>
                     <div class="cases">
                         <ul>
@@ -268,16 +267,7 @@
                             <li><a>四川飞亚企业公司诉万县市酿造厂不正当竞争侵权案</a></li>
                             <li><a>四川省广汉市三丰科技实业有限公司诉四川省环保建设开发总公司等侵害技术秘密案</a></li>
                         </ul>
-                    </div>
-
-                    <h4>案例类型2</h4>
-                    <div class="cases">
-                        <ul>
-                            <li><a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a></li>
-                            <li><a>四川飞亚企业公司诉万县市酿造厂不正当竞争侵权案</a></li>
-                            <li><a>四川省广汉市三丰科技实业有限公司诉四川省环保建设开发总公司等侵害技术秘密案</a></li>
-                        </ul>
-                    </div>
+                    </div>-->
 
                 </div>
 
@@ -295,27 +285,43 @@
 
 <script>
 
-    function viewUser() {
-        var url = '/usernode/getUser';
-        var userId = $("#userId").val();
-        var nickName = $("#nickName").val();
-        var userName = $("#userName").val();
+    var page = 1;
+    function searchResult() {
+        var keyWords =  $("#keyWords").val();
+        var url = "/LawCaseNode/searchCommon?name="+keyWords+"&page="+page;
+        var caseId = "";
+        var lawCase = "";
+        var trialDate = "";
+        var caseFont = "";
+        var caseView = "";
         $.ajax({
             url: url,//url地址
             dataType: 'json',
             type: 'get',
             async: false,
             data: {
-                userId:userId,
-                nickName:nickName,
-                userName:userName
+                caseId:caseId,
+                lawCase:lawCase,
+                trialDate:trialDate,
+                caseFont:caseFont,
+                caseView:caseView
             },
             success: function (data) {
-                viewGoodInfo(data.userId)
-                //console.log(data);
+                var res ="";
+                for(var i=0;i<data.length;i++){
+                    res += "<h4>"+data[i].lawCase+"</h4>";
+                    res += "<div class=\"cases\">";
+                    res += "<ul>";
+                    res += "<li><a>"+data[i].caseFont+"<li><a>";
+                    res += "<li><a>"+data[i].trialDate+"<li><a>";
+                    res += " </ul></div>";
+                }
+                $("#searchResult").html(res);
             }
+
         })
-    };
+    }
+
 </script>
 
 <script>
@@ -342,7 +348,7 @@
         $.ajax({
             url: url,//url地址
             dataType: 'json',
-            type: 'get',
+            type: 'post',
             async: false,
             data: {
             },
