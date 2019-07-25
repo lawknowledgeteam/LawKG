@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>登录</title>
+    <title>注册</title>
 
     <meta name="keywords" content="keyword1,keyword2,keyword3">
     <meta name="description" content="this is my page">
@@ -33,34 +33,40 @@
         <p><label class="label_input">用户名</label><input type="text" id="username" name="userName" class="text_field"/></p>
         <p><label class="label_input">密码</label><input type="password" id="password" name="pwd" class="text_field"/></p>
 
-        <div id="login_control">
+        <div id="register_control">
 
             <!--	        	<input type="radio" name="role" id="btn_role" value="editor" checked="checked"/>编辑
                             <input type="radio" name="role" id="btn_role" value="admin"/>管理员
                             <input type="radio" name="role" id="btn_role" value="sysadmin"/>系统管理员-->
-            <input type="submit" id="btn_login" value="登录" onclick="pleaseLogin()"/>
+            <input type="submit" id="btn_login" value="注册" onclick="pleaseRegister()"/>
 
         </div>
 
     </div>
 </div>
 <script>
-    function pleaseLogin() {
-        var userName = $("#userName").val();
+    function pleaseRegister() {
+        var loginName = $("#loginName").val();
         var passWord = $("#password").val();
-
+        var code = '';
+        var sign ='wasd';
         $.ajax({
-            url: '/user/login',
+            url: '/user/register',
             dataType: 'json',
             type: 'post',
             data: {
-                userName: userName,
+                code: code,
+                userName: loginName,
                 passWord: passWord,   //这里 : 前面一定要和json里面的字段一致.
-
+                sign: sign
             },
             success: function (data) {
-                alert("点击成功")
-
+                console.log(data)
+                if(data.code==1){
+                    window.location.href="/login";
+                }else {
+                    alert("输入错误!");
+                }
             }
         })
 
