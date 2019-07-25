@@ -8,6 +8,8 @@ import com.liyang.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -73,6 +75,14 @@ public class UserServicelmpl implements UserService {
         int num =pageCount;
         List<User> result = userMapper.getList(start,num);
         return result;
+    }
+
+    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response) {
+
+        User user = (User) request.getSession().getAttribute("session_user");
+        user.setPassWord(null);
+        // System.out.println(user.getUserId());
+        return user;
     }
 
 

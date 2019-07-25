@@ -3,6 +3,8 @@ package com.liyang.service;
 
 import com.liyang.entity.User;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -21,4 +23,5 @@ public interface UserService {
     int changeInfo(User user);
     User getInfo(int userID);
     List<User> getList(int page);
+    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response);
 }

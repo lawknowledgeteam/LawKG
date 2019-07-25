@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
@@ -134,11 +135,11 @@ public class UserController {
         List<User> result = userService.getList(page);
         return result;
     }
-//
-//    @GetMapping("/getCount")
-//    public int getCount(){
-//        return userService.getCount();
-//    }
+    @GetMapping("/getUser")
+    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response){
+
+        return userService.showInfoBySession(request,response);
+    }
 
 }
 

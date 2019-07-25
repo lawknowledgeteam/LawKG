@@ -294,8 +294,7 @@
 </div>
 
 <script>
-    var ht = '';
-    var page = 1;
+
     function viewUser() {
         var url = '/usernode/getUser';
         var userId = $("#userId").val();
@@ -319,6 +318,32 @@
     };
 </script>
 
+<script>
+    function showInfoBySession() {
+        var url ='/user/getUser';
+        var loginName = '';
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {
+                loginName:loginName,
+            },
+            success: function (data) {
+                $("#user").html(data.loginName);
+            }
+        })
+    }
+
+</script>
+
+<script type="text/javascript">
+    //页面加载初始化
+    window.onload = function(){
+        showInfoBySession();
+    }
+</script>
 
 <script>function IEVersion() {
     var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
