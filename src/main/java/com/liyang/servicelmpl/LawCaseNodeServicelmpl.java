@@ -22,8 +22,8 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
 
     @Override
     public List<ObjectNodeRelation> getInfoRelation(int caseId) {
-        //List<ObjectNodeRelation> result = lawCaseNodeRepository.getInfoRelation(String.valueOf(caseId));
-        return null;
+        List<ObjectNodeRelation> result = lawCaseNodeRepository.getInfoRelation(String.valueOf(caseId));
+        return result;
     }
 
     @Override

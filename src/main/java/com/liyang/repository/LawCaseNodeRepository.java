@@ -43,6 +43,9 @@ public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long>
                                            @Param("skip") int skip,
                                            @Param("limit") int limit);
 
+    @Query("match p=(:TrialCourt)-[]-(:Judge)-[]-(l:LawCase)-[]-()  where l.case_id = '1' return p")
+    List<ObjectNodeRelation> getInfoRelation (@Param("caseId") String caseId);
+
     @Query("match p=(:CaseKind)-[:KindCase]-(l:LawCase) " +
             "  where l.case_id = {caseId} " +
             "return p")
