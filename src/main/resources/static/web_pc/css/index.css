@@ -1,6 +1,7 @@
 .law-index {
     width: 700px;
-    margin: 0 auto
+    margin: 0 auto;
+    margin-top: -45px;
 }
 
 .law-index-title {
@@ -96,12 +97,14 @@
     width: 100%;
     margin: 0 auto;
     min-width: 1190px;
-    height: 394px;
+    height: 250px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     text-align: center;
     background-position: 50%;
-    background-image: url(https://kg-law.cdn.bcebos.com/img/home_search_banner.jpg)
+    background-image: url(../images/banner_1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .home .home-search-mark {
@@ -737,6 +740,7 @@ body {
     -ms-box-shadow: 0 0 6px rgba(0, 0, 0, .15);
     -moz-box-shadow: 0 0 6px rgba(0, 0, 0, .15);
     -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .15);
+    color: #000;
 }
 
 .product-content .unit:hover {
@@ -751,6 +755,7 @@ body {
     float: left;
     width: 328px;
     margin-right: 10px;
+
 }
 
 .product-content .unit-box2 {
@@ -1554,4 +1559,7 @@ body {
 
 .loginTxt::-webkit-scrollbar:horizontal {
     height: 8px;
+}
+.cases{
+    margin-left: 25px;
 }
