@@ -32,13 +32,14 @@
                 </form>-->
         <p><label class="label_input">用户名</label><input type="text" id="loginName" name="userName" class="text_field"/></p>
         <p><label class="label_input">密码</label><input type="password" id="passWord" name="pwd" class="text_field"/></p>
+        <p><label class="label_input">确认密码</label><input type="password" id="rePassWord" name="repwd" class="text_field"/></p>
 
         <div id="register_control">
 
             <!--	        	<input type="radio" name="role" id="btn_role" value="editor" checked="checked"/>编辑
                             <input type="radio" name="role" id="btn_role" value="admin"/>管理员
                             <input type="radio" name="role" id="btn_role" value="sysadmin"/>系统管理员-->
-            <input type="submit" id="btn_login" value="注册" onclick="pleaseRegister()"/>
+            <input type="submit" id="btn_login" value="免费注册" onclick="pleaseRegister()"/>
 
         </div>
 
@@ -49,7 +50,12 @@
         var loginName = $("#loginName").val();
         var passWord = $("#passWord").val();
         var code = '';
-        var sign ='wasd';
+        var sign = 'wasd';
+        if (passWord != $("#rePassWord").val()) {
+             alert("输入错误!");
+            return ;
+        }
+
         $.ajax({
             url: '/user/register',
             dataType: 'json',
