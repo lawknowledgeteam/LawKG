@@ -21,6 +21,11 @@ public class LawCaseNodeController {
     @Autowired
     LawCaseNodeService lawCaseNodeService;
 
+    @RequestMapping("/getInfoRelation")
+    List<ObjectNodeRelation> getInfoRelation(@RequestParam int caseId){
+        return lawCaseNodeService.getInfoRelation(caseId);
+    }
+
     @RequestMapping("/searchByName")
     List<ObjectNodeRelation> searchByName(@RequestParam String name, @RequestParam int page){
         return lawCaseNodeService.searchByName(name, page);
@@ -44,4 +49,5 @@ public class LawCaseNodeController {
         list.addAll(lawCaseNodeService.searchSameCourt(name, page));
         return list;
     }
+
 }

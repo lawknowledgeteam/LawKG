@@ -21,6 +21,12 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
     private final int pageLimit = 6;
 
     @Override
+    public List<ObjectNodeRelation> getInfoRelation(int caseId) {
+        //List<ObjectNodeRelation> result = lawCaseNodeRepository.getInfoRelation(String.valueOf(caseId));
+        return null;
+    }
+
+    @Override
     public List<ObjectNodeRelation> searchByName(String name, int page) {
         int skip = (page - 1) * pageLimit;
         int limit = pageLimit;
@@ -43,4 +49,6 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
         List<ObjectNodeRelation> result = lawCaseNodeRepository.searchSameCourt(".*"+name+".*", skip, limit);
         return result;
     }
+
+
 }

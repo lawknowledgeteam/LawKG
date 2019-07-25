@@ -16,4 +16,6 @@ public interface LawCaseNodeService {
     List<ObjectNodeRelation>  searchSameKind(String name, int page);
 
     List<ObjectNodeRelation>  searchSameCourt(String name,int page);
+
+    List<ObjectNodeRelation> getInfoRelation( int caseId);
 }

@@ -2,6 +2,8 @@ package com.liyang.repository;
 
 import com.liyang.entity.ObjectNodeRelation;
 import com.liyang.entity.node.LawCaseNode;
+import com.liyang.entity.relations.JudgeCase;
+import com.liyang.entity.relations.KindCase;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
@@ -40,5 +42,17 @@ public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long>
     List<ObjectNodeRelation>  searchSameCourt(@Param("name") String name,
                                            @Param("skip") int skip,
                                            @Param("limit") int limit);
+
+    @Query("match p=(:CaseKind)-[:KindCase]-(l:LawCase) " +
+            "  where l.case_id = {caseId} " +
+            "return p")
+    List<KindCase> getKindCase(@Param("caseId") String caseId);
+
+    @Query("match p=(:Judge)-[:JudgeCase]-(l:LawCase)  " +
+            "where l.case_id = {caseId}  " +
+            " return p")
+    List<JudgeCase> getJudgeCase(@Param("caseId") String caseId);
+
+
 
 }
