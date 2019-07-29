@@ -33,10 +33,9 @@ form p > * {
 }  
   
   
-.label_input {  
-    font-size: 14px;  
-    font-family: 宋体;  
-  
+.label_input {
+    display:inline-block;//将label标签改为块级元素
+    font-size: 14px;
     width: 65px;  
     height: 28px;  
     line-height: 28px;  
@@ -45,7 +44,8 @@ form p > * {
     color: white;  
     background-color: #3CD8FF;  
     border-top-left-radius: 5px;  
-    border-bottom-left-radius: 5px;  
+    border-bottom-left-radius: 5px;
+
 }  
   
 .text_field {  
