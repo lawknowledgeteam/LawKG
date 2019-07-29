@@ -2,6 +2,7 @@ package com.liyang.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Author: Pan
@@ -28,7 +29,7 @@ public class IndexController {
     }
 
     @RequestMapping("result")
-    public String showResult(){
+    public String showResult(@RequestParam String caseId){
         return "/web_pc/result";
     }
 

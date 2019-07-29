@@ -1,7 +1,9 @@
 package com.liyang.repository;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.JudgeNode;
 import com.liyang.entity.node.LawCaseNode;
+import com.liyang.entity.relations.CourtJudge;
 import com.liyang.entity.relations.JudgeCase;
 import com.liyang.entity.relations.KindCase;
 import org.springframework.data.neo4j.annotation.Query;
@@ -51,11 +53,15 @@ public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long>
             "return p")
     List<KindCase> getKindCase(@Param("caseId") String caseId);
 
-    @Query("match p=(:Judge)-[:JudgeCase]-(l:LawCase)  " +
+    @Query("match p=(j:Judge)-[:JudgeCase]-(l:LawCase)  " +
             "where l.case_id = {caseId}  " +
-            " return p")
-    List<JudgeCase> getJudgeCase(@Param("caseId") String caseId);
+            " return j")
+    List<JudgeNode> getJudgeCase(@Param("caseId") String caseId);
 
+    @Query("match (l:LawCase)-[]-(j:Judge)-[c:CourtJudge]-(t:TrialCourt)  \n" +
+            " where l.case_id = {caseId} \n" +
+            "return (j)-[c]-(t)")
+    List<CourtJudge> getCourtJudge(@Param("caseId") String caseId);
 
 
 }

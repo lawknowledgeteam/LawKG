@@ -1,12 +1,17 @@
 package com.liyang.servicelmpl;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.JudgeNode;
 import com.liyang.entity.node.LawCaseNode;
+import com.liyang.entity.relations.CourtJudge;
+import com.liyang.entity.relations.JudgeCase;
+import com.liyang.entity.relations.KindCase;
 import com.liyang.repository.LawCaseNodeRepository;
 import com.liyang.service.LawCaseNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,6 +30,19 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
         List<ObjectNodeRelation> result = lawCaseNodeRepository.getInfoRelation(String.valueOf(caseId));
         return result;
     }
+
+    @Override
+    public HashMap<String,Object> getInfo(String caseId) {
+        List<KindCase> kindCase = lawCaseNodeRepository.getKindCase(caseId);
+        List<JudgeNode> judgeCase = lawCaseNodeRepository.getJudgeCase(caseId);
+        List<CourtJudge> courtJudge = lawCaseNodeRepository.getCourtJudge(caseId);
+        HashMap<String,Object> hm = new HashMap<>();
+        hm.put("kindCase",kindCase);
+        hm.put("judgeCase",judgeCase);
+        hm.put("courtJudge",courtJudge);
+        return hm;
+    }
+
 
     @Override
     public List<ObjectNodeRelation> searchByName(String name, int page) {

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,6 +25,11 @@ public class LawCaseNodeController {
     @RequestMapping("/getInfoRelation")
     List<ObjectNodeRelation> getInfoRelation(@RequestParam int caseId){
         return lawCaseNodeService.getInfoRelation(caseId);
+    }
+
+    @RequestMapping("/getInfo")
+    HashMap<String,Object> getInfo(@RequestParam String caseId){
+        return lawCaseNodeService.getInfo(caseId);
     }
 
     @RequestMapping("/searchByName")
