@@ -45,4 +45,12 @@ public class LawNodeController {
         return lawNodeService.getLawLawTypeId(id, page);
     }
 
+    @GetMapping("/getThey")
+    public List<LawNode> getThey() {
+        return lawNodeService.getThey();
+    }
+    @GetMapping("/findAll")
+    public Iterable<LawNode> findALL() {
+        return lawNodeService.findAll();
+    }
 }

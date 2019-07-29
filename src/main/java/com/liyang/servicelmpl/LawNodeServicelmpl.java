@@ -2,6 +2,7 @@ package com.liyang.servicelmpl;
 
 import com.liyang.entity.ObjectNodeRelation;
 import com.liyang.entity.node.LawNode;
+import com.liyang.entity.relations.LawLawType;
 import com.liyang.repository.LawNodeRepository;
 import com.liyang.service.LawNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,17 @@ public class LawNodeServicelmpl implements LawNodeService {
         List<ObjectNodeRelation> result = lawNodeRepository.getLawLawTypeId(String.valueOf(id),skip,limit);
         return result;
     }
+
+    @Override
+    public List<LawNode> getThey() {
+        List<LawNode> result = lawNodeRepository.getThey();
+        return result;
+    }
+
+    @Override
+    public Iterable<LawNode> findAll() {
+        return lawNodeRepository.findAll();
+    }
+
 
 }

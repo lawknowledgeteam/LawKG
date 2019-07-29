@@ -6,9 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
+import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.GeneratedValue;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Pan
@@ -30,4 +33,12 @@ public class LawNode extends ObjectNodeRelation {
     @Property(name = "law_name")
     private String lawName;
 
+    @Relationship(type = "LawLawType",direction = Relationship.OUTGOING)
+    private List<LawItemTypeNode> lawItemTypeNodes;
+    public void addItemType(LawItemTypeNode lawItemTypeNode){
+        if(this.lawItemTypeNodes == null){
+            this.lawItemTypeNodes = new ArrayList<>();
+        }
+        this.lawItemTypeNodes.add(lawItemTypeNode);
+    }
 }

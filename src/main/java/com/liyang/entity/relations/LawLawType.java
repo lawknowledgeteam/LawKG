@@ -27,7 +27,7 @@ public class LawLawType extends ObjectNodeRelation{
 //    @Id
 //    @GeneratedValue
 //    private Long id;
-
+/*
     @StartNode
     private LawNode lawNode;
 
@@ -35,5 +35,5 @@ public class LawLawType extends ObjectNodeRelation{
     private LawItemTypeNode lawItemTypeNode;
 
     @Property(name = "type")
-    private String type;
+    private String type;*/
 }
