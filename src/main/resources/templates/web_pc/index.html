@@ -198,8 +198,8 @@
                                     console.log(data)
                                     res += '<li class="left_nav_list">';
                                     for(var i=0;i<data.length;i++){
-                                        res += '<div class="left_nav_name level1 nav_open"> <em>'+ data[i].lawName + '</em></div>';
-                                        res += '<ul class="nav_ul" style="display: none;">' ;
+                                        res += '<div class="left_nav_name level1 nav_open" onclick="show_menu()"> <em>'+ data[i].lawName + '</em></div>';
+                                        res += '<ul id="menutree" class="nav_ul" style="display: none;">' ;
                                         for(var j=0;j<data[i].lawItemTypeNodes.length;j++){
                                             res += '<li class="nav_li level2" data-url="" id="li_'+i+'"><em>'
                                                 +data[i].lawItemTypeNodes[j].lawTypeNo+'&nbsp;'
@@ -208,7 +208,6 @@
                                         res += '</ul>';
                                     }
                                     res += ' </li>';
-
                                     $("#menucon").html(res);
 
                                 }
@@ -339,7 +338,17 @@
     }
 </script>
 
+<script>
+    function show_menu() {
+        var mymenu = document.getElementById("menutree");
+        if(mymenu.style.display=="block"){
+            mymenu.style.display="none";
+        }else{
+            mymenu.style.display="block";
+        }
 
+    }
+</script>
 
 
 
