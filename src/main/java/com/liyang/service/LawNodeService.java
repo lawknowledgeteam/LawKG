@@ -1,6 +1,7 @@
 package com.liyang.service;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.LawItemNode;
 import com.liyang.entity.node.LawNode;
 import com.liyang.entity.relations.LawLawType;
 import org.springframework.data.repository.query.Param;
@@ -20,4 +21,5 @@ public interface LawNodeService {
     List<ObjectNodeRelation> getLawLawTypeId( String id,int page);
     List<LawNode> getThey();
     Iterable<LawNode> findAll();
+    List<LawItemNode> getItemByType(String typeId, int page);
 }

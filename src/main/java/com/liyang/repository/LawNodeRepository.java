@@ -1,6 +1,7 @@
 package com.liyang.repository;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.LawItemNode;
 import com.liyang.entity.node.LawNode;
 import com.liyang.entity.relations.LawLawType;
 import org.springframework.data.neo4j.annotation.Query;
@@ -64,5 +65,14 @@ public interface LawNodeRepository extends Neo4jRepository<LawNode,Long>{
             "return p \n" +
             "order by toInt(lit.id) ")
     List<LawNode> getThey();
+
+    @Query("MATCH (l:LawItemType)- []-(n:LawItem) \n" +
+            "where l.id = {typeId}\n" +
+            "RETURN n\n" +
+            "order by toInt(n.law_item_id)\n" +
+            "skip {skip}  limit  {limit}")
+    List<LawItemNode> getItemByType(@Param("typeId") String typeId,
+                                    @Param("skip") int skip,
+                                    @Param("limit") int limit);
 
 }

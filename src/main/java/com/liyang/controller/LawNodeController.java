@@ -1,6 +1,7 @@
 package com.liyang.controller;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.LawItemNode;
 import com.liyang.entity.node.LawNode;
 import com.liyang.entity.relations.LawLawType;
 import com.liyang.service.LawNodeService;
@@ -53,4 +54,9 @@ public class LawNodeController {
     public Iterable<LawNode> findALL() {
         return lawNodeService.findAll();
     }
+    @GetMapping("/getItemByType")
+    public List<LawItemNode> getItemByType(@RequestParam String typeId, @RequestParam  int page){
+        return lawNodeService.getItemByType(typeId, page);
+    }
+
 }

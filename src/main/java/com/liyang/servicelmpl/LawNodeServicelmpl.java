@@ -1,6 +1,7 @@
 package com.liyang.servicelmpl;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.LawItemNode;
 import com.liyang.entity.node.LawNode;
 import com.liyang.entity.relations.LawLawType;
 import com.liyang.repository.LawNodeRepository;
@@ -62,6 +63,14 @@ public class LawNodeServicelmpl implements LawNodeService {
     @Override
     public Iterable<LawNode> findAll() {
         return lawNodeRepository.findAll();
+    }
+
+    @Override
+    public List<LawItemNode> getItemByType(String typeId, int page) {
+        int skip = (page - 1) * pageLimit;
+        int limit = 6;
+        List<LawItemNode> result = lawNodeRepository.getItemByType(typeId,skip,limit);
+        return result;
     }
 
 
