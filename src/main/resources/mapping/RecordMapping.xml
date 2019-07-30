@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyang.mapper.RecordMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.entity.Record">
+        <result column="RecordID" jdbcType="INTEGER" property="recordID" />
+        <result column="UserID" jdbcType="INTEGER" property="userID"/>
+        <result column="CaseID" jdbcType="INTEGER" property="caseID"/>
+        <result column="CaseKind" jdbcType="VARCHAR" property="caseKind" />
+        <result column="LastViewTime" jdbcType="DATE" property="lastViewTime" />
+    </resultMap>
+
+    <select id="getList" resultType="com.liyang.entity.Record">
+        select * FROM tb_record WHERE UserID = #{userID} limit  #{limits},#{limite}
+    </select>
+
+    <select id="getTotalList" resultType="com.liyang.entity.Record">
+        select CaseKind, COUNT(*) FROM tb_record WHERE UserID = #{userID} GROUP BY CaseKind limit #{limits},#{limite}
+    </select>
+
+    <insert id="insertNew" parameterType="com.liyang.entity.Record">
+        INSERT INTO `lawknowledge`.`tb_record` (
+  `RecordID`,
+  `UserID`,
+  `CaseID`,
+  `CaseKind`,
+  `LastViewTime`
+  ) VALUES (#{recordID},#{userID},#{caseID},#{caseKind},#{lastViewTime})
+    </insert>
+
+</mapper>

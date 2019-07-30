@@ -11,6 +11,6 @@ public class Record {
     private int recordID;
     private int userID;
     private int caseID;
-    private int weight;
+    private String caseKind;
     private Date lastViewTime;
 }
