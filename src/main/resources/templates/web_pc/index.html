@@ -207,6 +207,9 @@
                                     for(var i=0;i<data.length;i++){
                                         res += '<div class="left_nav_name level1 nav_open"  id="div_'+i+'"> <em>'+ data[i].lawName + '</em></div>';
                                         res += '<ul id="ul_'+i+'" class="nav_ul" style="display: none;">' ;
+                                        var temp = data[i].lawItemTypeNodes[0];
+                                        data[i].lawItemTypeNodes[0] = data[i].lawItemTypeNodes[1];
+                                        data[i].lawItemTypeNodes[1] = temp;
                                         for(var j=0;j<data[i].lawItemTypeNodes.length;j++){
                                             res += '<li class="nav_li level2" data-url="" id="li_'+data[i].lawItemTypeNodes[j].typeId+'"><em>'
                                                 +data[i].lawItemTypeNodes[j].lawTypeNo+'&nbsp;'
