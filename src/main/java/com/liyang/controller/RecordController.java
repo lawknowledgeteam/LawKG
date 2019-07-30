@@ -21,7 +21,7 @@ public class RecordController {
 
     @GetMapping("/getTotalList")
     public List<Record> getTotalList(@RequestParam int page,@RequestParam int userID){
-        return recordService.getList(page,userID);
+        return recordService.getTotalList(page,userID);
     }
 
     @PostMapping("/update")

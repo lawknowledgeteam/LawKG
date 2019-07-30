@@ -14,7 +14,7 @@ public class RecordServicelmpl implements RecordService {
     @Autowired
     RecordMapper recordMapper;
 
-    private final static  int pageCount = 20;
+    private final static  int pageCount = 5;
 
     @Override
     public List<Record> getList(int page,int userID) {
@@ -27,12 +27,21 @@ public class RecordServicelmpl implements RecordService {
     public List<Record> getTotalList(int page,int userID) {
         int limits = pageCount * (page-1);
         int limite = pageCount;
-        return recordMapper.getList(limits,limite,userID);
+        List<Record> result = recordMapper.getTotalList(limits,limite,userID);
+        return result;
     }
 
     @Override
     public int insertNew(Record record) {
+        int caseID = record.getCaseID();
+        String caseKind = recordMapper.getCaseKind(caseID);
+        record.setCaseKind(caseKind);
         record.setLastViewTime(new Date());
         return recordMapper.insertNew(record);
+    }
+
+    @Override
+    public String getCaseKind(int caseID) {
+        return recordMapper.getCaseKind(caseID);
     }
 }

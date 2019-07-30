@@ -13,4 +13,5 @@ public class Record {
     private int caseID;
     private String caseKind;
     private Date lastViewTime;
+    private int caseCount;
 }

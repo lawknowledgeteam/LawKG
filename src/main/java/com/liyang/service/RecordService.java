@@ -8,4 +8,5 @@ public interface RecordService {
     List<Record> getList(int page,int userID);
     List<Record> getTotalList(int page,int userID);
     int insertNew(Record record);
+    String getCaseKind(int caseID);
 }

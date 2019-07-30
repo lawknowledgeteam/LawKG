@@ -14,7 +14,16 @@
     </select>
 
     <select id="getTotalList" resultType="com.liyang.entity.Record">
-        select CaseKind, COUNT(*) FROM tb_record WHERE UserID = #{userID} GROUP BY CaseKind limit #{limits},#{limite}
+        select CaseKind,
+        COUNT(*) as caseCount
+        FROM tb_record
+        WHERE UserID = #{userID}
+        GROUP BY CaseKind
+        limit #{limits},#{limite}
+    </select>
+
+    <select id="getCaseKind" resultType="string">
+        select CaseKind FROM tb_case WHERE CaseID = #{caseID}
     </select>
 
     <insert id="insertNew" parameterType="com.liyang.entity.Record">

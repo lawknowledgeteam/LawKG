@@ -9,7 +9,7 @@ import java.util.Date;
 @Setter
 public class Case {
 
-    private int caseId;
+    private int caseID;
     private String caseName;
     private String number;
     private String keyWords;
