@@ -14,7 +14,7 @@
     min-width: 990px;
     height:100px;
     margin:0 auto;
-    position: fixed;
+    position:absolute;
     float: top;
 }
 .header{

@@ -25,11 +25,19 @@
 
     <link rel="stylesheet" type="text/css" href="/static/web_pc/css/navigator/LeftNav.css">
     <link rel="stylesheet" type="text/css" href="/static/web_pc/css/flip.css">
+    <link rel="stylesheet" type="text/css" href="/static/web_pc/css/result.css">
     <script src="/static/web_pc/js/navigator/jquery.min.js"></script>
     <script src="/static/web_pc/js/echarts.min.js"></script>
     <style type="text/css">
-        html, body, #main { height: 70%; width: 70% ; margin: 0; padding: 0}
-
+        html, body {
+            height: 100%;
+            width: 100% ;
+            margin: auto;
+            padding: auto
+        }
+        #main{
+            height: 400px; width: 500px ; margin: auto; padding: 0
+        }
     </style>
 </head>
 <body>
@@ -42,7 +50,7 @@
     }</style>
 </noscript>
 
-<div class="home c-font-normal">
+<div class="home-result c-font-normal">
 
 
     <!--logo方案2：-->
@@ -57,100 +65,138 @@
             <li><a onclick="quit()">退出</a></li>
         </ul>
     </div>
+    <div class="main-wrap-result home-search-wrap-result">
+        <div class="home-search-mark-result"></div>
+    </div>
+    <footer data-v-15fbc661="" class="footer-result">
+        <!--        这里为网页主体部分，分两栏-->
+        <div data-v-15fbc661="" class="footer-middle-result">
 
+            <div class="product-content-result">
+                <!--unit-box1-->
+                <div class="unit unit-box3" id="content">
+<!--                    &lt;!&ndash;以下是案件题目&ndash;&gt;-->
+<!--                    <h4>test-title</h4>-->
+<!--                    &lt;!&ndash;以下是案件详情描述&ndash;&gt;-->
+<!--                    <div class="case-text">-->
+<!--                        <span id="details">-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;以下是案件知识图谱&ndash;&gt;-->
+<!--                    <div id="main" style=""></div>-->
+                </div>
+                <!--unit-box2-->
+                <div class="box_right" >
+                    <div class="case-infos" id="infos">
+<!--                        <p>一审判决书 ：广西壮族自治区钦州市中级人民法院（1994）钦刑初字第22号</p>-->
+                    </div>
+                    <div class="unit unit-box4">
+                        <span>这里是相关案例推荐</span>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--product-content-->
+
+        </div>
+
+    </footer>
 </div>
 
-<div id="main" style=""></div>
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('main'));
-    option = {
-        title: { text: '关系图谱' },
-        tooltip: {
-            formatter: function (x) {
-                return x.data.des;
-            }
-        },
-        series: [
-            {
-                type: 'graph',
-                layout: 'force',
-                symbolSize: 80,
-                roam: true,
-                edgeSymbol: ['circle', 'arrow'],
-                edgeSymbolSize: [4, 10],
-                edgeLabel: {
-                    normal: {
-                        textStyle: {
-                            fontSize: 20
-                        }
-                    }
-                },
-                force: {
-                    repulsion: 2500,
-                    edgeLength: [10, 50]
-                },
-                draggable: true,
-                itemStyle: {
-                    normal: {
-                        color: '#4b565b'
-                    }
-                },
-                lineStyle: {
-                    normal: {
-                        width: 2,
-                        color: '#4b565b'
 
-                    }
-                },
-                edgeLabel: {
-                    normal: {
-                        show: true,
-                        formatter: function (x) {
-                            return x.data.name;
-                        }
-                    }
-                },
-                label: {
-                    normal: {
-                        show: true,
-                        textStyle: {
-                        }
-                    }
-                },
-                data: [
-                    {
-                        name: 'A',
-                        des: '',
-                        symbolSize: 50,
-                        itemStyle: {
-                            normal: {
-                                color: 'red'
+<script type="text/javascript">
+    function  show_graph() {
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            title: { text: '关系图谱' },
+            tooltip: {
+                formatter: function (x) {
+                    return x.data.des;
+                }
+            },
+            series: [
+                {
+                    type: 'graph',
+                    layout: 'force',
+                    symbolSize: 80,
+                    roam: true,
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [4, 10],
+                    edgeLabel: {
+                        normal: {
+                            textStyle: {
+                                fontSize: 20
                             }
                         }
                     },
-                    {
-                        name: 'B',
-                        des: '',
-                        symbolSize: 50,
-                        itemStyle: {
-                            normal: {
-                                color: 'red'
+                    force: {
+                        repulsion: 2500,
+                        edgeLength: [10, 50]
+                    },
+                    draggable: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#4b565b'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            color: '#4b565b'
+
+                        }
+                    },
+                    edgeLabel: {
+                        normal: {
+                            show: true,
+                            formatter: function (x) {
+                                return x.data.name;
                             }
                         }
-                    }
-                ],
-                links: [
-                    {
-                        source: 'A',
-                        target: 'B',
-                        name: 'test',
-                        des: 'test'
-                    }
-                ]
-            }
-        ]
-    };
-    myChart.setOption(option);
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            textStyle: {
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            name: 'A',
+                            des: '',
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {
+                            name: 'B',
+                            des: '',
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'red'
+                                }
+                            }
+                        }
+                    ],
+                    links: [
+                        {
+                            source: 'A',
+                            target: 'B',
+                            name: 'test',
+                            des: 'test'
+                        }
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
 </script>
 
 <script>
@@ -164,7 +210,7 @@
 
 
     var page = 1;
-    function detailResult() {
+    function infosResult() {
         var name = 'caseId';
         var url = "/LawCaseNode/getInfoRelation?caseId="+getQueryString(name);
         $.ajax({
@@ -178,10 +224,40 @@
                 console.log(data.length)
                 console.log(data)
                 var res = "";
-                for(var i=0;i<data.length;i++){
+                // for(var i=0;i<data.length;i++){
+                //
+                // }
+                res += '<p>'+data[2].caseFont+'</p>';
+                res += '<p>时间：'+data[2].trialDate+'</p>';
 
-                }
-                $("#detailResult").html(res);
+                $("#infos").html(res);
+            }
+
+        })
+    }
+    var page = 1;
+    function detailResult() {
+        var name = 'caseId';
+        var url = "/LawCaseNode/getInfoRelation?caseId=" + getQueryString(name);
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {},
+            success: function (data) {
+                console.log("获取数据")
+                console.log(data.length)
+                console.log(data)
+                var res = "";
+                res += '<h4>' + data[2].lawCase + '</h4>';
+                res += '<div class="case-text">';
+                res += '<span id="details">';
+                res += '<p>' + data[2].caseView + '</p>';
+                res += '</div>';
+                res += '<div id="main" style=""></div>';
+                $("#content").html(res);
+                show_graph();
             }
 
         })
@@ -233,6 +309,7 @@
     //页面加载初始化
     window.onload = function(){
         showInfoBySession();
+        infosResult();
         detailResult();
     }
 </script>
