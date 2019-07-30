@@ -3,6 +3,8 @@ package com.liyang.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 public class Record {
@@ -10,4 +12,5 @@ public class Record {
     private int userID;
     private int caseID;
     private int weight;
+    private Date lastViewTime;
 }
