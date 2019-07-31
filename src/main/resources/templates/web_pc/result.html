@@ -91,9 +91,13 @@
 <!--                        <p>一审判决书 ：广西壮族自治区钦州市中级人民法院（1994）钦刑初字第22号</p>-->
                     </div>
                     <div class="case-infos" id="infokind">
-
+                        <!--动态显示-->
                     </div>
-                    <span id="changThey" onclick="turePage()">相关案例(换一换)</span>
+                    <div>
+                        <span class="case-interrelated">相关案例</span>
+                        <span id="changThey" onclick="turePage()">换一换</span>
+                    </div>
+
                     <div class="unit unit-box4" id="tuijian">
 
                     </div>
@@ -450,7 +454,7 @@
                     pageTui =1;
                 }
                 for(var i=0;i<data.length;i++){
-                    res += '<p> <a href="/result?caseId='+data[i].caseId+'" target="_blank">'+data[i].lawCase+'</a> </p> ';
+                    res += '<p class="case-recommend"> <a href="/result?caseId='+data[i].caseId+'" target="_blank">'+data[i].lawCase+'</a> </p> ';
                     //
                 }
                 $("#tuijian").html(res);

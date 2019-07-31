@@ -46,6 +46,7 @@
 .product-content-result .unit-box4 {
     float: top;
     width: 400px;
+    overflow: hidden;
 }
 .box_right{
     float: left;
@@ -226,4 +227,16 @@
 }
 .para_stl{
     text-indent: 2em;
+}
+.case-interrelated{
+    width: auto;
+    float: left;
+    font-size: 20px;
+    color: black;
+}
+#changThey{
+    float: right;
+}
+.case-recommend{
+    padding: 5px;
 }

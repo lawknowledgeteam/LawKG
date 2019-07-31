@@ -876,12 +876,14 @@ body {
     float: left;
     max-width: 267px;
     margin-left: 25px;
+    overflow: hidden;
 }
 
 .product-content .unit-box2 dl .t li {
     display: inline-block;
     vertical-align: top;
     float: none;
+    overflow: hidden;
 }
 
 .product-content .unit-box2 h6 {
@@ -1607,10 +1609,16 @@ body {
 
 .index-txt-block{
     height: auto;
+    overflow: hidden;
 }
 
 .cases-date{
     width: auto;
     float: right;
     padding-right: 10px;
+}
+.cases-title{
+    width: 500px;
+    float: left;
+    overflow: hidden;
 }

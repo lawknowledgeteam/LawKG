@@ -359,7 +359,7 @@
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
-                    res +='<li><a href="result?caseId='+data[i].caseId+'">'+data[i].lawCase+'</a>'
+                    res +='<li><div class="cases-title"><a href="result?caseId='+data[i].caseId+'">'+data[i].lawCase+'</a></div>'
                     res +='  <span class="cases-date">'+data[i].trialDate+'</span></li>'
                 }
                 $("#newnewcase").html(res);
@@ -392,7 +392,7 @@
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
-                    res +='<li><a href="result?caseId='+data[i].caseId+'">'+data[i].lawCase+'</a>'
+                    res +='<li><span class="cases-title"><a href="result?caseId='+data[i].caseId+'">'+data[i].lawCase+'</a></span>'
                     res +='  <span class="cases-date">'+data[i].trialDate+'</span></li>'
                 }
                 $("#tuijianCase").html(res);
@@ -427,7 +427,7 @@
                 var res = '';
                 for (var i=0;i<data.length;i++){
                     RecordName(data[i].caseID);
-                    res +='<li><a href="result?caseId='+data[i].caseID+'">'+dataName+'</a>'
+                    res +='<li><div class="cases-title"><a href="result?caseId='+data[i].caseID+'">'+dataName+'</a></div>'
                     res +='  <span class="cases-date">'+data[i].lastViewTime+'</span></li>'
                 }
                 $("#liulanshili").html(res);
@@ -473,7 +473,7 @@
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
-                    res +='<li><a>'+data[i].caseKind+'</a>'
+                    res +='<li><div class="cases-title"><a>'+data[i].caseKind+'</a></div>'
                     res +='  <span class="cases-date">'+data[i].caseCount+'</span></li>'
                 }
                 $("#Toshili").html(res);
