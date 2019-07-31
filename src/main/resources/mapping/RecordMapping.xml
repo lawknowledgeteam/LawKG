@@ -26,6 +26,16 @@
         select CaseKind FROM tb_case WHERE CaseID = #{caseID}
     </select>
 
+    <select id="getTopList" resultType="String">
+        select CaseKind,
+        COUNT(*) as caseCount
+        FROM tb_record
+        WHERE UserID = #{userID}
+        GROUP BY CaseKind
+        DESC
+        limit 3
+    </select>
+
     <insert id="insertNew" parameterType="com.liyang.entity.Record">
         INSERT INTO `lawknowledge`.`tb_record` (
   `RecordID`,
