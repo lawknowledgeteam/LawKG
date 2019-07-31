@@ -11,5 +11,6 @@ public interface RecordMapper {
     List<Record> getList(@Param("limits") int limits, @Param("limite") int limite,@Param("userID") int userID);
     List<Record> getTotalList(@Param("limits") int limits, @Param("limite") int limite,@Param("userID") int userID);
     int insertNew(Record record);
+    List<String> getTopList(@Param("userID") int userID);
     String getCaseKind(@Param("caseID") int caseID);
 }
