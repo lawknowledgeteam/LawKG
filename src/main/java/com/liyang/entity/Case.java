@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.util.Date;
 
+/**
+ * @author Administrator
+ */
 @Getter
 @Setter
 public class Case {
@@ -13,9 +16,12 @@ public class Case {
     private String caseName;
     private String number;
     private String keyWords;
+    private String caseKind;
     private String abstracts;
     private Date prosecutionDate;
+    private Date adjudicationDate;
     private String source;
+    private String trialCourt;
     private String judgeIds;
     private String defendantIds;
     private String prosecutorIds;
@@ -23,8 +29,7 @@ public class Case {
     private String analysis;
     private String result;
     private String lawItemIds;
-    private Date adjudicationDate;
-//    private
+    private String content;
 
 
 }
