@@ -45,6 +45,11 @@ public class RecordServicelmpl implements RecordService {
     }
 
     @Override
+    public List<String> getTopList(int userID) {
+        return null;
+    }
+
+    @Override
     public String getCaseKind(int caseID) {
         return recordMapper.getCaseKind(caseID);
     }

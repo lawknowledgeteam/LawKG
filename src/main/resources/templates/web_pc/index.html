@@ -378,7 +378,7 @@
     }
     var pageTuijianCase = 1;
     function theTuijianCase() {
-        var url ='/record/getList?page='+pageTuijianCase+'&userID='+userIDGlobal;
+        var url ='/LawCaseNode/getRecommandCase?userId='+userIDGlobal+'&page='+pageTuijianCase;
         $.ajax({
             url: url,//url地址
             dataType: 'json',
@@ -392,8 +392,8 @@
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
-                    res +='<li><a href="result?caseId='+data[i].caseID+'">'+data[i].caseID+'</a>'
-                    res +='  <span class="cases-date">'+data[i].lastViewTime+'</span></li>'
+                    res +='<li><a href="result?caseId='+data[i].caseId+'">'+data[i].lawCase+'</a>'
+                    res +='  <span class="cases-date">'+data[i].trialDate+'</span></li>'
                 }
                 $("#tuijianCase").html(res);
 

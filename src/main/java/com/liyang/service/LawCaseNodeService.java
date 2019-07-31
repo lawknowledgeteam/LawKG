@@ -33,4 +33,6 @@ public interface LawCaseNodeService {
     LawCaseNode getCaseByid(String caseId);
 
     List<LawCaseNode> getCaseByKind(String caseKind,int page);
+
+    List<LawCaseNode> getRecommandCase(int userId,int page);
 }

@@ -7,11 +7,13 @@ import com.liyang.entity.node.LawCaseNode;
 import com.liyang.entity.relations.CourtJudge;
 import com.liyang.entity.relations.JudgeCase;
 import com.liyang.entity.relations.KindCase;
+import com.liyang.mapper.RecordMapper;
 import com.liyang.repository.LawCaseNodeRepository;
 import com.liyang.service.LawCaseNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +27,9 @@ import java.util.List;
 public class LawCaseNodeServicelmpl implements LawCaseNodeService {
     @Autowired
     LawCaseNodeRepository lawCaseNodeRepository;
+    @Autowired
+    RecordMapper recordMapper;
+
     private final int pageLimit = 6;
 
     @Override
@@ -105,5 +110,16 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
         return result;
     }
 
+    @Override
+    public List<LawCaseNode> getRecommandCase(int userId,int page) {
+        int skip = (page - 1) * 3;
+        int limit = 3;
+        List<String> rank = recordMapper.getTopList(userId);
+        List<LawCaseNode> result = new ArrayList<>();
+        for(String r : rank) {
+            result.addAll(lawCaseNodeRepository.getCaseByKind(r,skip,limit));
+        }
+        return result;
+    }
 
 }
