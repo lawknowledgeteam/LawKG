@@ -10,7 +10,7 @@
     </resultMap>
 
     <select id="getList" resultType="com.liyang.entity.Record">
-        select * FROM tb_record WHERE UserID = #{userID} limit  #{limits},#{limite}
+        select * FROM tb_record WHERE UserID = #{userID} ORDER BY LastViewTime DESC limit  #{limits},#{limite}
     </select>
 
     <select id="getTotalList" resultType="com.liyang.entity.Record">
