@@ -1,6 +1,8 @@
 package com.liyang.service;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.CaseKindNode;
+import com.liyang.entity.node.LawCaseNode;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,4 +23,8 @@ public interface LawCaseNodeService {
     List<ObjectNodeRelation> getInfoRelation( int caseId);
 
     HashMap<String,Object> getInfo(String caseId);
+
+    List<LawCaseNode> getSame(String caseId,int page);
+
+    CaseKindNode getKind( String caseId);
 }

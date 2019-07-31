@@ -90,8 +90,12 @@
                     <div class="case-infos" id="infos">
 <!--                        <p>一审判决书 ：广西壮族自治区钦州市中级人民法院（1994）钦刑初字第22号</p>-->
                     </div>
-                    <div class="unit unit-box4">
-                        <span>这里是相关案例推荐</span>
+                    <div class="case-infos" id="infokind">
+
+                    </div>
+                    <span id="changThey" onclick="turePage()">相关案例(换一换)</span>
+                    <div class="unit unit-box4" id="tuijian">
+
                     </div>
                 </div>
 
@@ -246,9 +250,6 @@
             async: false,
             data: {},
             success: function (data) {
-                console.log("获取数据")
-                console.log(data.length)
-                console.log(data)
                 var res = "";
                 res += '<h4>' + data[2].lawCase + '</h4>';
                 res += '<div class="case-text">';
@@ -265,6 +266,7 @@
 </script>
 
 <script>
+    var userIDGlobal='';
     function showInfoBySession() {
         var url ='/user/getUser';
         var loginName = '';
@@ -277,6 +279,7 @@
                 loginName:loginName,
             },
             success: function (data) {
+                userIDGlobal = data.userID;
                 $("#user").html(data.loginName);
             }
         })
@@ -300,6 +303,73 @@
     }
 </script>
 
+<script>
+    function recordUser() {
+        var url = '/record/update';
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'post',
+            async: false,
+            data: {
+                userID:userIDGlobal,
+                caseID:getQueryString('caseId'),
+            },
+            success: function (data) {
+            }
+        })
+
+    }
+</script>
+
+<script>
+    function caseKind() {
+        var url = '/LawCaseNode/getKind?caseId='+getQueryString('caseId');
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            data: {
+            },
+            success: function (data) {
+                console.log(data.caseKind);
+                $("#infokind").html(data.caseKind);
+            }
+        })
+
+    }
+</script>
+
+<script>
+    var pageTui=1;
+    function caseTuijian() {
+        var url = '/LawCaseNode/getSame?caseId='+getQueryString('caseId')+'&page='+pageTui;
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            data: {
+            },
+            success: function (data) {
+                var res ='';
+                if (data.length ==0){
+                    pageTui =1;
+                }
+                for(var i=0;i<data.length;i++){
+                    res += '<p> <a href="/result?caseId='+data[i].caseId+'" target="_blank">'+data[i].lawCase+'</a> </p> ';
+                    //
+                }
+                $("#tuijian").html(res);
+            }
+        })
+
+    }
+    
+    function turePage() {
+        pageTui++;
+        caseTuijian()
+    }
+</script>
 
 
 
@@ -310,6 +380,10 @@
         showInfoBySession();
         infosResult();
         detailResult();
+        recordUser();
+        caseKind();
+        caseTuijian();
+
     }
 </script>
 

@@ -1,8 +1,11 @@
 package com.liyang.controller;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.CaseKindNode;
+import com.liyang.entity.node.LawCaseNode;
 import com.liyang.service.LawCaseNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,6 +57,17 @@ public class LawCaseNodeController {
         list.addAll(lawCaseNodeService.searchSameKind(name, page));
         list.addAll(lawCaseNodeService.searchSameCourt(name, page));
         return list;
+    }
+
+    @GetMapping("/getSame")
+    public List<LawCaseNode> getSame(@RequestParam String caseId,@RequestParam int page) {
+
+        return lawCaseNodeService.getSame(caseId, page);
+    }
+
+    @GetMapping("/getKind")
+    public CaseKindNode getKind(@RequestParam String caseId) {
+        return lawCaseNodeService.getKind(caseId);
     }
 
 }

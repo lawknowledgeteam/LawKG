@@ -22,7 +22,7 @@
         limit #{limits},#{limite}
     </select>
 
-    <select id="getCaseKind" resultType="string">
+    <select id="getCaseKind" resultType="String">
         select CaseKind FROM tb_case WHERE CaseID = #{caseID}
     </select>
 

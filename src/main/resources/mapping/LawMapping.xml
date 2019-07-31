@@ -40,7 +40,7 @@
   `EffectiveLevel`,
   `Keywords`,
   `Type`
-  ) VALUES (#{lawId},#{lawName},#{publishNumber},#{publishDate},#{effectiveDate},#{issueUnit},#{effectiveLevel},#{keyWords},#{type})
+  ) VALUES (#{lawID},#{lawName},#{publishNumber},#{publishDate},#{effectiveDate},#{issueUnit},#{effectiveLevel},#{keyWords},#{type})
     </insert>
 
 </mapper>

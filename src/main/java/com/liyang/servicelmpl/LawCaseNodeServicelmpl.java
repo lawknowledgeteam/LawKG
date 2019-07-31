@@ -1,6 +1,7 @@
 package com.liyang.servicelmpl;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.CaseKindNode;
 import com.liyang.entity.node.JudgeNode;
 import com.liyang.entity.node.LawCaseNode;
 import com.liyang.entity.relations.CourtJudge;
@@ -11,6 +12,7 @@ import com.liyang.service.LawCaseNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,6 +43,20 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
         hm.put("judgeCase",judgeCase);
         hm.put("courtJudge",courtJudge);
         return hm;
+    }
+
+    @Override
+    public List<LawCaseNode> getSame(String caseId, int page) {
+        int skip = (page-1)*10;
+        int limit = 10;
+        List<LawCaseNode> result = lawCaseNodeRepository.getSame(caseId, skip, limit);
+        Collections.shuffle(result);
+        return result;
+    }
+
+    @Override
+    public CaseKindNode getKind(String caseId) {
+        return lawCaseNodeRepository.getKind(caseId);
     }
 
 

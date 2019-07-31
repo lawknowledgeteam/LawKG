@@ -48,7 +48,6 @@ public class LawServicelmpl implements LawService {
 
     @Override
     public int insertNew(Law law) {
-        law.setPublishDate(new Date());
         return lawMapper.insertNew(law);
     }
     @Override

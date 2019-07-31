@@ -6,11 +6,15 @@ import com.liyang.service.LawService;
 import com.liyang.util.FileDownload;
 import com.liyang.util.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,6 +43,14 @@ public class LawController {
     @GetMapping("/getLaw")
     public Law getLaw(@RequestParam int lawID){
         return lawService.getLaw(lawID);
+    }
+
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
     @PostMapping("/update")
