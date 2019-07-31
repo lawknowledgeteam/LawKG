@@ -1,7 +1,9 @@
 package com.liyang.servicelmpl;
 
 import com.liyang.entity.Record;
+import com.liyang.entity.node.CaseKindNode;
 import com.liyang.mapper.RecordMapper;
+import com.liyang.repository.LawCaseNodeRepository;
 import com.liyang.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ import java.util.List;
 public class RecordServicelmpl implements RecordService {
     @Autowired
     RecordMapper recordMapper;
+    @Autowired
+    LawCaseNodeRepository lawCaseNodeRepository;
 
     private final static  int pageCount = 5;
 
@@ -34,8 +38,8 @@ public class RecordServicelmpl implements RecordService {
     @Override
     public int insertNew(Record record) {
         int caseID = record.getCaseID();
-        String caseKind = recordMapper.getCaseKind(caseID);
-        record.setCaseKind(caseKind);
+        CaseKindNode caseKindNode = lawCaseNodeRepository.getKind(String.valueOf(caseID));
+        record.setCaseKind(caseKindNode.getCaseKind());
         record.setLastViewTime(new Date());
         return recordMapper.insertNew(record);
     }

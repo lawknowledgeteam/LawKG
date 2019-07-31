@@ -1,8 +1,10 @@
 package com.liyang.repository;
 
 import com.liyang.entity.ObjectNodeRelation;
+import com.liyang.entity.node.CaseKindNode;
 import com.liyang.entity.node.JudgeNode;
 import com.liyang.entity.node.LawCaseNode;
+import com.liyang.entity.node.LawNode;
 import com.liyang.entity.relations.CourtJudge;
 import com.liyang.entity.relations.JudgeCase;
 import com.liyang.entity.relations.KindCase;
@@ -63,5 +65,17 @@ public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long>
             "return (j)-[c]-(t)")
     List<CourtJudge> getCourtJudge(@Param("caseId") String caseId);
 
+    @Query("MATCH (l:LawCase)-[:KindCase]-(:CaseKind)-[:KindCase]-(ll:LawCase)\n" +
+            "where  l.case_id = {caseId}\n" +
+            "return ll\n" +
+            "skip {skip} limit {limit}")
+    List<LawCaseNode> getSame(@Param("caseId") String caseId,
+                          @Param("skip") int skip,
+                          @Param("limit") int limit);
+
+    @Query("MATCH (l:LawCase)-[:KindCase]-(ck:CaseKind)\n" +
+            "where  l.case_id = {caseId}\n" +
+            "return ck")
+    CaseKindNode getKind(@Param("caseId") String caseId);
 
 }
