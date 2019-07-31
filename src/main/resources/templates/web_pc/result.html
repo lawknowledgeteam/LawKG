@@ -36,7 +36,7 @@
             padding: auto
         }
         #main{
-            height: 400px; width: 500px ; margin: auto; padding: 0
+            height: 500px; width: 600px ; margin: auto; padding: 0
         }
     </style>
 </head>
@@ -110,6 +110,12 @@
 
 
 <script type="text/javascript">
+/*     coutrt
+     lawCase
+     caseKindglo
+     judgePerson1
+     judgePerson2
+     judgePerson3*/
     function  show_graph() {
         var myChart = echarts.init(document.getElementById('main'));
         option = {
@@ -168,7 +174,7 @@
                     },
                     data: [
                         {
-                            name: 'A',
+                            name: coutrt,
                             des: '',
                             symbolSize: 50,
                             itemStyle: {
@@ -178,7 +184,47 @@
                             }
                         },
                         {
-                            name: 'B',
+                            name: lawCase,
+                            des: '',
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {
+                            name: caseKindglo,
+                            des: '',
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {
+                            name:  judgePerson1,
+                            des: '',
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'red'
+                                }
+                            }
+                        }
+                        ,{
+                            name:  judgePerson2,
+                            des: '',
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {
+                            name:  judgePerson3,
                             des: '',
                             symbolSize: 50,
                             itemStyle: {
@@ -190,11 +236,47 @@
                     ],
                     links: [
                         {
-                            source: 'A',
-                            target: 'B',
-                            name: 'test',
-                            des: 'test'
-                        }
+                            source: caseKindglo,
+                            target: lawCase,
+                         //   name: ,
+                            //des:
+                        },
+                        {
+                            source: judgePerson1,
+                            target: lawCase,
+                         //   name: ,
+                        //    des:
+                        },
+                        {
+                            source: judgePerson2,
+                            target: lawCase,
+                         //   name: ,
+                         //   des:
+                        },
+                        {
+                            source: judgePerson3,
+                            target: lawCase,
+                         //   name: ,
+                        //    des:
+                        },
+                        {
+                            source: coutrt,
+                            target: judgePerson1,
+                        //    name: ,
+                        //    des:
+                        },
+                        {
+                            source: coutrt,
+                            target: judgePerson2,
+                         //   name: ,
+                         //   des:
+                        },
+                        {
+                            source: coutrt,
+                            target: judgePerson3,
+                          //  name: ,
+                        //    des:
+                        },
                     ]
                 }
             ]
@@ -240,6 +322,12 @@
         })
     }
     var page = 1;
+    var coutrt= '';
+    var lawCase ='';
+    var caseKindglo='';
+    var judgePerson1='';
+    var judgePerson2='';
+    var judgePerson3='';
     function detailResult() {
         var name = 'caseId';
         var url = "/LawCaseNode/getInfoRelation?caseId=" + getQueryString(name);
@@ -257,6 +345,12 @@
                 res += '</div>';
                 res += '<div id="main" style=""></div>';
                 $("#content").html(res);
+                coutrt= data[0].name;
+                lawCase = data[2].lawCase ;
+                caseKindglo=data[5].caseKind;
+                judgePerson1=data[1].name;
+                judgePerson2=data[3].name;
+                judgePerson3=data[4].name;
                 show_graph();
             }
 
