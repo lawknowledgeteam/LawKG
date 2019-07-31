@@ -35,7 +35,7 @@ public class LawNode extends ObjectNodeRelation {
 
     @Relationship(type = "LawLawType",direction = Relationship.OUTGOING)
     private List<LawItemTypeNode> lawItemTypeNodes;
-    public void addItemType(LawItemTypeNode lawItemTypeNode){
+    public void addLawItemTypeNode(LawItemTypeNode lawItemTypeNode){
         if(this.lawItemTypeNodes == null){
             this.lawItemTypeNodes = new ArrayList<>();
         }
