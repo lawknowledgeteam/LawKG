@@ -29,7 +29,7 @@ public class IndexController {
     }
 
     @RequestMapping("index2")
-    public String showIndex2(){
+    public String showIndex2(@RequestParam String content){
         return "web_pc/index2";
     }
 

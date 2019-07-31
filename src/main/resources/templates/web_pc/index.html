@@ -101,54 +101,29 @@
                         <div class="search-input-wrapper c-flexbox">
                             <div class="search-input">
                                 <div class="el-input"><!----><input id="keyWords" type="text" autocomplete="off"
-                                                                    placeholder="请输入标题、案由、当事人、法官、律师等"
+                                                                    placeholder="请输入标题、案由等"
                                                                     class="el-input__inner"><!----><!----><!----><!---->
                                 </div>
                                 <ul class="c-color search-sug" style="display: none;"></ul>
                             </div>
-<!--                            <div class="el-select search-select">&lt;!&ndash;&ndash;&gt;-->
-<!--                                <div class="el-input el-input&#45;&#45;suffix">&lt;!&ndash;&ndash;&gt;&lt;!&ndash;<input type="text" readonly="readonly"-->
-<!--                                                                                     autocomplete="off"-->
-<!--                                                                                     placeholder="请选择"-->
-<!--                                                                                     class="el-input__inner" value="全部">&ndash;&gt;-->
-<!--                                    &lt;!&ndash;&ndash;&gt;<span class="el-input__suffix"><span class="el-input__suffix-inner"><i-->
-<!--                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;-->
-<!--                                        &lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</span>&lt;!&ndash;&ndash;&gt;</span>&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</div>-->
-<!--                                <div class="el-select-dropdown el-popper" style="display: none; min-width: 120px;">-->
-<!--                                    <div class="el-scrollbar" style="">-->
-<!--                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"-->
-<!--                                             style="margin-bottom: -17px; margin-right: -17px;">-->
-<!--                                            <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;-->
-<!--                                                <li class="el-select-dropdown__item selected"><span>全部</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><pan>标题</pan></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>案件字号</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>案由</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>法院</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>法官</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>律所</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>律师</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>当事人</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>法院观点</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>裁判依据</span></li>-->
-<!--                                                <li class="el-select-dropdown__item"><span>裁判结果</span></li>-->
-<!--                                            </ul>-->
-<!--                                        </div>-->
-<!--                                        <div class="el-scrollbar__bar is-horizontal">-->
-<!--                                            <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>-->
-<!--                                        </div>-->
-<!--                                        <div class="el-scrollbar__bar is-vertical">-->
-<!--                                            <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;&ndash;&gt;</div>-->
-<!--                            </div>-->
-                            <button type="button" class="el-button search-btn el-button--primary" ><!---->
+
+                            <button type="button" class="el-button search-btn el-button--primary" onclick="goSearch()"><!---->
                                 <!----><span>查询</span></button>
+                            <!--href="result?caseId='+data[i].caseId+'"-->
                         </div>
                     </div>
                 </div>
             </div>
 
      </div><!----></div>
+    <script>
+        function goSearch() {
+            var content = $("#keyWords").val();
+            var url = '/index2?content='+content;
+            window.location.href=url;
+        }
+    </script>
+
     <footer data-v-15fbc661="" class="footer">
 <!--        这里为网页主体部分，分两栏-->
         <div data-v-15fbc661="" class="footer-middle">
