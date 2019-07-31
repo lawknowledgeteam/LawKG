@@ -163,24 +163,6 @@
                                     <div class="left_nav_name level0 nav_open">
                                         <em></em></div>
                                     <ul class="nav_ul" style="display:block;" id="menucon">
-<!--                                        <li class="left_nav_list">-->
-<!--                                            <div class="left_nav_name level1 nav_open" id="" >-->
-<!--                                                <em>中华人民共和国刑法</em>-->
-<!--                                            </div>-->
-<!--                                            <ul class="nav_ul" style="display: block;" id="">  &lt;!&ndash;开block，关none&ndash;&gt;-->
-<!--                                                <li id="" class="nav_li level2" data-url=""><em>第一章·危害国家安全罪</em></li>-->
-<!--                                                <li id="" class="nav_li level2" data-url=""><em>第二章·危害公共安全罪</em></li>-->
-<!--                                                <li id="" class="nav_li level2" data-url=""><em>第三章·破坏社会主义市场经济秩序罪</em></li>-->
-<!--                                            </ul>-->
-<!--                                            <div class="left_nav_name level1 nav_open" id="" >-->
-<!--                                                <em>中华人民共和国刑法</em>-->
-<!--                                            </div>-->
-<!--                                            <ul class="nav_ul" style="display: block;" id="">  &lt;!&ndash;开block，关none&ndash;&gt;-->
-<!--                                                <li id="" class="nav_li level2" data-url=""><em>第一章·危害国家安全罪</em></li>-->
-<!--                                                <li id="" class="nav_li level2" data-url=""><em>第二章·危害公共安全罪</em></li>-->
-<!--                                                <li id="" class="nav_li level2" data-url=""><em>第三章·破坏社会主义市场经济秩序罪</em></li>-->
-<!--                                            </ul>-->
-<!--                                        </li>-->
 
                                     </ul>
                                 </li>
@@ -266,11 +248,11 @@
 
                         function lawListPage(id){
                             var pageId = id;
-                            console.log(pageId)
+                            console.log(pageId);
                             if (pageId == "nextPage"){
                                 itempage++;
                             }else if (pageId == 'lastPage'){
-                                if(page > 0)
+                                if(itempage > 0)
                                     itempage--;
                             }
                             itemClick();
@@ -279,7 +261,7 @@
                         function liClick() {
                             var id = $(this).attr("id");
                             var index = id.substr(4,id.length);
-                            var selectIonId = "ul_"+index2;
+                            var selectIonId = "ul_"+index;
                             var mymenu = document.getElementById(selectIonId);
                             if(mymenu.style.display=="block"){
                                 mymenu.style.display="none";
@@ -298,15 +280,15 @@
                             <div class="index-txt-block-title-cont">
                                 <h4>最新案件</h4>
                             </div>
-                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn">换一换>></button></div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn" onclick="turnNewCase()">换一换>></button></div>
                         </div>
-                        <div class="cases">
-                            <ul>
+                        <div class="cases" id="newnewcase">
+<!--                            <ul>
                                 <li>
                                     <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
                                     <span class="cases-date">2019/07/30</span>
                                 </li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                     <!--Recently-Viewed-end-->
@@ -314,12 +296,12 @@
                     <div class="index-txt-block">
                         <div class="index-txt-block-title">
                             <div class="index-txt-block-title-cont">
-                                <h4>最新案件</h4>
+                                <h4>推荐案件</h4>
                             </div>
-                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn">换一换>></button></div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn" onclick="turnTuijian()" >换一换>></button></div>
                         </div>
-                        <div class="cases">
-                            <ul>
+                        <div class="cases" id="tuijianCase">
+ <!--                           <ul>
                                 <li>
                                     <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
                                     <span class="cases-date">2019/07/30</span>
@@ -327,7 +309,7 @@
                                 <li>
                                     <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
                                     <span class="cases-date">2019/07/30</span>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </div>
@@ -337,12 +319,12 @@
                             <div class="index-txt-block-title-cont">
                                 <h4>浏览历史</h4>
                             </div>
-                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn">换一换>></button></div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn" onclick="turnRecord()">换一换>></button></div>
 
                         </div>
-                        <div class="cases">
+                        <div class="cases"  id="liulanshili">
                             <ul>
-                                <li>
+<!--                                <li>
                                     <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
                                     <span class="cases-date">2019/07/30</span>
                                 </li>
@@ -353,7 +335,7 @@
                                 <li>
                                     <a>四川省广汉市三丰科技实业有限公司诉四川省环保建设开发总公司等侵害技术秘密案</a>
                                     <span class="cases-date">2019/07/30</span>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </div>
@@ -366,84 +348,115 @@
         <div class="next">
             <div id="show_more">
                 <ul id="pageList">
-<!--                    <li id="lastPage" onclick="turnPage(this.id)">上一页</li>
-                    <li id="nextPage" onclick="turnPage(this.id)">下一页</li>-->
+
                 </ul>
             </div>
-<!--            <div>
-                <select>
-                    <option selected>01页</option>
-                    <option>02页</option>
-                    <option>03页</option>
-                </select>
-                <button>跳转</button>
-            </div>-->
+
         </div>
     </footer>
 
 </div>
 
-<!--<script>-->
-<!--    function turnPage(id){-->
-<!--        var pageId = id;-->
-<!--        console.log(pageId)-->
-<!--        if (pageId == "nextPage"){-->
-<!--            page++;-->
-<!--        }else if (pageId == 'lastPage'){-->
-<!--            if(page > 0)-->
-<!--                page&#45;&#45;;-->
-<!--        }-->
-<!--        searchResult();-->
-<!--    }-->
-<!--</script>-->
+<script>
 
-<!--<script>-->
+    //最新案件
+    function turnNewCase() {
+        pageNewCase++;
+        thenewCase();
+    }
+    var pageNewCase = 1;
+    function thenewCase() {
+        var url ='/LawCaseNode/getNewCase?page='+pageNewCase;
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {           },
+            success: function (data) {
+                if(data.length==0){
+                    pageNewCase=1;
+                }
+                var res = '';
+                for (var i=0;i<data.length;i++){
+                    res +='<li><a href="result?caseId='+data[i].caseId+'">'+data[i].lawCase+'</a>'
+                    res +='  <span class="cases-date">'+data[i].trialDate+'</span></li>'
+                }
+                $("#newnewcase").html(res);
 
-<!--    var page = 1;-->
-<!--    var respage= '';-->
-<!--    function searchResult() {-->
-<!--        var keyWords =  $("#keyWords").val();-->
-<!--        var url = "/LawCaseNode/searchCommon?name="+keyWords+"&page="+page;-->
-<!--        var caseId = "";-->
-<!--        var lawCase = "";-->
-<!--        var trialDate = "";-->
-<!--        var caseFont = "";-->
-<!--        var caseView = "";-->
-<!--        $.ajax({-->
-<!--            url: url,//url地址-->
-<!--            dataType: 'json',-->
-<!--            type: 'get',-->
-<!--          //  async: false,-->
-<!--            data: {-->
-<!--/*                caseId:caseId,-->
-<!--                lawCase:lawCase,-->
-<!--                trialDate:trialDate,-->
-<!--                caseFont:caseFont,-->
-<!--                caseView:caseView*/-->
-<!--            },-->
-<!--            success: function (data) {-->
-<!--                var res ="";-->
-<!--                for(var i=0;i<data.length;i++){-->
-<!--                   // console.log(data)-->
-<!--                    res += '<a href="/result?caseId='+data[i].caseId+'" target="_blank"> '+'<h4  id="'+data[i].caseId+'"  class="line-limit-length">'+data[i].lawCase+"</h4>"+'</a>';-->
-<!--                    res += "<div class=\"cases\">";-->
-<!--                    res += "<ul>";-->
-<!--                    res += "<li>"+data[i].caseFont+"&nbsp;"+data[i].trialDate+"</li>";-->
-<!--                    res += " </ul></div>";-->
-<!--                }-->
-<!--                $("#searchResult").html(res);-->
-<!--                respage=' <li id="lastPage" onclick="turnPage(this.id)">上一页</li>\n' +-->
-<!--                    '  <li id="nextPage" onclick="turnPage(this.id)">下一页</li>';-->
-<!--                $("#pageList").html(respage);-->
-<!--            }-->
+            }
+        })
+    }
 
-<!--        })-->
-<!--    }-->
-
-
-<!--</script>-->
+</script>
 
 <script>
+    //推荐案件
+    function turnTuijian() {
+        pageTuijianCase++;
+        theTuijianCase();
+    }
+    var pageTuijianCase = 1;
+    function theTuijianCase() {
+        var url ='/record/getList?page='+pageTuijianCase+'&userID='+userIDGlobal;
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {           },
+            success: function (data) {
+                if(data.length==0){
+                    pageNewCase=1;
+                }
+                var res = '';
+                for (var i=0;i<data.length;i++){
+                    res +='<li><a href="result?caseId='+data[i].caseID+'">'+data[i].caseID+'</a>'
+                    res +='  <span class="cases-date">'+data[i].lastViewTime+'</span></li>'
+                }
+                $("#tuijianCase").html(res);
+
+            }
+        })
+    }
+</script>
+
+
+<script>
+
+    //浏览记录
+    function turnRecord() {
+        pageRecord++;
+        getUserRecord()
+    }
+    var pageRecord = 1;
+    function getUserRecord() {
+        var url ='/record/getList?page='+pageRecord+'&userID='+userIDGlobal;
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {           },
+            success: function (data) {
+                if(data.length==0){
+                    pageRecord=1;
+                }
+                var res = '';
+                for (var i=0;i<data.length;i++){
+                    res +='<li><a href="result?caseId='+data[i].caseID+'">'+data[i].caseID+'</a>'
+                    res +='  <span class="cases-date">'+data[i].lastViewTime+'</span></li>'
+                }
+                $("#liulanshili").html(res);
+
+            }
+        })
+    }
+</script>
+
+<script>
+
+    var userIDGlobal ='';
     function showInfoBySession() {
         var url ='/user/getUser';
         var loginName = '';
@@ -451,11 +464,12 @@
             url: url,//url地址
             dataType: 'json',
             type: 'get',
-         //   async: false,
+            async: false,
             data: {
                 loginName:loginName,
             },
             success: function (data) {
+                userIDGlobal = data.userID;
                 $("#user").html(data.loginName);
             }
         })
@@ -487,8 +501,10 @@
     //页面加载初始化
     window.onload = function(){
         menuResult();
-        searchResult();
         showInfoBySession();
+        getUserRecord();
+        thenewCase();
+        theTuijianCase();
     }
 </script>
 

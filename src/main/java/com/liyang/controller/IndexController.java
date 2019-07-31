@@ -28,6 +28,11 @@ public class IndexController {
         return "/web_pc/index";
     }
 
+    @RequestMapping("index2")
+    public String showIndex2(){
+        return "/web_pc/index2";
+    }
+
     @RequestMapping("result")
     public String showResult(@RequestParam String caseId){
         return "/web_pc/result";
