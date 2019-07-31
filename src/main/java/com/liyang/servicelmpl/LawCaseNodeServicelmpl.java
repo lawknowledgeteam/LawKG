@@ -67,6 +67,11 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
         return result;
     }
 
+    @Override
+    public LawCaseNode getCaseByid(String caseId) {
+        return lawCaseNodeRepository.getCaseByid(caseId);
+    }
+
 
     @Override
     public List<ObjectNodeRelation> searchByName(String name, int page) {

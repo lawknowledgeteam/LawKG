@@ -29,4 +29,6 @@ public interface LawCaseNodeService {
     CaseKindNode getKind( String caseId);
 
     List<LawCaseNode> getNewCase( int page);
+
+    LawCaseNode getCaseByid(String caseId);
 }

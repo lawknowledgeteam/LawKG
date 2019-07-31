@@ -141,7 +141,7 @@
 <!--                                        </div>-->
 <!--                                    </div>&lt;!&ndash;&ndash;&gt;</div>-->
 <!--                            </div>-->
-                            <button type="button" class="el-button search-btn el-button--primary" onclick="searchResult()"><!---->
+                            <button type="button" class="el-button search-btn el-button--primary" href="/index2"><!---->
                                 <!----><span>查询</span></button>
                         </div>
                     </div>
@@ -324,21 +324,26 @@
                         </div>
                         <div class="cases"  id="liulanshili">
                             <ul>
-<!--                                <li>
-                                    <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
-                                    <span class="cases-date">2019/07/30</span>
-                                </li>
-                                <li>
-                                    <a>四川飞亚企业公司诉万县市酿造厂不正当竞争侵权案</a>
-                                    <span class="cases-date">2019/07/30</span>
-                                </li>
-                                <li>
-                                    <a>四川省广汉市三丰科技实业有限公司诉四川省环保建设开发总公司等侵害技术秘密案</a>
-                                    <span class="cases-date">2019/07/30</span>
-                                </li>-->
+
                             </ul>
                         </div>
                     </div>
+
+                    <div class="index-txt-block">
+                        <div class="index-txt-block-title">
+                            <div class="index-txt-block-title-cont">
+                                <h4>浏览类别</h4>
+                            </div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn" onclick="turnToRecord()">换一换>></button></div>
+
+                        </div>
+                        <div class="cases"  id="Toshili">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -407,7 +412,7 @@
             data: {           },
             success: function (data) {
                 if(data.length==0){
-                    pageNewCase=1;
+                    pageTuijianCase=1;
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
@@ -430,6 +435,7 @@
         getUserRecord()
     }
     var pageRecord = 1;
+    var dataName= '';
     function getUserRecord() {
         var url ='/record/getList?page='+pageRecord+'&userID='+userIDGlobal;
         $.ajax({
@@ -444,7 +450,8 @@
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
-                    res +='<li><a href="result?caseId='+data[i].caseID+'">'+data[i].caseID+'</a>'
+                    RecordName(data[i].caseID);
+                    res +='<li><a href="result?caseId='+data[i].caseID+'">'+dataName+'</a>'
                     res +='  <span class="cases-date">'+data[i].lastViewTime+'</span></li>'
                 }
                 $("#liulanshili").html(res);
@@ -452,7 +459,55 @@
             }
         })
     }
+    function RecordName(myid) {
+        var url ='/LawCaseNode/getCaseByid?caseId='+myid;
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {           },
+            success: function (data) {
+                dataName = data.lawCase;
+            }
+        })
+    }
 </script>
+<script>
+    //浏览类别
+
+    function turnToRecord() {
+        pageToRecord++;
+        getUserToRecord();
+    }
+    var pageToRecord = 1;
+
+    function getUserToRecord() {
+        var url ='/record/getTotalList?page='+pageToRecord+'&userID='+userIDGlobal;
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {           },
+            success: function (data) {
+                if(data.length==0){
+                    pageRecord=1;
+                }
+                var res = '';
+                for (var i=0;i<data.length;i++){
+                    RecordName(data[i].caseID);
+                    res +='<li><a>'+data[i].caseKind+'</a>'
+                    res +='  <span class="cases-date">'+data[i].caseCount+'</span></li>'
+                }
+                $("#Toshili").html(res);
+
+            }
+        })
+    }
+
+</script>
+
 
 <script>
 
@@ -505,6 +560,7 @@
         getUserRecord();
         thenewCase();
         theTuijianCase();
+        getUserToRecord();
     }
 </script>
 

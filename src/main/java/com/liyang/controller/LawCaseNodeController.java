@@ -74,5 +74,9 @@ public class LawCaseNodeController {
     public List<LawCaseNode> getNewCase(@RequestParam int page) {
         return lawCaseNodeService.getNewCase(page);
     }
+    @GetMapping("getCaseByid")
+    public LawCaseNode getCaseByid(@RequestParam String caseId) {
+        return lawCaseNodeService.getCaseByid(caseId);
+    }
 
 }

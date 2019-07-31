@@ -82,4 +82,9 @@ public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long>
             "RETURN n order by n.trial_date desc\n" +
             "skip {skip} LIMIT {limit}")
     List<LawCaseNode> getNewCase(@Param("skip") int skip,@Param("limit") int limit);
+
+    @Query("MATCH (n:LawCase)\n" +
+            "where n.case_id ={caseId}\n" +
+            "RETURN n")
+    LawCaseNode getCaseByid(@Param("caseId") String caseId);
 }
