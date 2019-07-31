@@ -15,27 +15,27 @@ public class IndexController {
 
     @RequestMapping("login")
     public String showLogin(){
-        return "/web_pc/login";
+        return "web_pc/login";
     }
 
     @RequestMapping("register")
     public String showRegister(){
-        return "/web_pc/register";
+        return "web_pc/register";
     }
 
     @RequestMapping("index")
     public String showIndex(){
-        return "/web_pc/index";
+        return "web_pc/index";
     }
 
     @RequestMapping("index2")
     public String showIndex2(){
-        return "/web_pc/index2";
+        return "web_pc/index2";
     }
 
     @RequestMapping("result")
     public String showResult(@RequestParam String caseId){
-        return "/web_pc/result";
+        return "web_pc/result";
     }
 
 }

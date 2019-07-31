@@ -56,6 +56,9 @@ public class LawCaseNodeController {
         list.addAll(lawCaseNodeService.searchByName(name, page));
         list.addAll(lawCaseNodeService.searchSameKind(name, page));
         list.addAll(lawCaseNodeService.searchSameCourt(name, page));
+        if (list.isEmpty()){
+            list.addAll(lawCaseNodeService.getCaseByKind(name,page));
+        }
         return list;
     }
 
@@ -75,8 +78,12 @@ public class LawCaseNodeController {
         return lawCaseNodeService.getNewCase(page);
     }
     @GetMapping("getCaseByid")
-    public LawCaseNode getCaseByid(@RequestParam String caseId) {
+    public LawCaseNode getCaseByid(@RequestParam String caseId ) {
         return lawCaseNodeService.getCaseByid(caseId);
     }
 
+    @GetMapping("getCaseByKind")
+    public List<LawCaseNode> getCaseByKind(@RequestParam String caseKind,@RequestParam int page) {
+        return lawCaseNodeService.getCaseByKind(caseKind, page);
+    }
 }

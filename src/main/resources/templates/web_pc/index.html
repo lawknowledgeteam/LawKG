@@ -141,7 +141,7 @@
 <!--                                        </div>-->
 <!--                                    </div>&lt;!&ndash;&ndash;&gt;</div>-->
 <!--                            </div>-->
-                            <button type="button" class="el-button search-btn el-button--primary" href="/index2"><!---->
+                            <button type="button" class="el-button search-btn el-button--primary" ><!---->
                                 <!----><span>查询</span></button>
                         </div>
                     </div>
@@ -380,7 +380,7 @@
             data: {           },
             success: function (data) {
                 if(data.length==0){
-                    pageNewCase=1;
+                    pageNewCase=0;
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
@@ -411,8 +411,9 @@
             async: false,
             data: {           },
             success: function (data) {
+                console.log(data.length)
                 if(data.length==0){
-                    pageTuijianCase=1;
+                    pageTuijianCase=0;
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
@@ -446,7 +447,7 @@
             data: {           },
             success: function (data) {
                 if(data.length==0){
-                    pageRecord=1;
+                    pageRecord=0;
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
@@ -491,12 +492,12 @@
             async: false,
             data: {           },
             success: function (data) {
+                console.log(data.length)
                 if(data.length==0){
-                    pageRecord=1;
+                    pageToRecord=0;
                 }
                 var res = '';
                 for (var i=0;i<data.length;i++){
-                    RecordName(data[i].caseID);
                     res +='<li><a>'+data[i].caseKind+'</a>'
                     res +='  <span class="cases-date">'+data[i].caseCount+'</span></li>'
                 }
