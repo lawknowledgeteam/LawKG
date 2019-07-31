@@ -291,16 +291,72 @@
 
                 </div>
                 <!--unit-box1-->
-                <div class="unit unit-box2"  id = "searchResult"><!--
-                    <h4>商标、专利、不正当竞争案例</h4>
-                    <div class="cases">
-                        <ul>
-                            <li><a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a></li>
-                            <li><a>四川飞亚企业公司诉万县市酿造厂不正当竞争侵权案</a></li>
-                            <li><a>四川省广汉市三丰科技实业有限公司诉四川省环保建设开发总公司等侵害技术秘密案</a></li>
-                        </ul>
-                    </div>-->
+                <div class="unit unit-box2"  id = "searchResult">
+                    <!--Recently-Viewed-->
+                    <div class="index-txt-block">
+                        <div class="index-txt-block-title">
+                            <div class="index-txt-block-title-cont">
+                                <h4>最新案件</h4>
+                            </div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn">换一换>></button></div>
+                        </div>
+                        <div class="cases">
+                            <ul>
+                                <li>
+                                    <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
+                                    <span class="cases-date">2019/07/30</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Recently-Viewed-end-->
+                    <!--Recommendation-->
+                    <div class="index-txt-block">
+                        <div class="index-txt-block-title">
+                            <div class="index-txt-block-title-cont">
+                                <h4>最新案件</h4>
+                            </div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn">换一换>></button></div>
+                        </div>
+                        <div class="cases">
+                            <ul>
+                                <li>
+                                    <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
+                                    <span class="cases-date">2019/07/30</span>
+                                </li>
+                                <li>
+                                    <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
+                                    <span class="cases-date">2019/07/30</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Recommendation-end-->
+                    <div class="index-txt-block">
+                        <div class="index-txt-block-title">
+                            <div class="index-txt-block-title-cont">
+                                <h4>浏览历史</h4>
+                            </div>
+                            <div class="index-txt-showmore"><button class="index-txt-showmore-btn">换一换>></button></div>
 
+                        </div>
+                        <div class="cases">
+                            <ul>
+                                <li>
+                                    <a>先进船舶设计有限公司诉欧洲集装箱航运公司等专利侵权案</a>
+                                    <span class="cases-date">2019/07/30</span>
+                                </li>
+                                <li>
+                                    <a>四川飞亚企业公司诉万县市酿造厂不正当竞争侵权案</a>
+                                    <span class="cases-date">2019/07/30</span>
+                                </li>
+                                <li>
+                                    <a>四川省广汉市三丰科技实业有限公司诉四川省环保建设开发总公司等侵害技术秘密案</a>
+                                    <span class="cases-date">2019/07/30</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -327,65 +383,65 @@
 
 </div>
 
-<script>
-    function turnPage(id){
-        var pageId = id;
-        console.log(pageId)
-        if (pageId == "nextPage"){
-            page++;
-        }else if (pageId == 'lastPage'){
-            if(page > 0)
-                page--;
-        }
-        searchResult();
-    }
-</script>
+<!--<script>-->
+<!--    function turnPage(id){-->
+<!--        var pageId = id;-->
+<!--        console.log(pageId)-->
+<!--        if (pageId == "nextPage"){-->
+<!--            page++;-->
+<!--        }else if (pageId == 'lastPage'){-->
+<!--            if(page > 0)-->
+<!--                page&#45;&#45;;-->
+<!--        }-->
+<!--        searchResult();-->
+<!--    }-->
+<!--</script>-->
 
-<script>
+<!--<script>-->
 
-    var page = 1;
-    var respage= '';
-    function searchResult() {
-        var keyWords =  $("#keyWords").val();
-        var url = "/LawCaseNode/searchCommon?name="+keyWords+"&page="+page;
-        var caseId = "";
-        var lawCase = "";
-        var trialDate = "";
-        var caseFont = "";
-        var caseView = "";
-        $.ajax({
-            url: url,//url地址
-            dataType: 'json',
-            type: 'get',
-          //  async: false,
-            data: {
-/*                caseId:caseId,
-                lawCase:lawCase,
-                trialDate:trialDate,
-                caseFont:caseFont,
-                caseView:caseView*/
-            },
-            success: function (data) {
-                var res ="";
-                for(var i=0;i<data.length;i++){
-                   // console.log(data)
-                    res += '<a href="/result?caseId='+data[i].caseId+'" target="_blank"> '+'<h4  id="'+data[i].caseId+'"  class="line-limit-length">'+data[i].lawCase+"</h4>"+'</a>';
-                    res += "<div class=\"cases\">";
-                    res += "<ul>";
-                    res += "<li>"+data[i].caseFont+"&nbsp;"+data[i].trialDate+"</li>";
-                    res += " </ul></div>";
-                }
-                $("#searchResult").html(res);
-                respage=' <li id="lastPage" onclick="turnPage(this.id)">上一页</li>\n' +
-                    '  <li id="nextPage" onclick="turnPage(this.id)">下一页</li>';
-                $("#pageList").html(respage);
-            }
+<!--    var page = 1;-->
+<!--    var respage= '';-->
+<!--    function searchResult() {-->
+<!--        var keyWords =  $("#keyWords").val();-->
+<!--        var url = "/LawCaseNode/searchCommon?name="+keyWords+"&page="+page;-->
+<!--        var caseId = "";-->
+<!--        var lawCase = "";-->
+<!--        var trialDate = "";-->
+<!--        var caseFont = "";-->
+<!--        var caseView = "";-->
+<!--        $.ajax({-->
+<!--            url: url,//url地址-->
+<!--            dataType: 'json',-->
+<!--            type: 'get',-->
+<!--          //  async: false,-->
+<!--            data: {-->
+<!--/*                caseId:caseId,-->
+<!--                lawCase:lawCase,-->
+<!--                trialDate:trialDate,-->
+<!--                caseFont:caseFont,-->
+<!--                caseView:caseView*/-->
+<!--            },-->
+<!--            success: function (data) {-->
+<!--                var res ="";-->
+<!--                for(var i=0;i<data.length;i++){-->
+<!--                   // console.log(data)-->
+<!--                    res += '<a href="/result?caseId='+data[i].caseId+'" target="_blank"> '+'<h4  id="'+data[i].caseId+'"  class="line-limit-length">'+data[i].lawCase+"</h4>"+'</a>';-->
+<!--                    res += "<div class=\"cases\">";-->
+<!--                    res += "<ul>";-->
+<!--                    res += "<li>"+data[i].caseFont+"&nbsp;"+data[i].trialDate+"</li>";-->
+<!--                    res += " </ul></div>";-->
+<!--                }-->
+<!--                $("#searchResult").html(res);-->
+<!--                respage=' <li id="lastPage" onclick="turnPage(this.id)">上一页</li>\n' +-->
+<!--                    '  <li id="nextPage" onclick="turnPage(this.id)">下一页</li>';-->
+<!--                $("#pageList").html(respage);-->
+<!--            }-->
 
-        })
-    }
+<!--        })-->
+<!--    }-->
 
 
-</script>
+<!--</script>-->
 
 <script>
     function showInfoBySession() {
