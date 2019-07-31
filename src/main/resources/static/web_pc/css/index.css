@@ -723,7 +723,7 @@ body {
 
 .product-content {
     width: 1040px;
-    height: 900px;
+    height: auto;
     margin: 0 auto;
 }
 .next{
@@ -764,7 +764,9 @@ body {
 
 .product-content .unit-box2 {
     float: left;
+    height: auto;
     width: 700px;
+    padding-bottom: 20px;
 }
 
 .product-content .unit-box3 {
@@ -780,15 +782,41 @@ body {
 }
 
 
-.product-content .unit h4 {
+.product-content .unit h4{
     padding-left: 25px;
     height: 69px;
+    width: auto;
     line-height: 69px;
     font-size: 18px;
     color: #2267c7;
     font-family: "Microsoft yahei";
     font-weight: normal;
+
+
+}
+.index-txt-block-title{
+    float: top;
+    width: auto;
+    height: 50px;
     border-bottom: 1px solid #d9e0e8;
+}
+
+.index-txt-block-title-cont{
+    width: 400px;
+    float: left;
+}
+.index-txt-showmore{
+    float: right;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
+.index-txt-showmore-btn{
+    margin: 0;
+    padding: 0;
+    border:solid 1px #ffffff;
+    background: #fff;
+    outline: none;    //消除默认点击蓝色边框效果
 }
 
 .product-content .unit h6 {
@@ -822,7 +850,7 @@ body {
 
 .product-content .unit-box1 ul {
     width: 285px;
-    padding: 22px 18px 0 25px;
+    /*padding: 22px 18px 0 25px;*/
 }
 
 .product-content .unit-box1 li {
@@ -1574,4 +1602,14 @@ body {
 }
 .cases{
     margin-left: 25px;
+}
+
+.index-txt-block{
+    height: auto;
+}
+
+.cases-date{
+    width: auto;
+    float: right;
+    padding-right: 10px;
 }

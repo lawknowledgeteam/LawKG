@@ -231,8 +231,8 @@
                 // for(var i=0;i<data.length;i++){
                 //
                 // }
-                res += '<p>'+data[2].caseFont+'</p>';
-                res += '<p>时间：'+data[2].trialDate+'</p>';
+                res += '<p class="p_txt">'+data[2].caseFont+'</p>';
+                res += '<p class="p_txt">时间：'+data[2].trialDate+'</p>';
 
                 $("#infos").html(res);
             }
@@ -253,8 +253,7 @@
                 var res = "";
                 res += '<h4>' + data[2].lawCase + '</h4>';
                 res += '<div class="case-text">';
-                res += '<span id="details">';
-                res += '<p>' + data[2].caseView + '</p>';
+                res += '<p class="para_stl">' + data[2].caseView + '</p>';
                 res += '</div>';
                 res += '<div id="main" style=""></div>';
                 $("#content").html(res);
