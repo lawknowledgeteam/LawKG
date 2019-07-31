@@ -768,9 +768,17 @@ body {
 }
 
 .product-content .unit-box3 {
-    float: right;
-    width: 288px;
+    float: left;
+    width: 600px;
+    margin-right: 10px;
 }
+
+
+.product-content .unit-box4 {
+    float: left;
+    width: 300px;
+}
+
 
 .product-content .unit h4 {
     padding-left: 25px;
