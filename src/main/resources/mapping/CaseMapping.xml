@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyang.mapper.CaseMapper">
+    <resultMap id="BaseResultMap" type="com.liyang.entity.Case">
+        <result column="CaseID" jdbcType="INTEGER" property="caseID" />
+        <result column="CaseName" jdbcType="VARCHAR" property="caseName"/>
+        <result column="Number" jdbcType="VARCHAR" property="number"/>
+        <result column="CaseKind" jdbcType="VARCHAR" property="caseKind" />
+        <result column="Keywords" jdbcType="VARCHAR" property="keyWords" />
+        <result column="Abstract" jdbcType="VARCHAR" property="abstracts" />
+        <result column="ProsecutionDate" jdbcType="DATE" property="prosecutionDate" />
+        <result column="AdjudicationDate" jdbcType="DATE" property="adjudicationDate" />
+        <result column="Source" jdbcType="VARCHAR" property="source" />
+        <result column="TrialCourt" jdbcType="VARCHAR" property="trialCourt" />
+        <result column="JudgeIDs" jdbcType="VARCHAR" property="judgeIds" />
+        <result column="DefendantIDs" jdbcType="VARCHAR" property="defendantIds" />
+        <result column="ProsecutorIDs" jdbcType="VARCHAR" property="prosecutorIds" />
+        <result column="Introduction" jdbcType="VARCHAR" property="introduction" />
+        <result column="Analysis" jdbcType="VARCHAR" property="analysis" />
+        <result column="Result" jdbcType="VARCHAR" property="result" />
+        <result column="LawItemIDs" jdbcType="VARCHAR" property="lawItemIds" />
+        <result column="Content" jdbcType="VARCHAR" property="content" />
+    </resultMap>
+
+    <insert id="insertNew" parameterType="com.liyang.entity.Case">
+        INSERT INTO `lawknowledge`.`tb_case` (
+  `CaseID`,
+  `CaseName`,
+  `Number`,
+  `CaseKind`,
+  `Keywords`,
+  `Abstract`,
+  `ProsecutionDate`,
+  `AdjudicationDate`,
+  `Source`,
+  `TrialCourt`,
+  `JudgeIDs`,
+  `DefendantIDs`,
+  `ProsecutorIDs`,
+  `Introduction`,
+  `Analysis`,
+  `Result`,
+  `LawItemIDs`,
+  `Content`
+  ) VALUES (#{caseID},#{caseName},#{number},#{caseKind},#{keyWords},#{abstracts},#{prosecutionDate},#{adjudicationDate},#{source},#{trialCourt},#{judgeIds},#{defendantIds},
+  #{prosecutorIds},#{introduction},#{analysis},#{result},#{lawItemIds},#{content})
+    </insert>
+
+</mapper>
