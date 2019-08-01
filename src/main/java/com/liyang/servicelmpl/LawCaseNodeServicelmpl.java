@@ -55,7 +55,7 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
         int skip = (page-1)*10;
         int limit = 10;
         List<LawCaseNode> result = lawCaseNodeRepository.getSame(caseId, skip, limit);
-       // Collections.shuffle(result);
+        Collections.shuffle(result);
         return result;
     }
 
