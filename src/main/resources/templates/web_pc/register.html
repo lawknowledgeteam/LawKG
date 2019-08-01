@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/static/web_pc/css/login.css">
 </head>
 
-<body>
+<body onload="changeImg()">
 <div id="header">
     <div class="img-pos"><img src="/static/web_pc/images/logo.png" alt="logo" class="logo" width="62" height="62"/></div>
     <ul id="nav">
@@ -34,6 +34,10 @@
         <p class="login"><input type="text" id="loginName" name="userName" placeholder="用户名" class="text_field"/></p>
         <p class="login"><input type="password" id="passWord" name="pwd" placeholder="密码" class="text_field"/></p>
         <p class="login"><input type="password" id="rePassWord" name="repwd" placeholder="确认密码" class="text_field"/></p>
+        <div class="login">
+            <input type="text" id="vcode" name="captcha" placeholder="请输入验证码" class="captcha_field"/>
+            <span id="code" title="看不清？换一张～" onclick="changeImg()"></span>
+        </div>
 <!--        <p><label class="label_input">确认密码</label><input type="password" id="rePassWord" name="repwd" class="text_field"/></p>-->
 
 <!--        <div id="register_control">-->
@@ -46,39 +50,70 @@
 </div>
 <script>
     function pleaseRegister() {
-        var loginName = $("#loginName").val();
-        var passWord = $("#passWord").val();
-        var code = '';
-        var sign = 'wasd';
-        if (passWord != $("#rePassWord").val()) {
-             alert("输入错误!");
-            return ;
-        }
-
-        $.ajax({
-            url: '/user/register',
-            dataType: 'json',
-            type: 'post',
-            data: {
-                code: code,
-                loginName: loginName,
-                passWord: passWord,   //这里 : 前面一定要和json里面的字段一致.
-                sign: sign
-            },
-            success: function (data) {
-                console.log(data)
-                if(data.code==1){
-                    window.location.href="/login";
-                }else {
-                    alert("输入错误!");
-                }
+        if(check()){
+            var loginName = $("#loginName").val();
+            var passWord = $("#passWord").val();
+            var code = '';
+            var sign = 'wasd';
+            if (passWord != $("#rePassWord").val()) {
+                alert("输入错误!");
+                return ;
             }
-        })
+
+            $.ajax({
+                url: '/user/register',
+                dataType: 'json',
+                type: 'post',
+                data: {
+                    code: code,
+                    loginName: loginName,
+                    passWord: passWord,   //这里 : 前面一定要和json里面的字段一致.
+                    sign: sign
+                },
+                success: function (data) {
+                    console.log(data)
+                    if(data.code==1){
+                        window.location.href="/login";
+                    }else {
+                        alert("输入错误!");
+                    }
+                }
+            })
+        }
+        else{
+            alert("验证码错误！");
+        }
 
     };
 
 </script>
-
+<script>
+    function changeImg() {
+        var arrays =['1','2','3','4','5','6','7','8','9','0',
+            'a','b','c','d','e','f','g','h','i','j',
+            'k','l','m','n','o','p','q','r','s','t',
+            'u','v','w','x','y','z',
+            'A','B','C','D','E','F','G','H','I','J',
+            'K','L','M','N','O','P','Q','R','S','T',
+            'U','V','W','X','Y','Z'];
+        code='';
+        for(var i=0;i<4;i++){
+            var r=parseInt(Math.random()*arrays.length);
+            code+=arrays[r];
+        }
+        document.getElementById('code').innerHTML=code;
+    }
+    function check() {
+        var input_code=document.getElementById("vcode").value;
+        if(input_code.toLowerCase()===code.toLowerCase()){
+            return true;
+        }else {
+            alert("验证码不正确！");
+            changeImg();
+            return false;
+        }
+    }
+</script>
 <script src="/static/web_pc/js/navigator/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 
