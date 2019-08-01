@@ -23,5 +23,7 @@ public interface UserService {
     int changeInfo(User user);
     User getInfo(int userID);
     List<User> getList(int page);
+
+    User showInfoBySession(HttpServletRequest request, HttpServletResponse response);
 //    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response);
 }

@@ -134,11 +134,11 @@ public class UserController {
         List<User> result = userService.getList(page);
         return result;
     }
-    /*@GetMapping("/getUser")
-    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response){
 
+    @GetMapping("/getUser")
+    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response){
         return userService.showInfoBySession(request,response);
-    }*/
+    }
 
 }
 

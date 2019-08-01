@@ -77,6 +77,7 @@ public class UserServicelmpl implements UserService {
         return result;
     }
 
+    @Override
     public User showInfoBySession(HttpServletRequest request, HttpServletResponse response) {
 
         User user = (User) request.getSession().getAttribute("session_user");
