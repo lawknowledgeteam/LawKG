@@ -30,17 +30,15 @@
 	    <div id="login_frame">
 <!--	    <form method="post">
         </form>-->
-	        <p><label class="label_input">用户名</label><input type="text" id="loginName" name="userName" class="text_field"/></p>
-	        <p><label class="label_input">密&nbsp;&nbsp;&nbsp;码</label><input type="password" id="passWord" name="pwd" class="text_field"/></p>
-
-	        <div id="login_control">
-
-<!--	        	<input type="radio" name="role" id="btn_role" value="editor" checked="checked"/>编辑
-	        	<input type="radio" name="role" id="btn_role" value="admin"/>管理员
-	        	<input type="radio" name="role" id="btn_role" value="sysadmin"/>系统管理员-->
-	           <input type="submit" id="btn_login" value="登录" onclick="pleaseLogin()"/>
-
-	        </div>
+            <p style="font-size: 20px;padding-bottom: 30px;padding-top: 30px">用户名密码登录</p>
+            <p class="login"><input type="text" id="loginName" name="userName" placeholder="用户名" class="text_field"/></p>
+            <p class="login"><input type="password" id="passWord" name="pwd" placeholder="密码" class="text_field"/></p>
+            <div id="login_control">
+                <input type="submit" id="btn_login" value="登录" onclick="pleaseLogin()"/>
+            </div>
+            <div class="btn_register">
+                <a href="/register" style="float: right;text-decoration: none;">立即注册</a>
+            </div>
 
 		</div>
 	</div>

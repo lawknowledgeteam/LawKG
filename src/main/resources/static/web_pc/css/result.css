@@ -178,9 +178,10 @@
 
 }
 .footer-result {
+    position: absolute;
     margin-top: 50px;
     width: 100%;
-    height: 1000px;
+    height: auto;
     color: #a4acb7;
     font-family: "Microsoft Yahei";
     line-height: 22px;

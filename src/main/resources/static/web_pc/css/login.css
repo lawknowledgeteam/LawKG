@@ -8,15 +8,14 @@
 }
 
 #login_frame {  
-    width: 400px;  
-    height: 130px;  
-    padding: 13px;  
-  
-    position: absolute;  
+    width: 356px;
+    height: 400px;
+    padding: 13px;
+    position: absolute;
     left: 50%;  
     top: 50%;  
     margin-left: -200px;  
-    margin-top: -100px;  
+    margin-top: -170px;
   
     background-color: rgba(240, 255, 255, 0.5);  
   
@@ -48,33 +47,48 @@ form p > * {
 
 }  
   
-.text_field {  
-    width: 278px;  
-    height: 28px;  
-    border-top-right-radius: 5px;  
-    border-bottom-right-radius: 5px;  
-    border: 0;  
-}  
-  
-#btn_login {  
+.text_field {
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    width: 270px;
+    height: 20px;
+    padding:10px 8px;
+    border: 1px solid #ddd;
+    transition: .3s;
+    font-size: 14px;
+    color: #666;
+    autocomplete:"off";
+
+}
+
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
+
+#btn_login {
     font-size: 14px;  
-    font-family: ËÎÌו;  
-  
-    width: 120px;  
-    height: 28px;  
+    font-family: ËÎÌו;
+
+    width: 288px;
+    height: 40px;
     line-height: 28px;  
-    text-align: center;  
-  
+    text-align: center;
+
     color: white;  
     background-color: #3BD9FF;  
     border-radius: 6px;  
-    border: 0;  
-  
-    float: right; 
+    border: 0;
+    margin: 0 auto;
 }  
 #btn_login:hover{
 	color: #000000;
 	cursor: pointer;
+}
+
+.btn_register{
+    height: 50px;
+    width: 356px;
+    position: absolute;
+    bottom: 5px;
 }
 
 /*
@@ -97,11 +111,17 @@ form p > * {
 }  
   
 #login_control {  
-    padding: 0 28px;  
+    padding: 0 28px;
+    margin-top: 50px;
 }
 .img-pos{
     float: left;
     width: 100px;
     margin-left: 250px;
     margin-top: 20px;
+}
+
+.login{
+    padding-top: 10px;
+    margin:  0 auto;
 }
