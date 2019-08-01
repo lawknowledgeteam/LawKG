@@ -119,7 +119,7 @@
     <script>
         function goSearch() {
             var content = $("#keyWords").val();
-            var url = '/index2?content='+content;
+            var url =encodeURI('/index2?content='+content);
             window.location.href=url;
         }
     </script>
