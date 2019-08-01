@@ -54,8 +54,8 @@ public class UserServicelmpl implements UserService {
     }
 
     @Override
-    public int changePSW( int userID, String passWord,String newPassWord) {
-        return userMapper.changePSW(userID, passWord,newPassWord);
+    public int changePSW( int userID, String lastPassWord,String newPassWord) {
+        return userMapper.changePSW(userID, lastPassWord,newPassWord);
     }
 
     @Override

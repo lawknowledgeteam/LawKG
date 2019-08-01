@@ -28,7 +28,7 @@
     </insert>
 
     <update id="changePSW"  parameterType="com.liyang.entity.User">
-        UPDATE tb_user  SET PassWord = #{newPassWord} WHERE `UserID` = #{userID} and PassWord = #{passWord}
+        UPDATE tb_user  SET PassWord = #{newPassWord} WHERE `UserID` = #{userID} and PassWord = #{lastPassWord}
     </update>
     <update id="changeInfo" parameterType="com.liyang.entity.User">
         UPDATE tb_user  SET NickName = #{nickName},HeadUrl = #{headUrl},Sex = #{sex} WHERE `UserID` = #{userID}

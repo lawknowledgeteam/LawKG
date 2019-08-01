@@ -19,9 +19,9 @@ public interface UserService {
     void loginTime(String loginName, Date lastLoginTime);
     User isRepeat(String loginName);
     int register(User user);
-    int changePSW(int userID, String newPassWord, String passWord);
+    int changePSW(int userID, String lastPassWord, String newPassWord);
     int changeInfo(User user);
     User getInfo(int userID);
     List<User> getList(int page);
-    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response);
+//    public User showInfoBySession(HttpServletRequest request, HttpServletResponse response);
 }

@@ -14,7 +14,7 @@ public interface UserMapper {
     void loginTime(@Param("loginName") String loginName, @Param("lastLoginTime") Date lastLoginTime);
     User isRepeat(String loginName);
     int register(User user);
-    int changePSW(@Param("userID") int userID, @Param("passWord") String passWord, @Param("newPassWord") String newPassWord);
+    int changePSW(@Param("userID") int userID, @Param("lastPassWord") String lastPassWord, @Param("newPassWord") String newPassWord);
     int changeInfo(User user);
     User getInfo(int userID);
     List<User> getList(@Param("start") int start, @Param("num") int num);
