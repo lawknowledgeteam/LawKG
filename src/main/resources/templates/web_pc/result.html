@@ -209,7 +209,7 @@
                         },
                         {
                             name:  judgePerson1,
-                            des: judgePerson1,
+                            des: judgePerson1+"法官",
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -219,7 +219,7 @@
                         }
                         ,{
                             name:  judgePerson2,
-                            des: judgePerson2,
+                            des: judgePerson2+"法官",
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -229,7 +229,7 @@
                         },
                         {
                             name:  judgePerson3,
-                            des: judgePerson3,
+                            des: judgePerson3+"法官",
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -237,9 +237,9 @@
                                 }
                             }
                         },
-                        {
-                            name:  defendant+"被告",
-                            des: defendant,
+                           {
+                            name:  defendant,
+                            des: defendant+"被告",
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -248,8 +248,8 @@
                             }
                         },
                         {
-                            name:  prosecutor + "原告",
-                            des: prosecutor,
+                            name:  prosecutor,
+                            des: prosecutor+"原告",
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -259,17 +259,6 @@
                         }
                     ],
                     links: [
-                        {
-                            source: lawCase,
-                            target: defendant,
-                            //   name: ,
-                            des:' '
-                        },{
-                            source: lawCase,
-                            target: prosecutor,
-                            //   name: ,
-                            des:' '
-                        },
                         {
                             source: caseKindglo,
                             target: lawCase,
@@ -312,6 +301,18 @@
                           //  name: ,
                             des:' '
                         },
+                        {
+                            source: lawCase,
+                            target: defendant,
+                            //   name: ,
+                            des:' '
+                        },
+                        {
+                            source: lawCase,
+                            target: prosecutor,
+                            //   name: ,
+                            des:' '
+                        }
                     ]
                 }
             ]
@@ -375,6 +376,8 @@
             async: false,
             data: {},
             success: function (data) {
+                getDefendant();
+                getProsecutor();
                 var res = "";
                 res += '<h4>' + data[2].lawCase + '</h4>';
                 res += '<div class="case-text">';
@@ -384,9 +387,9 @@
                 $("#content").html(res);
                 coutrt= data[0].name;
                 lawCase = data[2].lawCase ;
-                caseKindglo=data[5].caseKind;
+                caseKindglo=data[3].caseKind;
                 judgePerson1=data[1].name;
-                judgePerson2=data[3].name;
+                judgePerson2=data[5].name;
                 judgePerson3=data[4].name;
                 show_graph();
             }
@@ -404,7 +407,11 @@
             async: false,
             data: {},
             success: function (data) {
-                defendant = data.name;
+                if(data.length>0){
+                    defendant = data[0].name;
+                }
+
+
             }
 
         })
@@ -420,7 +427,11 @@
             async: false,
             data: {},
             success: function (data) {
-                prosecutor = data.name;
+                if(data.length>0){
+                    prosecutor = data[0].name;
+                }
+
+
             }
 
         })
@@ -546,8 +557,7 @@
         recordUser();
         caseKind();
         caseTuijian();
-        getDefendant();
-        getProsecutor();
+
 
     }
 </script>

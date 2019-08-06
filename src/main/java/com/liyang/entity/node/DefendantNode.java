@@ -16,9 +16,9 @@ import org.neo4j.ogm.annotation.Property;
 @Setter
 @NoArgsConstructor
 @NodeEntity(label = "Defendant")
-public class Defendant extends ObjectNodeRelation {
+public class DefendantNode extends ObjectNodeRelation {
     @Property(name = "defendant_id")
-    private String judgeId;
+    private String defendantId;
 
     @Property(name = "defendant_name")
     private String name;

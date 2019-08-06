@@ -15,10 +15,10 @@ import org.neo4j.ogm.annotation.Property;
 @Getter
 @Setter
 @NoArgsConstructor
-@NodeEntity(label = "Defendant")
-public class Prosecutor extends ObjectNodeRelation {
+@NodeEntity(label = "Prosecutor")
+public class ProsecutorNode extends ObjectNodeRelation {
     @Property(name = "prosecutor_id")
-    private String judgeId;
+    private String prosecutorId;
 
     @Property(name = "prosecutor_name")
     private String name;

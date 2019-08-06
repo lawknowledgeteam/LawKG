@@ -3,7 +3,6 @@ package com.liyang.servicelmpl;
 import com.liyang.entity.ObjectNodeRelation;
 import com.liyang.entity.node.*;
 import com.liyang.entity.relations.CourtJudge;
-import com.liyang.entity.relations.JudgeCase;
 import com.liyang.entity.relations.KindCase;
 import com.liyang.mapper.RecordMapper;
 import com.liyang.repository.LawCaseNodeRepository;
@@ -121,12 +120,12 @@ public class LawCaseNodeServicelmpl implements LawCaseNodeService {
     }
 
     @Override
-    public List<Defendant> getDefendant(String caseId) {
+    public List<DefendantNode> getDefendant(String caseId) {
         return lawCaseNodeRepository.getDefendant(caseId);
     }
 
     @Override
-    public List<Prosecutor> getProsecutor(String caseId) {
+    public List<ProsecutorNode> getProsecutor(String caseId) {
         return lawCaseNodeRepository.getProsecutor(caseId);
     }
 
