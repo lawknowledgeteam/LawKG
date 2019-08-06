@@ -18,7 +18,7 @@
         COUNT(*) as caseCount
         FROM tb_record
         WHERE UserID = #{userID}
-        GROUP BY CaseKind
+        GROUP BY CaseKind  ORDER BY caseCount DESC
         limit #{limits},#{limite}
     </select>
 

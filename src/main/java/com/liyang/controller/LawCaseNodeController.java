@@ -2,7 +2,9 @@ package com.liyang.controller;
 
 import com.liyang.entity.ObjectNodeRelation;
 import com.liyang.entity.node.CaseKindNode;
+import com.liyang.entity.node.Defendant;
 import com.liyang.entity.node.LawCaseNode;
+import com.liyang.entity.node.Prosecutor;
 import com.liyang.service.LawCaseNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,10 +27,22 @@ public class LawCaseNodeController {
     @Autowired
     LawCaseNodeService lawCaseNodeService;
 
+
     @RequestMapping("/getInfoRelation")
     List<ObjectNodeRelation> getInfoRelation(@RequestParam int caseId){
         return lawCaseNodeService.getInfoRelation(caseId);
     }
+
+    @GetMapping("/getDefendant")
+    public List<Defendant> getDefendant(String caseId) {
+        return lawCaseNodeService.getDefendant(caseId);
+    }
+
+    @GetMapping("/getProsecutor")
+    public List<Prosecutor> getProsecutor(String caseId) {
+        return lawCaseNodeService.getProsecutor(caseId);
+    }
+
 
     @RequestMapping("/getInfo")
     HashMap<String,Object> getInfo(@RequestParam String caseId){

@@ -2,7 +2,9 @@ package com.liyang.service;
 
 import com.liyang.entity.ObjectNodeRelation;
 import com.liyang.entity.node.CaseKindNode;
+import com.liyang.entity.node.Defendant;
 import com.liyang.entity.node.LawCaseNode;
+import com.liyang.entity.node.Prosecutor;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,4 +37,8 @@ public interface LawCaseNodeService {
     List<LawCaseNode> getCaseByKind(String caseKind,int page);
 
     List<LawCaseNode> getRecommandCase(int userId,int page);
+
+    List<Defendant> getDefendant(String caseId);
+
+    List<Prosecutor> getProsecutor(String caseId);
 }

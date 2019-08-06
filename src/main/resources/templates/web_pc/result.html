@@ -163,7 +163,7 @@
                     },
                     edgeLabel: {
                         normal: {
-                            show: true,
+                            show: false,
                             formatter: function (x) {
                                 return x.data.name;
                             }
@@ -179,7 +179,7 @@
                     data: [
                         {
                             name: coutrt,
-                            des: '',
+                            des: coutrt,
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -189,7 +189,7 @@
                         },
                         {
                             name: lawCase,
-                            des: '',
+                            des: lawCase,
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -199,7 +199,7 @@
                         },
                         {
                             name: caseKindglo,
-                            des: '',
+                            des: caseKindglo,
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
@@ -209,77 +209,108 @@
                         },
                         {
                             name:  judgePerson1,
-                            des: '',
+                            des: judgePerson1,
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    color: 'red'
+                                    color: 'green'
                                 }
                             }
                         }
                         ,{
                             name:  judgePerson2,
-                            des: '',
+                            des: judgePerson2,
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    color: 'red'
+                                    color: 'green'
                                 }
                             }
                         },
                         {
                             name:  judgePerson3,
-                            des: '',
+                            des: judgePerson3,
                             symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    color: 'red'
+                                    color: 'green'
+                                }
+                            }
+                        },
+                        {
+                            name:  defendant+"被告",
+                            des: defendant,
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'blue'
+                                }
+                            }
+                        },
+                        {
+                            name:  prosecutor + "原告",
+                            des: prosecutor,
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'purple'
                                 }
                             }
                         }
                     ],
                     links: [
                         {
+                            source: lawCase,
+                            target: defendant,
+                            //   name: ,
+                            des:' '
+                        },{
+                            source: lawCase,
+                            target: prosecutor,
+                            //   name: ,
+                            des:' '
+                        },
+                        {
                             source: caseKindglo,
                             target: lawCase,
                          //   name: ,
-                            //des:
+                            des:' '
                         },
                         {
                             source: judgePerson1,
                             target: lawCase,
                          //   name: ,
-                        //    des:
+                            des:' '
                         },
                         {
                             source: judgePerson2,
                             target: lawCase,
                          //   name: ,
-                         //   des:
+                            des:' '
                         },
                         {
                             source: judgePerson3,
                             target: lawCase,
                          //   name: ,
-                        //    des:
+                            des:' '
                         },
                         {
                             source: coutrt,
                             target: judgePerson1,
                         //    name: ,
-                        //    des:
+                            des:' '
                         },
                         {
                             source: coutrt,
                             target: judgePerson2,
                          //   name: ,
-                         //   des:
+                            des:' '
                         },
                         {
                             source: coutrt,
                             target: judgePerson3,
                           //  name: ,
-                        //    des:
+                            des:' '
                         },
                     ]
                 }
@@ -332,6 +363,8 @@
     var judgePerson1='';
     var judgePerson2='';
     var judgePerson3='';
+    var defendant ='';
+    var prosecutor = '';
     function detailResult() {
         var name = 'caseId';
         var url = "/LawCaseNode/getInfoRelation?caseId=" + getQueryString(name);
@@ -356,6 +389,38 @@
                 judgePerson2=data[3].name;
                 judgePerson3=data[4].name;
                 show_graph();
+            }
+
+        })
+    }
+
+    function getDefendant() {
+        var name = 'caseId';
+        var url = "/LawCaseNode/getDefendant?caseId=" + getQueryString(name);
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {},
+            success: function (data) {
+                defendant = data.name;
+            }
+
+        })
+    }
+
+    function getProsecutor() {
+        var name = 'caseId';
+        var url = "/LawCaseNode/getProsecutor?caseId=" + getQueryString(name);
+        $.ajax({
+            url: url,//url地址
+            dataType: 'json',
+            type: 'get',
+            async: false,
+            data: {},
+            success: function (data) {
+                prosecutor = data.name;
             }
 
         })
@@ -481,6 +546,8 @@
         recordUser();
         caseKind();
         caseTuijian();
+        getDefendant();
+        getProsecutor();
 
     }
 </script>

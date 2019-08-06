@@ -1,10 +1,7 @@
 package com.liyang.repository;
 
 import com.liyang.entity.ObjectNodeRelation;
-import com.liyang.entity.node.CaseKindNode;
-import com.liyang.entity.node.JudgeNode;
-import com.liyang.entity.node.LawCaseNode;
-import com.liyang.entity.node.LawNode;
+import com.liyang.entity.node.*;
 import com.liyang.entity.relations.CourtJudge;
 import com.liyang.entity.relations.JudgeCase;
 import com.liyang.entity.relations.KindCase;
@@ -49,6 +46,14 @@ public interface LawCaseNodeRepository extends Neo4jRepository<LawCaseNode,Long>
 
     @Query("match p=(:TrialCourt)-[]-(:Judge)-[]-(l:LawCase)-[]-()  where l.case_id = {caseId} return p")
     List<ObjectNodeRelation> getInfoRelation (@Param("caseId") String caseId);
+
+    @Query("MATCH p=(l:LawCase)-[r:DefRelation]->(d:Defendant)\n" +
+            "where l.case_id = {caseId}  RETURN d ")
+    List<Defendant> getDefendant(@Param("caseId") String caseId);
+
+    @Query("MATCH (l:LawCase)-[r:ProRelation]->(p:Prosecutor) \n" +
+            "where l.case_id = {caseId}  RETURN p ")
+    List<Prosecutor> getProsecutor(@Param("caseId") String caseId);
 
     @Query("match p=(:CaseKind)-[:KindCase]-(l:LawCase) " +
             "  where l.case_id = {caseId} " +
