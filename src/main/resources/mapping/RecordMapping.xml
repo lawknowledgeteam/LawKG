@@ -10,13 +10,13 @@
     </resultMap>
 
     <select id="getList" resultType="com.liyang.entity.Record">
-        select * FROM tb_record WHERE UserID = #{userID} ORDER BY LastViewTime DESC limit  #{limits},#{limite}
+        select * FROM tb_trace WHERE UserID = #{userID} ORDER BY LastViewTime DESC limit  #{limits},#{limite}
     </select>
 
     <select id="getTotalList" resultType="com.liyang.entity.Record">
         select CaseKind,
         COUNT(*) as caseCount
-        FROM tb_record
+        FROM tb_trace
         WHERE UserID = #{userID}
         GROUP BY CaseKind
         limit #{limits},#{limite}
@@ -29,7 +29,7 @@
     <select id="getTopList" resultType="String">
         select CaseKind,
         COUNT(*) as caseCount
-        FROM tb_record
+        FROM tb_trace
         WHERE UserID = #{userID}
         GROUP BY CaseKind
         DESC
@@ -37,7 +37,7 @@
     </select>
 
     <insert id="insertNew" parameterType="com.liyang.entity.Record">
-        INSERT INTO `lawknowledge`.`tb_record` (
+        INSERT INTO `lawknowledge`.`tb_trace` (
   `RecordID`,
   `UserID`,
   `CaseID`,
