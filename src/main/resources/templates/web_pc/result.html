@@ -15,9 +15,9 @@
 
     <link href="/static/web_pc/css/chunk-vendors.css" rel="preload" type="text/css">
     <link href="/static/web_pc/css/index.css" rel="preload" type="text/css">
-    <link href="/static/web_pc/js/chunk-common.js" rel="preload">
-    <link href="/static/web_pc/js/chunk-vendors.js" rel="preload">
-    <link href="/static/web_pc/js/index.js" rel="preload">
+    <link href="/static/web_pc/js/chunk-common.js" rel="preload" >
+    <link href="/static/web_pc/js/chunk-vendors.js" rel="preload" >
+    <link href="/static/web_pc/js/index.js" rel="preload" >
     <link href="/static/web_pc/css/chunk-vendors.css" rel="stylesheet" type="text/css">
     <link href="/static/web_pc/css/chunk-common.css" rel="stylesheet" type="text/css">
     <link href="/static/web_pc/css/index.css" rel="stylesheet" type="text/css">
@@ -31,16 +31,12 @@
     <style type="text/css">
         html, body {
             /*height: 100%;*/
-            width: 100%;
+            width: 100% ;
             margin: auto;
             padding: auto
         }
-
-        #main {
-            height: 500px;
-            width: 600px;
-            margin: auto;
-            padding: 0
+        #main{
+            height: 500px; width: 600px ; margin: auto; padding: 0
         }
     </style>
 </head>
@@ -65,7 +61,7 @@
             <li><a href="">关于我们</a></li>
             <li><a href="">下载APP</a></li>
             <li><a href="">加入我们</a></li>
-            <li id="user"><a href=""> </a></li>
+            <li id = "user"><a href=""> </a></li>
             <li><a onclick="quit()">退出</a></li>
         </ul>
     </div>
@@ -79,20 +75,20 @@
             <div class="product-content-result">
                 <!--unit-box1-->
                 <div class="unit unit-box3" id="content">
-                    <!--                    &lt;!&ndash;以下是案件题目&ndash;&gt;-->
-                    <!--                    <h4>test-title</h4>-->
-                    <!--                    &lt;!&ndash;以下是案件详情描述&ndash;&gt;-->
-                    <!--                    <div class="case-text">-->
-                    <!--                        <span id="details">-->
-                    <!--                        </span>-->
-                    <!--                    </div>-->
-                    <!--                    &lt;!&ndash;以下是案件知识图谱&ndash;&gt;-->
-                    <!--                    <div id="main" style=""></div>-->
+<!--                    &lt;!&ndash;以下是案件题目&ndash;&gt;-->
+<!--                    <h4>test-title</h4>-->
+<!--                    &lt;!&ndash;以下是案件详情描述&ndash;&gt;-->
+<!--                    <div class="case-text">-->
+<!--                        <span id="details">-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;以下是案件知识图谱&ndash;&gt;-->
+<!--                    <div id="main" style=""></div>-->
                 </div>
                 <!--unit-box2-->
-                <div class="box_right">
+                <div class="box_right" >
                     <div class="case-infos" id="infos">
-                        <!--                        <p>一审判决书 ：广西壮族自治区钦州市中级人民法院（1994）钦刑初字第22号</p>-->
+<!--                        <p>一审判决书 ：广西壮族自治区钦州市中级人民法院（1994）钦刑初字第22号</p>-->
                     </div>
                     <div class="case-infos" id="infokind">
                         <!--动态显示-->
@@ -118,30 +114,21 @@
 
 
 <script type="text/javascript">
-    /*     coutrt
-         lawCase
-         caseKindglo
-         judgePerson1
-         judgePerson2
-         judgePerson3*/
-    function show_graph() {
+/*     coutrt
+     lawCase
+     caseKindglo
+     judgePerson1
+     judgePerson2
+     judgePerson3*/
+    function  show_graph() {
         var myChart = echarts.init(document.getElementById('main'));
         option = {
-            title: {text: '关系图谱'},
+            title: { text: '关系图谱' },
             tooltip: {
                 formatter: function (x) {
                     return x.data.des;
                 }
             },
-            toolbox: {//工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具。
-                show: true,
-                feature: {
-                    restore: { show: true },//重置
-                    magicType: { show: true, type: ['force', 'chord'] },
-                    saveAsImage: { show: true }//导出图片
-                }
-            },
-
             series: [
                 {
                     type: 'graph',
@@ -185,151 +172,88 @@
                     label: {
                         normal: {
                             show: true,
-                            textStyle: {}
+                            textStyle: {
+                            }
                         }
                     },
                     data: [
                         {
                             name: coutrt,
-                            symbol:'image://data:image/png;base64,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',
                             des: coutrt,
-                            symbolSize: [50,50],
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'red'
                                 }
                             }
                         },
                         {
                             name: lawCase,
-                            symbol: 'image://data:image/png;base64,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',
                             des: lawCase,
-                            symbolSize: [50.50],
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'red'
                                 }
                             }
                         },
                         {
                             name: caseKindglo,
-                            symbol: 'image://data:image/png;base64,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',
                             des: caseKindglo,
-                            symbolSize: [50.50],
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'red'
                                 }
                             }
                         },
                         {
-                            name: judgePerson1,
-                            symbol: 'image://data:image/png;base64,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',
-                            des: judgePerson1 + "法官",
-                            symbolSize: [50,50],
+                            name:  judgePerson1,
+                            des: judgePerson1+"法官",
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'green'
                                 }
                             }
                         }
-                        , {
-                            name: judgePerson2,
-                            symbol: 'image://data:image/png;base64,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',
-                            des: judgePerson2 + "法官",
-                            symbolSize: [50,50],
+                        ,{
+                            name:  judgePerson2,
+                            des: judgePerson2+"法官",
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'green'
                                 }
                             }
                         },
                         {
-                            name: judgePerson3,
-                            symbol: 'image://data:image/png;base64,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',
-                            des: judgePerson3 + "法官",
-                            symbolSize: [50,50],
+                            name:  judgePerson3,
+                            des: judgePerson3+"法官",
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'green'
+                                }
+                            }
+                        },
+                           {
+                            name:  defendant,
+                            des: defendant+"被告",
+                            symbolSize: 50,
+                            itemStyle: {
+                                normal: {
+                                    color: 'blue'
                                 }
                             }
                         },
                         {
-                            name: defendant,
-                            symbol: 'image://data:image/png;base64,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',
-                            des: defendant + "被告",
-                            symbolSize: [50,50],
+                            name:  prosecutor,
+                            des: prosecutor+"原告",
+                            symbolSize: 50,
                             itemStyle: {
                                 normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            name: prosecutor,
-                            symbol:'image://data:image/png;base64,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',
-                            des: prosecutor + "原告",
-                            symbolSize: [50,50],
-                            itemStyle: {
-                                normal: {
-                                    label: {
-                                        show: true,
-                                        textStyle: {
-                                            color: '#333'
-                                        },
-                                        position: 'bottom',//标签位置
-                                        distance: 5//标签距离图形的距离
-                                    }
+                                    color: 'purple'
                                 }
                             }
                         }
@@ -338,56 +262,56 @@
                         {
                             source: caseKindglo,
                             target: lawCase,
-                            //   name: ,
-                            des: ' '
+                         //   name: ,
+                            des:' '
                         },
                         {
                             source: judgePerson1,
                             target: lawCase,
-                            //   name: ,
-                            des: ' '
+                         //   name: ,
+                            des:' '
                         },
                         {
                             source: judgePerson2,
                             target: lawCase,
-                            //   name: ,
-                            des: ' '
+                         //   name: ,
+                            des:' '
                         },
                         {
                             source: judgePerson3,
                             target: lawCase,
-                            //   name: ,
-                            des: ' '
+                         //   name: ,
+                            des:' '
                         },
                         {
                             source: coutrt,
                             target: judgePerson1,
-                            //    name: ,
-                            des: ' '
+                        //    name: ,
+                            des:' '
                         },
                         {
                             source: coutrt,
                             target: judgePerson2,
-                            //   name: ,
-                            des: ' '
+                         //   name: ,
+                            des:' '
                         },
                         {
                             source: coutrt,
                             target: judgePerson3,
-                            //  name: ,
-                            des: ' '
+                          //  name: ,
+                            des:' '
                         },
                         {
                             source: lawCase,
                             target: defendant,
                             //   name: ,
-                            des: ' '
+                            des:' '
                         },
                         {
                             source: lawCase,
                             target: prosecutor,
                             //   name: ,
-                            des: ' '
+                            des:' '
                         }
                     ]
                 }
@@ -408,10 +332,9 @@
 
 
     var page = 1;
-
     function infosResult() {
         var name = 'caseId';
-        var url = "/LawCaseNode/getInfoRelation?caseId=" + getQueryString(name);
+        var url = "/LawCaseNode/getInfoRelation?caseId="+getQueryString(name);
         $.ajax({
             url: url,//url地址
             dataType: 'json',
@@ -426,25 +349,23 @@
                 // for(var i=0;i<data.length;i++){
                 //
                 // }
-                res += '<p class="p_txt">' + data[2].caseFont + '</p>';
-                res += '<p class="p_txt">时间：' + data[2].trialDate + '</p>';
+                res += '<p class="p_txt">'+data[2].caseFont+'</p>';
+                res += '<p class="p_txt">时间：'+data[2].trialDate+'</p>';
 
                 $("#infos").html(res);
             }
 
         })
     }
-
     var page = 1;
-    var coutrt = '';
-    var lawCase = '';
-    var caseKindglo = '';
-    var judgePerson1 = '';
-    var judgePerson2 = '';
-    var judgePerson3 = '';
-    var defendant = '';
+    var coutrt= '';
+    var lawCase ='';
+    var caseKindglo='';
+    var judgePerson1='';
+    var judgePerson2='';
+    var judgePerson3='';
+    var defendant ='';
     var prosecutor = '';
-
     function detailResult() {
         var name = 'caseId';
         var url = "/LawCaseNode/getInfoRelation?caseId=" + getQueryString(name);
@@ -464,12 +385,12 @@
                 res += '</div>';
                 res += '<div id="main" style=""></div>';
                 $("#content").html(res);
-                coutrt = data[0].name;
-                lawCase = data[2].lawCase;
-                caseKindglo = data[3].caseKind;
-                judgePerson1 = data[1].name;
-                judgePerson2 = data[5].name;
-                judgePerson3 = data[4].name;
+                coutrt= data[0].name;
+                lawCase = data[2].lawCase ;
+                caseKindglo=data[3].caseKind;
+                judgePerson1=data[1].name;
+                judgePerson2=data[5].name;
+                judgePerson3=data[4].name;
                 show_graph();
             }
 
@@ -486,7 +407,7 @@
             async: false,
             data: {},
             success: function (data) {
-                if (data.length > 0) {
+                if(data.length>0){
                     defendant = data[0].name;
                 }
 
@@ -506,7 +427,7 @@
             async: false,
             data: {},
             success: function (data) {
-                if (data.length > 0) {
+                if(data.length>0){
                     prosecutor = data[0].name;
                 }
 
@@ -519,10 +440,9 @@
 </script>
 
 <script>
-    var userIDGlobal = '';
-
+    var userIDGlobal='';
     function showInfoBySession() {
-        var url = '/user/getUser';
+        var url ='/user/getUser';
         var loginName = '';
         $.ajax({
             url: url,//url地址
@@ -530,7 +450,7 @@
             type: 'get',
             async: false,
             data: {
-                loginName: loginName,
+                loginName:loginName,
             },
             success: function (data) {
                 userIDGlobal = data.userID;
@@ -547,16 +467,18 @@
             dataType: 'json',
             type: 'post',
             async: false,
-            data: {},
+            data: {
+            },
             success: function (data) {
 
             }
         })
-        window.location.href = "/login";
+        window.location.href="/login";
     }
 </script>
 
 <script>
+    var returnId = 0;
     function recordUser() {
         var url = '/record/update';
         $.ajax({
@@ -565,24 +487,46 @@
             type: 'post',
             async: false,
             data: {
-                userID: userIDGlobal,
-                caseID: getQueryString('caseId'),
+                userID:userIDGlobal,
+                caseID:getQueryString('caseId')
             },
             success: function (data) {
+                returnId = data.result;
+                console.log("我是返回值"+returnId);
             }
         })
 
     }
+
+    function saveStatus(){
+        /*结束时保存设备状态*/
+        window.onbeforeunload=function(){//必须使用beforeunload
+            var url ="/record/brosweEnd";
+            $.ajax({
+                url:url,
+                dataType: 'json',
+                type: 'post',
+                async:false,
+                data: {
+                    recordID:returnId,
+                },
+            });
+        }
+    }
+    saveStatus();
+
+
 </script>
 
 <script>
     function caseKind() {
-        var url = '/LawCaseNode/getKind?caseId=' + getQueryString('caseId');
+        var url = '/LawCaseNode/getKind?caseId='+getQueryString('caseId');
         $.ajax({
             url: url,//url地址
             dataType: 'json',
             type: 'get',
-            data: {},
+            data: {
+            },
             success: function (data) {
                 console.log(data.caseKind);
                 $("#infokind").html(data.caseKind);
@@ -593,22 +537,22 @@
 </script>
 
 <script>
-    var pageTui = 1;
-
+    var pageTui=1;
     function caseTuijian() {
-        var url = '/LawCaseNode/getSame?caseId=' + getQueryString('caseId') + '&page=' + pageTui;
+        var url = '/LawCaseNode/getSame?caseId='+getQueryString('caseId')+'&page='+pageTui;
         $.ajax({
             url: url,//url地址
             dataType: 'json',
             type: 'get',
-            data: {},
+            data: {
+            },
             success: function (data) {
-                var res = '';
-                if (data.length == 0) {
-                    pageTui = 1;
+                var res ='';
+                if (data.length ==0){
+                    pageTui =1;
                 }
-                for (var i = 0; i < data.length; i++) {
-                    res += '<p class="case-recommend"> <a href="/result?caseId=' + data[i].caseId + '" target="_blank">' + data[i].lawCase + '</a> </p> ';
+                for(var i=0;i<data.length;i++){
+                    res += '<p class="case-recommend"> <a href="/result?caseId='+data[i].caseId+'" target="_blank">'+data[i].lawCase+'</a> </p> ';
                     //
                 }
                 $("#tuijian").html(res);
@@ -616,7 +560,7 @@
         })
 
     }
-
+    
     function turePage() {
         pageTui++;
         caseTuijian()
@@ -625,10 +569,10 @@
 
 
 
+
 <script type="text/javascript">
     //页面加载初始化
-    window.onload = function () {
-
+    window.onload = function(){
         showInfoBySession();
         infosResult();
         detailResult();
@@ -639,6 +583,8 @@
 
     }
 </script>
+
+
 
 <script>function IEVersion() {
     var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
@@ -668,6 +614,7 @@
         return -1;//不是ie浏览器
     }
 }
+
 
 
 var ieVersion = IEVersion();

@@ -13,5 +13,7 @@ public class Record {
     private int caseID;
     private String caseKind;
     private Date lastViewTime;
+    private Date endTime;
     private int caseCount;
+    private int browseLength;
 }

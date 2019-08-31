@@ -30,9 +30,16 @@ public class RecordController {
         int result = recordService.insertNew(record);
         if (result != 0){
             hm.put("code",1);
+            hm.put("result", result);
         }else {
             hm.put("code",0);
         }
         return hm;
     }
+
+    @PostMapping("/brosweEnd")
+    public void brosweEnd(Record record){
+        recordService.brosweEnd(record);
+    }
+
 }

@@ -41,7 +41,8 @@ public class RecordServicelmpl implements RecordService {
         CaseKindNode caseKindNode = lawCaseNodeRepository.getKind(String.valueOf(caseID));
         record.setCaseKind(caseKindNode.getCaseKind());
         record.setLastViewTime(new Date());
-        return recordMapper.insertNew(record);
+        int rec = recordMapper.insertNew(record);
+        return record.getRecordID();
     }
 
     @Override
@@ -52,5 +53,11 @@ public class RecordServicelmpl implements RecordService {
     @Override
     public String getCaseKind(int caseID) {
         return recordMapper.getCaseKind(caseID);
+    }
+
+    @Override
+    public void brosweEnd(Record record) {
+        record.setEndTime(new Date());
+        recordMapper.brosweEnd(record);
     }
 }

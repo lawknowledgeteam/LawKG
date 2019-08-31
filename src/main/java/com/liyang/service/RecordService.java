@@ -10,4 +10,5 @@ public interface RecordService {
     int insertNew(Record record);
     List<String> getTopList(int userID);
     String getCaseKind(int caseID);
+    void brosweEnd(Record record);
 }

@@ -23,7 +23,7 @@
     </select>
 
     <select id="getCaseKind" resultType="String">
-        select CaseKind FROM tb_case WHERE CaseID = #{caseID}
+        select CaseKind FROM tb_trace WHERE CaseID = #{caseID}
     </select>
 
     <select id="getTopList" resultType="String">
@@ -36,7 +36,7 @@
         limit 3
     </select>
 
-    <insert id="insertNew" parameterType="com.liyang.entity.Record">
+    <insert id="insertNew" parameterType="com.liyang.entity.Record"  keyProperty="recordID" useGeneratedKeys="true">
         INSERT INTO `lawknowledge`.`tb_trace` (
   `RecordID`,
   `UserID`,
@@ -45,5 +45,11 @@
   `LastViewTime`
   ) VALUES (#{recordID},#{userID},#{caseID},#{caseKind},#{lastViewTime})
     </insert>
+
+    <update id="brosweEnd" parameterType="com.liyang.entity.Record">
+      UPDATE `lawknowledge`.`tb_trace`
+      set EndTime = #{endTime}
+      where RecordID = #{recordID}
+    </update>
 
 </mapper>
