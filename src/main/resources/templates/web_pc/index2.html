@@ -411,7 +411,7 @@
             },
             success: function (data) {
                 $("#user").html(data.loginName);
-                searchRecord(data.userId)
+                searchRecord(data.userID)
             }
         })
     }
@@ -438,7 +438,7 @@
     //搜索记录
     function searchRecord(userId) {
         var url = "/record/insertNewSearch";
-        var caseId = "";
+        var  userId= userId;
         var keyWord = getQueryString('content');
         $.ajax({
             url: url,//url地址
@@ -446,7 +446,7 @@
             type: 'post',
             //  async: false,
             data: {
-                caseId:caseId,
+                userID:userId,
                 keyWord:keyWord,
             },
             success: function (data) {
