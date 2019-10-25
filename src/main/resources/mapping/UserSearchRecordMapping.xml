@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyang.mapper.UserSearchRecordMapper">
+    <!--<resultMap id="BaseResultMap" type="com.liyang.entity.Record">-->
+        <!--<result column="RecordID" jdbcType="INTEGER" property="recordID" />-->
+        <!--<result column="UserID" jdbcType="INTEGER" property="userID"/>-->
+        <!--<result column="CaseID" jdbcType="INTEGER" property="caseID"/>-->
+        <!--<result column="CaseKind" jdbcType="VARCHAR" property="caseKind" />-->
+        <!--<result column="LastViewTime" jdbcType="DATE" property="lastViewTime" />-->
+    <!--</resultMap>-->
+
+    <select id="getList" resultType="com.liyang.entity.UserSearchRecord">
+        select * FROM `lawknowledge`.`tb_searchtrace` WHERE UserID = #{userID} ORDER BY LastViewTime DESC limit  #{limits},#{limite}
+    </select>
+
+    <insert id="insertNew" parameterType="com.liyang.entity.UserSearchRecord"  keyProperty="recordID" useGeneratedKeys="true">
+        INSERT INTO `lawknowledge`.`tb_searchtrace` (
+        `RecordID`,
+        `UserID`,
+        `KeyWord`,
+        `LastViewTime`
+        ) VALUES (#{recordID},#{userID},#{keyWord},#{lastViewTime})
+    </insert>
+
+
+</mapper>
