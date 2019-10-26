@@ -638,6 +638,26 @@
     }
 </script>
 
+<script>
+    function saveStatus(){
+    /*结束时保存设备状态*/
+    window.onbeforeunload=function(){//必须使用beforeunload
+        var url ="/record/brosweEnd";
+        $.ajax({
+            url:url,
+            dataType: 'json',
+            type: 'post',
+            async:false,
+            data: {
+                recordID:returnId,
+            },
+        });
+    }
+}
+
+
+    saveStatus();
+</script>
 
 
 <script type="text/javascript">
