@@ -16,6 +16,7 @@ public class UserSearchRecord {
     private int recordID;
     private int userID;
     private String keyWord;
+    private String caseKind;
     private Date lastViewTime;
     private Date endTime;
     private int caseCount;

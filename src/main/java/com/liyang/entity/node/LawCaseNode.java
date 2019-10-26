@@ -39,4 +39,7 @@ public class LawCaseNode extends ObjectNodeRelation {
 
     @Property(name = "case_view")
     private String caseView;
+
+    @Property(name = "case_kind")
+    private String caseKind;
 }

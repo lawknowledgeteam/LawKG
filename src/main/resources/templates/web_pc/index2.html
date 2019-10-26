@@ -364,7 +364,7 @@
             url: url,//url地址
             dataType: 'json',
             type: 'get',
-          //  async: false,
+            async: false,
             data: {
 /*                caseId:caseId,
                 lawCase:lawCase,
@@ -374,6 +374,8 @@
             },
             success: function (data) {
                 var res ="";
+                caseKind = data[0].caseKind;
+                console.log(caseKind);
                 for(var i=0;i<data.length;i++){
                    // console.log(data)
                     res += '<a href="/result?caseId='+data[i].caseId+'" target="_blank"> '+'<h4  id="'+data[i].caseId+'"  class="line-limit-length">'+data[i].lawCase+"</h4>"+'</a>';
@@ -405,7 +407,7 @@
             url: url,//url地址
             dataType: 'json',
             type: 'get',
-         //   async: false,
+            async: false,
             data: {
                 loginName:loginName,
             },
@@ -436,6 +438,7 @@
 
 <script>
     //搜索记录
+    var caseKind = '';
     function searchRecord(userId) {
         var url = "/record/insertNewSearch";
         var  userId= userId;
@@ -448,6 +451,7 @@
             data: {
                 userID:userId,
                 keyWord:keyWord,
+                caseKind:caseKind
             },
             success: function (data) {
             console.log("searchRecordok")
@@ -463,9 +467,9 @@
 <script type="text/javascript">
     //页面加载初始化
     window.onload = function(){
+        searchResult();
         init();
         menuResult();
-        searchResult();
         showInfoBySession();
     }
 </script>

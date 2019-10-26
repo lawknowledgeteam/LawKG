@@ -18,8 +18,9 @@
         `RecordID`,
         `UserID`,
         `KeyWord`,
+        `CaseKind`,
         `LastViewTime`
-        ) VALUES (#{recordID},#{userID},#{keyWord},#{lastViewTime})
+        ) VALUES (#{recordID},#{userID},#{keyWord},#{caseKind},#{lastViewTime})
     </insert>
 
 
