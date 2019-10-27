@@ -33,6 +33,7 @@ public class UserConfigInterceptor implements WebMvcConfigurer {
         list.add("/case/**");
         list.add("/law/**");
         list.add("/lawitem/**");
+        list.add("/Qascript/**");
         registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**").
                 excludePathPatterns(list);
 

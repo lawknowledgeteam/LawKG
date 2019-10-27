@@ -15,6 +15,7 @@ public class MvcConfig implements WebMvcConfigurer{
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //映射项目静态资源
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/static/qascript/**").addResourceLocations("classpath:/static/qascript/");
         //registry.addResourceHandler("/templates/**").addResourceLocations("classpath:/templates/");
         //映射 服务器文件
 //        registry.addResourceHandler("/auvres/user/**").addResourceLocations("file:D:/auvres/user/");
