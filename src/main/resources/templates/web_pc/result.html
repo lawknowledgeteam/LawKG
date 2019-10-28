@@ -142,6 +142,10 @@
                     saveAsImage: { show: true }//导出图片
                 }
             },
+            // legend: [{
+            //     x: 'left',//图例位置
+            //     data:['法庭','案件名称','案件类型','法官','被告','原告']//关系图中需要与series中的categories的name保持一致
+            // }],
 
             series: [
                 {
@@ -151,13 +155,6 @@
                     roam: true,
                     edgeSymbol: ['circle', 'arrow'],
                     edgeSymbolSize: [4, 10],
-                    edgeLabel: {
-                        normal: {
-                            textStyle: {
-                                fontSize: 20
-                            }
-                        }
-                    },
                     force: {
                         repulsion: 2500,
                         edgeLength: [10, 50]
@@ -177,9 +174,9 @@
                     },
                     edgeLabel: {
                         normal: {
-                            show: false,
+                            show: true,
                             formatter: function (x) {
-                                return x.data.name;
+                                return x.data.name;//回调函数取标签内容
                             }
                         }
                     },
@@ -206,7 +203,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"法庭"
                         },
                         {
                             name: lawCase,
@@ -224,7 +222,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"案件名称"
                         },
                         {
                             name: caseKindglo,
@@ -242,7 +241,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"案件类型"
                         },
                         {
                             name: judgePerson1,
@@ -260,7 +260,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"法官"
                         }
                         , {
                             name: judgePerson2,
@@ -278,7 +279,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"法官"
                         },
                         {
                             name: judgePerson3,
@@ -296,7 +298,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"法官"
                         },
                         {
                             name: defendant,
@@ -314,7 +317,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"被告"
                         },
                         {
                             name: prosecutor,
@@ -332,7 +336,8 @@
                                         distance: 5//标签距离图形的距离
                                     }
                                 }
-                            }
+                            },
+                            category:"原告"
                         }
                     ],
                     links: [
@@ -375,20 +380,20 @@
                         {
                             source: coutrt,
                             target: judgePerson1,
-                            // name: ,
-                            des: ' '
+                            name: '隶属于',
+                            des: '隶属于'
                         },
                         {
                             source: coutrt,
                             target: judgePerson2,
-                            //   name: ,
-                            des: ' '
+                            name: '隶属于',
+                            des: '隶属于'
                         },
                         {
                             source: coutrt,
                             target: judgePerson3,
-                            //  name: ,
-                            des: ' '
+                            name:'隶属于',
+                            des: '隶属于'
                         },
                         {
                             source: lawCase,

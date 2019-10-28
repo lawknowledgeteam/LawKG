@@ -12,7 +12,7 @@
     background-color:  rgba(0,0,0,0.6);
     width:100%;
     min-width: 990px;
-    height:100px;
+    height:60px;
     margin:0 auto;
     position:absolute;
     float: top;
@@ -24,37 +24,7 @@
     height: auto;
     background-size: cover;
 }
-#left{
-    background:url("../images/share_img.png") center no-repeat;
-    width: 333px;
-    height:200px;
-    float: left;
-    background-size: cover;
-}
-#center1{
-    background:url("../images/new_img-1.jpg") center no-repeat;
-    width:333px;
-    height: 200px;
-    float: left;
-    margin-left: 5px;
-    background-size: cover;
-}
-#center2{
-    background:url("../images/family_img.png") center no-repeat;
-    width: 333px;
-    height: 200px;
-    float: left;
-    margin-left:5px;
-    background-size: cover;
-}
-#right{
-    background:url("../images/active_img.jpg") center no-repeat;
-    width:333px;
-    height:200px;
-    float: left;
-    margin-left: 5px;
-    background-size: cover;
-}
+
 #footer{
     background-color: rgb(25,25,25);
     width:1350px;
@@ -86,7 +56,7 @@
 #nav{
     float: right;
     margin-right: 200px ;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 #nav li{
     float: left;
