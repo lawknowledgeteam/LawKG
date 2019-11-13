@@ -10,9 +10,8 @@
     </parent>
 
     <groupId>com.liyang</groupId>
-    <artifactId>main</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>main</name>
+    <artifactId>lawkg</artifactId>
+    <name>lawkg</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -100,6 +99,12 @@
             <groupId>com.baidu.aip</groupId>
             <artifactId>java-sdk</artifactId>
             <version>3.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.10.0</version>
         </dependency>
 
     </dependencies>

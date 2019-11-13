@@ -1,10 +1,14 @@
 package com.liyang.servicelmpl;
 
 import com.liyang.service.QascriptService;
+import com.liyang.util.QAService;
+import org.apache.thrift.TException;
+import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TProtocol;
+import org.apache.thrift.transport.TSocket;
+import org.apache.thrift.transport.TTransport;
 import org.springframework.stereotype.Service;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,27 @@ import java.util.List;
 public class QascriptServiceImpl implements QascriptService {
     @Override
     public List<String> getQaResult(String question) {
+        List<String> result = new ArrayList<>();
+        try {
+            TTransport transport;
+            transport = new TSocket("127.0.0.1", 9090);
+            transport.open();
+            TProtocol protocol = new TBinaryProtocol(transport);
+            QAService.Client client = new QAService.Client(protocol);
+            System.out.println(question);
+            String res = client.qa_result(question);
+            result.add(res);
+            transport.close();
+
+        } catch (TException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+/*    @Override
+    public List<String> getQaResult(String question) {
         List<String> listQa = new ArrayList<>();
         Process proc;
         try {
@@ -28,10 +53,10 @@ public class QascriptServiceImpl implements QascriptService {
             String line = in.readLine();
             System.out.println(line);
             listQa.add(line);
-/*            while (line != null) {
+*//*            while (line != null) {
                 System.out.println(line);
                 listQa.add(line);
-            }*/
+            }*//*
             in.close();
             proc.waitFor();
         } catch (IOException e) {
@@ -41,5 +66,5 @@ public class QascriptServiceImpl implements QascriptService {
         }
 
         return listQa;
-    }
+    }*/
 }
