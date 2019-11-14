@@ -24,7 +24,7 @@ public class QascriptServiceImpl implements QascriptService {
         List<String> result = new ArrayList<>();
         try {
             TTransport transport;
-            transport = new TSocket("127.0.0.1", 9090);
+            transport = new TSocket("211.87.227.226", 9090);
             transport.open();
             TProtocol protocol = new TBinaryProtocol(transport);
             QAService.Client client = new QAService.Client(protocol);
